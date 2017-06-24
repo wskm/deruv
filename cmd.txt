@@ -1,0 +1,1 @@
+yii asset assets.php app_frontend\config\assets-prod.php

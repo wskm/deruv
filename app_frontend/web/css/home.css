@@ -1,0 +1,166 @@
+
+.jumbotron {
+    text-align: center;
+    background-color: transparent;
+}
+
+.jumbotron .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+}
+
+.not-set {
+    color: #c55;
+    font-style: italic;
+}
+
+.hint-block {
+    display: block;
+    margin-top: 5px;
+    color: #999;
+}
+
+.error-summary {
+    color: #a94442;
+    background: #fdf7f7;
+    border-left: 3px solid #eed3d7;
+    padding: 10px 20px;
+    margin: 0 0 15px 0;
+}
+
+td{
+    word-break:break-word;
+}
+
+a {
+	color: #333;
+	text-decoration: none;
+}
+a:hover{
+	color:#ea6863;
+	text-decoration: none;
+}
+
+@media screen and (min-width: 1120px){
+    .dnav, .main, .foot-main{
+        max-width:960px;
+        margin:0 auto;
+        padding:0;
+    }
+	.view-related .desc{
+		width:480px;
+	}
+}
+@media screen and (min-width: 768px){
+	.carousel-caption {
+		right: 10%;
+		left: 10%;
+		padding-bottom: 10px;
+		bottom: 5px;
+	}
+}
+
+.head{
+    background: #0c0c0c;
+    height: 50px;
+    width:100%;
+    position: fixed;
+    left: 0;
+    top:0;
+    z-index: 9999;
+}
+.dnav h1{
+    display: inline;
+}
+.logo{
+    height: 60px;
+    width: 60px;
+    overflow: hidden;
+}
+.logo h1{
+    margin:0;
+    padding:0;
+}
+.logo .bg{
+    background-image: url(../img/logo.png);
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: 60px;
+    height: 60px;
+    width: 60px;
+    overflow: hidden;
+    position: relative;
+    display: block;
+    text-indent: -200px;
+}
+
+.dnav{
+    position: relative;
+}
+
+.main{
+    margin-top:80px;
+}
+
+.top-list li{
+    font-size:18px;
+    height: 38px;
+    line-height: 38px;
+}
+.cate-tabs{
+    margin-top:25px;
+}
+.cate-tabs a{
+    color:#555;
+}
+#wrap-tabs{
+    margin:15px 0 40px 0;
+}
+.media-foot{
+    margin-top:30px;color:gray;
+}
+.panel-head-bg{
+    background-color: #F2F2F2;font-weight: 700;height:36px;
+}
+.foot{
+    background-color:#0C0C0C;
+    width:100%;
+    color:#595959;
+}
+.foot-main{
+    padding:15px;text-align:center;
+}
+
+/* view */
+.view-wrap h2{
+	padding:16px 0;
+}
+.view-time{
+    color:gray;
+}
+.view-text{
+	padding-bottom:15px;
+	text-align: justify;
+	word-wrap: break-word;
+}
+.view-text p{
+    margin: 28px 0 0;
+	font-size:16px;
+	text-indent: 2em;
+    line-height: 1.6666666667;
+}
+.view-related{
+	margin-bottom:20px;
+}
+.view-related .desc{
+	margin-left:10px;
+	line-height: 1.6666666667;
+	font-size:16px;
+}
+.view-related-row {
+	margin-bottom:15px;
+}
+
+.view-comment{
+	margin-bottom:50px;
+}
