@@ -4,7 +4,7 @@ namespace admin\controllers;
 
 use Yii;
 
-class NoticeController extends AdminController
+class NoticeController extends CoreController
 {
 
 	public function load()

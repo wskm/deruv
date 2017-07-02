@@ -8,7 +8,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
     <div class="panel panel-default a-uno">
         <div class="panel-body">
-        <?= Html::a(Wskm::t('Create', 'admin'), ['create'], ['class' => 'glyphicon glyphicon-plus-sign c-tomato']) ?>
+        <?= Html::a(Wskm::t('Create', 'admin'), ['create'], ['class' => 'glyphicon glyphicon-plus-sign']) ?>
         </div>
     </div>
     
@@ -20,19 +20,4 @@ $this->params['breadcrumbs'][] = $this->title;
             <a href="<?= Url::to(['/category/view', 'id' => $k]) ?>" class="glyphicon glyphicon-eye-open pull-right "  ></a>
         </li>
 		<?php } ?>
-
     </ul>
-    <script>
-    function initRowBg(){
-        var rowClass = [ 'success', 'info', 'warning', 'danger'  ];
-        var j = 0;
-
-        $('.category-list li').each(function(i){
-            if(j >3) j = 0;
-
-            $(this).attr('class', 'list-group-item list-group-item-' + rowClass[j]);
-            j++;
-        });
-    }
-    //initRowBg();
-    </script>

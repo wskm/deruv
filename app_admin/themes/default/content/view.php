@@ -56,6 +56,10 @@ $this->params['breadcrumbs'][] = $this->title;
 			],
             'pv',
             'comment',
+			[  
+				'attribute' => 'iscomment',
+				'value' => \wskm\Status::getNoOrYes()[$model->iscomment],
+			],
             [  
 				'attribute' => 'status',
 				'value' => \wskm\Status::getPublishedOrUnpublished()[$model->status],

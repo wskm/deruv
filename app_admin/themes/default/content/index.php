@@ -17,7 +17,10 @@ $this->params['breadcrumbs'][] = $this->title;
 		<?= Html::a(Wskm::t('Add'), ['create'], ['class' => 'btn btn-default glyphicon glyphicon-plus-sign text-success']) ?>
 	</p>
 	
-		<?php Pjax::begin(); ?>    
+		<?php Pjax::begin([
+			'id' => 'content-pjax',
+			'linkSelector' => '#content-pjax a[target!=_blank]',
+		]); ?>    
 		<?= GridView::widget([
 			'dataProvider' => $dataProvider,
 			'searchHtml' => $this->render('_search', ['model' => $searchModel]),
@@ -63,7 +66,17 @@ $this->params['breadcrumbs'][] = $this->title;
 
 				[
 					'class' => 'yii\grid\ActionColumn',
-					'headerOptions' => ['width' => '10%'] 
+					'headerOptions' => ['width' => '11%'],
+					'template' => '{preview}&nbsp;&nbsp;{view}&nbsp;&nbsp;{update}&nbsp;&nbsp;{delete}',
+					'buttons' => [
+						'preview' => function ($url, $model, $key) {
+							return  Html::a('<span class="glyphicon glyphicon-globe "></span>', \Wskm::url(['article', 'id' => $model->id ]), [
+								'title' => \Wskm::t('Preview', 'admin'),
+								'target' => '_blank',
+							] ) ;
+						},
+					],
+					
 				],
 			],
 		]); ?>

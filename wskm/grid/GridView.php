@@ -7,6 +7,7 @@ use yii\helpers\Html;
 class GridView extends \yii\grid\GridView
 {
 	public $showPanel = true;
+	public $panelClass = 'panel panel-default';
 	public $searchHtml = '';
 	public $tableOptions = ['class' => 'table table-hover', 'style' => 'margin-bottom:0' ];
 	public $layout = "{items}\n<div class='gridview-footer' >{summary}</div>\n<div class='pull-right'>{pager}</div>";
@@ -28,7 +29,7 @@ class GridView extends \yii\grid\GridView
 
         $html = Html::tag('table', implode("\n", $content), $this->tableOptions);
 		if ($this->showPanel) {
-			$html = '<div class="panel panel-success">'.( $this->searchHtml ? '<div class="panel-heading" >'.$this->searchHtml.'</div>' : '').$html.'</div>';
+			$html = '<div class="'.$this->panelClass.'">'.( $this->searchHtml ? '<div class="panel-heading" >'.$this->searchHtml.'</div>' : '').$html.'</div>';
 		}
 		return $html;
 	}

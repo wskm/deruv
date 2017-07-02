@@ -18,11 +18,11 @@ use yii\widgets\ActiveForm;
 
 <?= $form->field($model, 'id', [
 	'template' => '<div class="input-group input-group-sm"><span class="input-group-addon">{label}</span>{input}</div>',
-])->label(\Wskm::t('ID'), [ 'style' => 'line-height: normal']) ?>
+])->label(null, [ 'style' => 'line-height: normal']) ?>
 
 <?= $form->field($model, 'username', [
 	'template' => '<div class="input-group input-group-sm"><span class="input-group-addon">{label}</span>{input}</div>',
-])->label(\Wskm::t('User Name'), [ 'style' => 'line-height: normal']) ?>
+])->label(null, [ 'style' => 'line-height: normal']) ?>
 	
 <?php  echo $form->field($model, 'status', [
 	'template' => '<div class="input-group input-group-sm"><span class="input-group-addon">{label}</span>{input}</div>',

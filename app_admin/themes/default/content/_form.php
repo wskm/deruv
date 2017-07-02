@@ -52,24 +52,26 @@ $this->registerJsFile('js/edit.min.js');
 		</div>
 	</div>
 		
-    <?= $form->field($model, 'title')->textInput(['maxlength' => true])->label(\Wskm::t('Title')) ?>
+    <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
 	<?= $form->field($article, 'detail')->textarea([
 		'rows' => 20,
-	])->label(\Wskm::t('Detail')) ?>
+	]) ?>
 
 	<?= $form->field($model, 'summary')->textarea([
 		'rows' => 3,
-	])->label(\Wskm::t('Summary')) ?>
+	]) ?>
 			
-    <?= $form->field($model, 'status')->radioList(\wskm\Status::getPublishedOrUnpublished()) ?>
+    <?= $form->field($model, 'status')->inline(true)->radioList(\wskm\Status::getPublishedOrUnpublished()) ?>
+	
+	<?= $form->field($model, 'iscomment')->inline(true)->radioList(\wskm\Status::getNoOrYes()) ?>
 	
 	<?php if (!$model->isNewRecord) { ?>
 	<?= $form->field($model, 'updated_at')->textInput([
 		'style' => 'width:180px',
 		'readonly' => true,
 		'value' => Yii::$app->formatter->asDatetime($model->updated_at),
-	])->label(\Wskm::t('UpdatedAt')) ?>
+	]) ?>
 	<?php } ?>
 
     <div class="form-group field-content-thumbup required">

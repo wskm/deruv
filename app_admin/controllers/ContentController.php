@@ -12,7 +12,7 @@ use yii\filters\VerbFilter;
 /**
  * ContentController implements the CRUD actions for Content model.
  */
-class ContentController extends AdminController
+class ContentController extends CoreController
 {
 
 	/**
@@ -93,6 +93,7 @@ class ContentController extends AdminController
 		}
 
 		$model->status = 1;
+		$model->iscomment = 1;
 		return $this->render('create', [
 					'model' => $model,
 					'modelArticle' => $modelArticle,
@@ -194,7 +195,7 @@ class ContentController extends AdminController
 					'status' => 1,
 				])->andFilterWhere(['like', 'title', $q])->asArray()->limit(10)->all();
 		foreach ($data as $k => $v) {
-			$data[$k]['url'] = \Wskm::url(['content/view', 'id' => $v['id']]);
+			$data[$k]['url'] = \Wskm::url(['article', 'id' => $v['id']]);
 		}
 
 		return $data;

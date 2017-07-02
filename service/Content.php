@@ -35,7 +35,7 @@ class Content
 				$list[] = $item;
 			}
 
-			$sec = \service\Setting::getConf('cache', 'contentList') !== false ? (int) \service\Setting::getConf('cache', 'contentList') : 3600;
+			$sec = \service\Setting::getConf('cache', 'contentList') !== false ? (int) \service\Setting::getConf('cache', 'contentList') : 0;
 			\wskm\Cache::set($key, $list, $sec);
 		}
 
@@ -73,7 +73,7 @@ class Content
 
 		$key = self::CACHE_KEY_PRE.$category_id.':'.$limit;
 		$list = self::getListByCategoryid($category_id, $limit);
-		$sec = \service\Setting::getConf('cache', 'contentList')  !== false ? (int) \service\Setting::getConf('cache', 'contentList') : 3600;
+		$sec = \service\Setting::getConf('cache', 'contentList')  !== false ? (int) \service\Setting::getConf('cache', 'contentList') : 0;
 		\wskm\Cache::set($key, $list, $sec);
 
 		return \wskm\Cache::get($key);

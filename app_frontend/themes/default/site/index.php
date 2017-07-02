@@ -83,13 +83,13 @@ $news = Block::shows('home_news');
 					<div role="tabpanel" class="tab-pane <?php if($i ==0){ ?>active<?php } ?>" id="tab-<?= $v['key'] ?>">
 						<?php foreach($contents as $row) { ?>
 						<div class="media">
-						  <a class="media-left" href="#">
-							<img src="<?= $row['thumb'] ?>" alt="<?= $row['title'] ?>"  height="88" width="140" >
-						  </a>
-						  <div class="media-body">
-							<h4 class="media-heading"><?= $row['title'] ?></h4>
-							<div class="media-foot" ><?= Yii::$app->formatter->asRelativeTime($row['updated_at']) ?></div>
-						  </div>
+							<a class="media-left" href="#">
+							  <img src="<?= $row['thumb'] ?>" alt="<?= $row['title'] ?>"  height="88" width="140" >
+							</a>
+							<div class="media-body">
+							  <h4 class="media-heading"><?= $row['title'] ?></h4>
+							  <div class="media-foot" ><?= Yii::$app->formatter->asRelativeTime($row['updated_at']) ?></div>
+							</div>
 						</div>
 						<?php } ?>
 					</div>

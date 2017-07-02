@@ -13,15 +13,22 @@ var char = {
         this.init();
 
         this.objChar = echarts.init(document.getElementById(id)); 
+
         var toType = (typeof type == 'boolean' && type ? 'line' : 'bar');
 
         var option = {
            
-            tooltip: {
+            /*tooltip: {
                 trigger: 'axis',
                 show: true
-            },
-        
+            },*/
+			tooltip: {
+				trigger: 'axis',
+				axisPointer: {
+					type: 'cross'
+				}
+			},
+			
             toolbox: {
                 show : true,
                 feature : {                                                            
@@ -33,16 +40,16 @@ var char = {
             },
             series : [
                 {
-                    "type": toType,
+                    "type": toType,						
                     markPoint : {
                         data : [
-                            {type : 'max', name: '最大值'},
-                            {type : 'min', name: '最小值'}
+                            {type : 'max', name: 'Max'},
+                            {type : 'min', name: 'Min'}
                         ]
                     },
                     markLine : {
                         data : [
-                            {type : 'average', name: '平均值'}
+                            {type : 'average', name: 'Average'}
                         ]
                     }
                 }
@@ -61,10 +68,15 @@ var char = {
         if(typeof args == 'object'){
             toOption = jQuery.extend(true, option, args);
         }
-        
-        //console.log(toOption);
-        // 为echarts对象加载数据 
+
+		this.objChar.showLoading();
         this.objChar.setOption(toOption); 
+		this.objChar.hideLoading();
+		
+		var charer = this.objChar;
+		setTimeout(function(){
+			charer.resize();
+		}, 800);
     },
     line : function(id, args){
         this.init();

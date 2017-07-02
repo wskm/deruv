@@ -4,7 +4,7 @@
 
 $this->title = \service\Setting::getParamConf('webName');
 
-$this->registerJsFile('js/echarts/echarts.simple.min.js');
+$this->registerJsFile('js/echarts/echarts.common.min.js');
 $this->registerJsFile('js/echarts/char.js');
 
 ?>
@@ -15,56 +15,17 @@ $this->registerJsFile('js/echarts/char.js');
 
 			<div class=" clearfix " >
 
-                <h3>PV走势</h3>
-                <div id="charOne" style="height:380px" >
-                load...
+                <h3><?= Wskm::t('Pv Trend', 'admin') ?></h3>
+                <div id="charOne" class="charBox" style="height:380px;" >
+                Load...
                 </div>
 
-            </div>
-    
-            <script type="text/javascript">
-            var option = {
-                title : {
-                    subtext: 'PV / 日期'
-                },
-                tooltip: {
-                    trigger: 'item'                
-                },
-                legend: {
-                    data:['PV']
-                },
-                xAxis : [
-                    {
-                        type : 'category',
-                        data : ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
-                    }
-                ],
-                yAxis : [
-                    {
-                        type : 'value',
-                        axisLabel : {
-                            formatter: '{value} 次'
-                        }
-                    }
-                ],
-                series : [
-                    {
-                        "name":"PV",
-                        "data":[5, 20, 40, 10, 10, 20]
-                    }
-                ]
-            };
-            
-            $(function(){
-                char.line('charOne', option);
-            });
-            
-            </script>
+            </div>              
 
             <div class="clearfix row" >
 				<div class="col-md-6 col-sm-12" >
 					<div class="panel panel-success">
-					  <div class="panel-heading">系统信息</div>
+					  <div class="panel-heading"><?= Wskm::t('System Data', 'admin') ?></div>
 					  <ul class="list-group">
 						<li class="list-group-item">
 							Deruv<span class=" label label-danger pull-right" style="background-color:transparent;color:#333" >1.0</span>
@@ -78,7 +39,7 @@ $this->registerJsFile('js/echarts/char.js');
 				</div>
 				<div class="col-md-6 col-sm-12" >
 					<div class="panel panel-info">
-					  <div class="panel-heading">统计信息</div>
+					  <div class="panel-heading"><?= Wskm::t('Stat Data', 'admin') ?></div>
 					  <ul class="list-group">
 						<li class="list-group-item"><span class=" label label-danger pull-right">142</span>Cras justo odio</li>
 						<li class="list-group-item">Dapibus ac facilisis in</li>
@@ -90,3 +51,42 @@ $this->registerJsFile('js/echarts/char.js');
 				</div>
        
             </div>
+
+			<script type="text/javascript">
+            var option = {
+                title : {
+                    subtext: 'PV / <?= \Wskm::t('Date', 'admin') ?>'
+                },
+                tooltip: {
+                    trigger: 'item'                
+                },
+                legend: {
+                    data:['PV']
+                },
+                xAxis : [
+                    {
+                        type : 'category',
+                        data : <?= json_encode($pv['day']) ?>
+                    }
+                ],
+                yAxis : [
+                    {
+                        type : 'value',
+                        axisLabel : {
+                            formatter: '{value}'
+                        }
+                    }
+                ],
+                series : [
+                    {
+                        "name":"PV",
+                        "data" : <?= json_encode($pv['pv']) ?>
+                    }
+                ]
+            };
+            
+            $(function(){
+				char.line('charOne', option);
+            });
+            
+            </script>

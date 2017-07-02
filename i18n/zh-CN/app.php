@@ -18,12 +18,17 @@
  */
 return [
 	'Home' => '首页',
-
+	'Article' => '文章',
+	
+	'Message' => '信息',
+	'Comment' => '评论',
 	'Login' => '登录',
+	'Logout' => '注销',
 	'Name' => '名称',
 	'User Name' => '用户名',
 	'Password' => '密码',
 	'Avatar' => '头像',
+	'Profile' => '个人中心',
 	'Incorrect username or password.' => '用户名或密码错误',
 	
 	'Add' => '新增',

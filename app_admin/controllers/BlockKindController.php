@@ -5,14 +5,14 @@ namespace admin\controllers;
 use Yii;
 use common\models\BlockKind;
 use yii\data\ActiveDataProvider;
-use admin\controllers\AdminController;
+use admin\controllers\CoreController;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
  * BlockKindController implements the CRUD actions for BlockKind model.
  */
-class BlockKindController extends AdminController
+class BlockKindController extends CoreController
 {
     /**
      * @inheritdoc

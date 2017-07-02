@@ -17,15 +17,15 @@ use yii\widgets\ActiveForm;
 
 <?php echo $form->field($model, 'title', [
 	'template' => '<div class="input-group input-group-sm"><span class="input-group-addon">{label}</span>{input}</div>',
-])->label(\Wskm::t('Title'), [ 'style' => 'line-height: normal']) ?>
+])->label(null, [ 'style' => 'line-height: normal']) ?>
 
 <?= $form->field($model, 'user_name', [
 	'template' => '<div class="input-group input-group-sm"><span class="input-group-addon">{label}</span>{input}</div>',
-])->label(\Wskm::t('User Name'), [ 'style' => 'line-height: normal']) ?>
+])->label(null, [ 'style' => 'line-height: normal']) ?>
 
 <?= $form->field($model, 'category_id', [
 	'template' => '<div class="input-group input-group-sm"><span class="input-group-addon">{label}</span>{input}</div>',
-])->dropDownList([])->label(\Wskm::t('Category', 'admin'), [ 'style' => 'line-height: normal']) ?>
+])->dropDownList([])->label(null, [ 'style' => 'line-height: normal']) ?>
 
 <?php echo $form->field($model, 'status', [
 	'template' => '<div class="input-group input-group-sm"><span class="input-group-addon">{label}</span>{input}</div>',

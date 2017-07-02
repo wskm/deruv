@@ -40,6 +40,9 @@ return [
                 ],
             ],
         ],
+		'urlManager' => [
+			'class' => 'wskm\web\Url',
+        ],
 		/*
         'redis' => [
             'class' => 'yii\redis\Connection',
@@ -47,13 +50,8 @@ return [
             'port' => 6379,
             'database' => 0,
         ],
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
-            ],
-        ],
-        */
+		 */
+        
     ],
     'params' => $params,
 ];

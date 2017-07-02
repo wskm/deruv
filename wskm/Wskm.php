@@ -14,11 +14,11 @@ class Wskm
 	{
 		return Yii::$app->request->post($name, $defaultValue);
 	}
-	
-	public static function getUser()
+			
+	public static function getUser($isthrow = true)
 	{
 		$user = Yii::$app->user->identity;
-		if (!$user) {
+		if (!$user && $isthrow) {
 			if (Yii::$app->request->isAjax) {
 				\Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 				return [
@@ -44,10 +44,14 @@ class Wskm
 		}
 		
 		$url = Url::getSingle();
-		$url->scriptUrl = self::getWebUrl();
+		if (defined('IN_ADMIN') && IN_ADMIN) {
+			$url->scriptUrl = self::getWebUrl();
+		}
 		
 		if (\service\Setting::getConf('sys', 'enablePrettyUrl')) {
-			$url->baseUrl = self::getWebUrl(false);
+			if (defined('IN_ADMIN') && IN_ADMIN) {
+				$url->baseUrl = self::getWebUrl(false);
+			}
 			$url->enablePrettyUrl = true;
 			$url->showScriptName = false;
 		}

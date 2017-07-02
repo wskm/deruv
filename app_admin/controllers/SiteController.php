@@ -8,7 +8,7 @@ use admin\models\LoginForm;
 /**
  * Site controller
  */
-class SiteController extends AdminController
+class SiteController extends CoreController
 {
 	public function behaviors()
     {
@@ -53,7 +53,9 @@ class SiteController extends AdminController
      */
     public function actionIndex()
     {
+		
         return $this->render('index', [
+			'pv' => \service\Stat::pvDay(),
         ]);
     }
 

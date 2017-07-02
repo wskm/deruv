@@ -3,6 +3,8 @@
 return [
 	'Home' => '首页',
 	'Content' => '内容',
+	'Content ID' => '内容ID',
+	'User ID' => '用户ID',
 	'Article' => '文章',
 	'Category' => '分类',
 	'Block' => '区块',
@@ -18,6 +20,13 @@ return [
 	'Block' => '区块',
 	'BlockKind' => '类别',
 	'Files' => '文件',
+	'Comment' => '评论',
+	
+	'Day' => '天',
+	'Date' => '日期',
+	'Pv Trend' => 'PV走势',
+	'System Data' => '系统信息',
+	'Stat Data' => '统计信息',
 	
 	'Log Action' => '操作日志',
 	'Log Login' => '登录日志',
@@ -30,6 +39,7 @@ return [
 	'Rule' => '规则',
 	'Menu' => '菜单',
 	
+	'Preview' => '预览',
 	'Add' => '新增',
 	'Create' => '新增',
 	'Action' => '操作',
@@ -49,6 +59,10 @@ return [
 	'Published' => '发布',
 	'Unpublished' => '不发布',
 	
+	'Open' => '开启',
+	'Close' => '关闭',
+	'Audit' => '审核',
+	
 	'Has been used' => '已经被使用',
 	
 	'Nav' => '网站导航条',
@@ -56,4 +70,6 @@ return [
 	'Home Headline' => '首页头条',
 	'Home Slideshow' => '首页幻灯片',
 	'Ranking Recommend' => '推荐排行',
+	
+	'Is Comment' => '开启评论',
 ];

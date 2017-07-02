@@ -5,14 +5,14 @@ namespace admin\controllers;
 use Yii;
 use common\models\User;
 use common\models\UserSearch;
-use admin\controllers\AdminController;
+use admin\controllers\CoreController;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
  * UserController implements the CRUD actions for User model.
  */
-class UserController extends AdminController
+class UserController extends CoreController
 {
     /**
      * @inheritdoc

@@ -7,7 +7,7 @@ use yii\base\Model;
 use admin\models\Setting;
 use service\Setting as SettingService;
 
-class SettingController extends AdminController
+class SettingController extends CoreController
 {
 
 	public function load()
@@ -15,10 +15,10 @@ class SettingController extends AdminController
 		$this->assign('siteNav', 'setting');
 	}
 
-	public function actionIndex($type = 'sys')
+	public function actionIndex($type = 'param')
 	{
 		if (!$type) {
-			$type = 'sys';
+			$type = 'param';
 		}
 		$type = htmlentities($type);
 		

@@ -4,7 +4,6 @@ namespace frontend\controllers;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
-use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
@@ -16,7 +15,7 @@ use frontend\models\ContactForm;
 /**
  * Site controller
  */
-class SiteController extends Controller
+class SiteController extends BaseController
 {
     /**
      * @inheritdoc
@@ -43,7 +42,7 @@ class SiteController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'logout' => ['post'],
+                    //'logout' => ['post'],
                 ],
             ],
         ];
@@ -89,6 +88,10 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
+			$url = \yii\helpers\Url::previous();
+			if ($url) {
+				return $this->redirect($url);
+			}
             return $this->goBack();
         } else {
             return $this->render('login', [
@@ -107,6 +110,21 @@ class SiteController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
+    }
+	
+	public function actionUserinfo()
+    {
+		$user = \Wskm::getUser(false);
+		if (!$user) {
+			$user = false;
+		}else{
+			$user = [
+				'id' => $user->id,
+				'name' => $user->username,
+			];
+		}
+		
+		return $this->asJson($user);
     }
 
     /**

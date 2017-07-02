@@ -6,7 +6,6 @@ use \yii\web\UrlManager;
 
 class Url extends UrlManager
 {
-
 	private static $obj;
 
 	public static function getSingle()

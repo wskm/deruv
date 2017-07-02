@@ -3,7 +3,7 @@ namespace admin\controllers;
 
 use Yii;
 
-class PluginController extends AdminController
+class PluginController extends CoreController
 {
   
 	public function actionIndex()

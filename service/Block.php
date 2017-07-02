@@ -81,7 +81,7 @@ class Block
 			$key = $kindInfo['key'];
 		}
 
-		$sec = \service\Setting::getConf('cache', 'blockList') !== false ? (int)\service\Setting::getConf('cache', 'blockList') : 86400;
+		$sec = \service\Setting::getConf('cache', 'blockList') !== false ? (int)\service\Setting::getConf('cache', 'blockList') : 0;
 		\wskm\Cache::set(self::CACHE_KEY_PRE.$key, $list, $sec);
 		return $list;
 	}

@@ -5,14 +5,14 @@ namespace admin\controllers;
 use Yii;
 use admin\models\LogLogin;
 use admin\models\LogLoginSearch;
-use admin\controllers\AdminController;
+use admin\controllers\CoreController;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
  * LogLoginController implements the CRUD actions for LogLogin model.
  */
-class LogLoginController extends AdminController
+class LogLoginController extends CoreController
 {
     /**
      * @inheritdoc

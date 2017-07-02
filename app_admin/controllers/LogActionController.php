@@ -5,14 +5,14 @@ namespace admin\controllers;
 use Yii;
 use admin\models\LogAction;
 use admin\models\LogActionSearch;
-use admin\controllers\AdminController;
+use admin\controllers\CoreController;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
  * LogActionController implements the CRUD actions for LogAction model.
  */
-class LogActionController extends AdminController
+class LogActionController extends CoreController
 {
     /**
      * @inheritdoc

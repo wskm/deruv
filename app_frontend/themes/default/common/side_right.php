@@ -10,7 +10,7 @@
 			$hots = \service\Content::getRanking('pv');
 			foreach($hots as $v){
 			?>
-			<li class="list-group-item"><a href="<?= \Wskm::url(['content/view', 'id' => $v['id']]) ?>" ><?= $v['title'] ?></a></li>
+			<li class="list-group-item"><a href="<?= \Wskm::url(['article', 'id' => $v['id']]) ?>" ><?= $v['title'] ?></a></li>
 			<?php } ?>
 	  </ul>
 	</div>

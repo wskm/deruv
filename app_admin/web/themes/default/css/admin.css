@@ -15,33 +15,33 @@ td{
     background-color:#fff;
     border-bottom-right-radius:1em;
     border-bottom-left-radius:1em;
+	margin:0 auto;
+    padding:0;
 }
 
-/*
-	特小屏设备
-手机竖屏(<34em)
-小屏设备
-手机横屏 (≥34em)
-中屏设备
-平板电脑 (≥48em)
-大屏设备
-桌面 (≥62em)
-特大屏设备
-桌面 (≥75em)
-sm: 34em,    // 480px
-  // Medium screen / tablet
-  md: 48em,    // 768px
-  // Large screen / desktop
-  lg: 62em,    // 992px */
 @media screen and (min-width: 992px){
     .site-wrap{
         width:999px;
-        /*border-left:solid 1px #D1D1D1;
+        /*border-left:solid 1px #D1D1D1;max-width:260px;
         border-right:solid 1px #D1D1D1;*/
-        margin:0 auto;
-        padding:0;
+    }
+	.charBox{
+		width:960px;
+	}
+}
+
+@media screen and (min-width: 1500px){
+    .site-wrap{
+        width:1300px;
     }
 }
+
+@media screen and (min-width: 1800px){
+    .site-wrap{
+        width:1500px;
+    }
+}
+
 .site-header{
     position: relative;
 }
@@ -370,7 +370,7 @@ sm: 34em,    // 480px
     background: #E8DEBA url(../img/skin/bg1.jpg) fixed center top no-repeat;
 }
 .skin-beach{
-    background: #DCC39A url("../img/skin/bg3.jpg") no-repeat top center;
+    background: #e0c9a0 url("../img/skin/bg3.jpg") no-repeat top center;
 }
 .skin-stara{
     background: #050505 url("../img/skin/bg4.jpg") fixed center top no-repeat;

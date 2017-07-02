@@ -17,7 +17,7 @@ return [
     'deleteSource' => false,
     // The list of asset bundles to compress:
     'bundles' => [
-        'yii\web\JqueryAsset',
+        //'yii\web\JqueryAsset',
 		'yii\bootstrap\BootstrapAsset',
 		'yii\bootstrap\BootstrapPluginAsset',
 		'yii\web\YiiAsset',
@@ -31,6 +31,9 @@ return [
             'baseUrl' => '@web/assets',
             'js' => 'lib-{hash}.js',
             'css' => 'lib-{hash}.css',
+			'jsOptions' => [
+				'position' => \yii\web\View::POS_HEAD
+			],
         ],
     ],
     // Asset manager configuration:

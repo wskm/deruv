@@ -18,13 +18,17 @@ use common\models\Article;
  * @property string $summary
  * @property integer $pv
  * @property integer $comment
+ * @property integer $iscomment
  * @property integer $status
  * @property integer $created_at
  * @property integer $updated_at
  */
 class Content extends ActiveRecord
 {
-    /**
+	const STATUS_UNPUBLISHED = 0;
+	const STATUS_PUBLISHED = 1;
+
+	/**
      * @inheritdoc
      */
     public static function tableName()
@@ -56,7 +60,7 @@ class Content extends ActiveRecord
     {
         return [
             [['category_id', 'user_id', 'user_name', 'title'], 'required'],
-            [['category_id', 'user_id', 'pv', 'comment', 'status', 'created_at' ], 'integer'],
+            [['category_id', 'user_id', 'pv', 'comment', 'iscomment', 'status', 'created_at' ], 'integer'],
             [['user_name', 'thumb', 'title', 'summary'], 'string', 'max' => 255],
 			[['status'], 'default', 'value' => 0 ],
 			[['title'], 'unique', 'targetAttribute' => ['category_id', 'title']],
@@ -71,7 +75,7 @@ class Content extends ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'category_id' => Yii::t('app', 'Category ID'),
+            'category_id' => Yii::t('admin', 'Category'),
             'user_id' => Yii::t('app', 'User ID'),
             'user_name' => Yii::t('app', 'User Name'),
             'thumb' => Yii::t('app', 'Thumb'),
@@ -79,6 +83,7 @@ class Content extends ActiveRecord
             'summary' => Yii::t('app', 'Summary'),
             'pv' => Yii::t('app', 'Pv'),
             'comment' => Yii::t('app', 'Comment'),
+			'iscomment' => Yii::t('admin', 'Is Comment'),
             'status' => Yii::t('app', 'Status'),
             'created_at' => Yii::t('app', 'Created At'),
             'updated_at' => Yii::t('app', 'Updated At'),
