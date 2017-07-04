@@ -16,7 +16,6 @@ Thumbs.db
 
 # composer vendor dir
 /vendor
-/bin
 
 # composer itself is not needed
 composer.phar
@@ -31,3 +30,5 @@ phpunit.phar
 
 # vagrant runtime
 /.vagrant
+
+/bin

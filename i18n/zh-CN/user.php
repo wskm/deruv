@@ -1,6 +1,7 @@
 <?php
 
 return [
+	'Signup' => '注册',
 	'Status Deleted' => '停用',
 	'Status Active' => '启用',
 	

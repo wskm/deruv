@@ -67,6 +67,7 @@ yii\bootstrap\BootstrapAsset::register($this);
 				    </form>
 					<ul class="nav navbar-nav navbar-right">
 						<li style="background-color: maroon;display:none" id="site-login"  ><a href="<?= Wskm::url(['/site/login']) ?>"><?= \Wskm::t('Login') ?></a></li>
+						<li id="site-signup"  style="display:none"  ><a href="<?= Wskm::url(['/site/signup']) ?>"><?= \Wskm::t('Signup', 'user') ?></a></li>
 						<li class="dropdown" id="site-user" style="display:none"  >
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">admin <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">

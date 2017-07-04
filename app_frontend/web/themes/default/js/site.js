@@ -21,6 +21,7 @@ function getUser(url) {
 	$.getJSON(url,function(data){
 		if (!data) {
 			$('#site-login').show();
+			$('#site-signup').show();
 			return;
 		}
 		
