@@ -56,6 +56,7 @@ class SiteController extends CoreController
 		
         return $this->render('index', [
 			'pv' => \service\Stat::pvDay(),
+			'info' => \wskm\Info::getList(),
         ]);
     }
 

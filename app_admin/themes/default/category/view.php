@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model admin\models\Category */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Categories'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Wskm::t('Categorie', 'admin'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="category-view">
@@ -39,8 +39,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'tpl_show',
             'sorting',
 			[ 
-				'label' => 'Stxxxatus',
-				'value' => \service\Category::getInfoStatus($model->status),
+				'attribute' => 'status',
+				'value' => \common\models\Category::getStatusName($model->status),
 			],
         ],
     ]) ?>

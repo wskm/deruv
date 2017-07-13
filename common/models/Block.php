@@ -3,7 +3,7 @@
 namespace common\models;
 
 use Yii;
-use wskm\db\ActiveRecord;
+use wskm\db\AdminAR;
 
 /**
  * This is the model class for table "{{%block}}".
@@ -19,7 +19,7 @@ use wskm\db\ActiveRecord;
  * @property integer $sorting
  * @property integer $updated_at
  */
-class Block extends ActiveRecord
+class Block extends AdminAR
 {
     /**
      * @inheritdoc

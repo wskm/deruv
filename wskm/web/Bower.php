@@ -21,6 +21,10 @@ class Bower
 		if (!isset($args['setupCallback'])) {
 			$args['setupCallback'] = '';
 		}
+
+		if (!isset($args['formId'])) {
+			throw new \yii\web\HttpException(500, 'Tinymce formId Is not set!');
+		}
 		
 		$staticUrl = STATIC_URL;
 		
@@ -87,6 +91,11 @@ class Bower
 		function editorAdd(html){
 			tinymce.get('{$id}').insertContent(html);
 		}
+
+		$("{$args['formId']}").bind('beforeValidate', function(){ 
+			tinyMCE.triggerSave();
+			return true;
+		});
 		</script>
 AAA;
 		return $script;

@@ -18,7 +18,7 @@ use Yii;
  * @property integer $sorting
  * @property integer $status
  */
-class Category extends \wskm\db\ActiveRecord
+class Category extends \wskm\db\AdminAR
 {
     /**
      * @inheritdoc
@@ -27,6 +27,11 @@ class Category extends \wskm\db\ActiveRecord
     {
         return '{{%category}}';
     }
+	
+	public static function getListStatus()
+	{
+		return \wskm\Status::getEnableOrDisable();
+	}
 	
 	public function primaryName() {
         return $this->name;

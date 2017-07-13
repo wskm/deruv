@@ -39,7 +39,7 @@ yii\bootstrap\BootstrapAsset::register($this);
 			-->
 			<nav class="navbar navbar-inverse " role="navigation" style="background-color: #0c0c0c;border: none;" >
 				<div class="navbar-header">
-				  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#site-navbar-header">
 					<span class="sr-only">Toggle navigation</span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
@@ -49,7 +49,7 @@ yii\bootstrap\BootstrapAsset::register($this);
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<div class="collapse navbar-collapse" id="site-navbar-header">
 				    <ul class="nav navbar-nav">
 						<li class="active"><a href="<?= Url::home(); ?>"><?= \Wskm::t('Home') ?> <span class="sr-only">(current)</span></a></li>
 						<?php $navs = Block::shows('nav'); ?>
@@ -58,8 +58,9 @@ yii\bootstrap\BootstrapAsset::register($this);
 						<?php } ?>
 				    </ul>
 				    <form class="navbar-form navbar-right" role="search" action="" method="get" >
+						<input type="hidden" name="r" value="search" >
 						<div class="form-group">
-						  <input type="text" class="form-control" placeholder="Search">
+							<input type="text" name="query" value="<?= Yii::$app->formatter->asText(Wskm::viewVal('query')) ?>" class="form-control" placeholder="<?= Wskm::t('Search') ?>">
 						</div>
 						<button type="submit" class="btn btn-default" style="border: none;background: transparent;color: #fff;" >
 						  <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
@@ -69,7 +70,7 @@ yii\bootstrap\BootstrapAsset::register($this);
 						<li style="background-color: maroon;display:none" id="site-login"  ><a href="<?= Wskm::url(['/site/login']) ?>"><?= \Wskm::t('Login') ?></a></li>
 						<li id="site-signup"  style="display:none"  ><a href="<?= Wskm::url(['/site/signup']) ?>"><?= \Wskm::t('Signup', 'user') ?></a></li>
 						<li class="dropdown" id="site-user" style="display:none"  >
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">admin <span class="caret"></span></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?= Wskm::getUser()->username ?> <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
 							  <li><a href="<?= Wskm::url(['/user']) ?>"><?= Wskm::t('Profile') ?></a></li>
 							  <li class="divider"></li>

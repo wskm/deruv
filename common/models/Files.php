@@ -4,6 +4,7 @@ namespace common\models;
 
 use Yii;
 use wskm\db\ActiveRecord;
+use wskm\db\AdminAR;
 use yii\behaviors\TimestampBehavior;
 
 /**
@@ -19,7 +20,7 @@ use yii\behaviors\TimestampBehavior;
  * @property integer $height
  * @property integer $created_at
  */
-class Files extends ActiveRecord
+class Files extends AdminAR
 {
 
     public static function tableName()

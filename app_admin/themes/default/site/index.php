@@ -23,33 +23,21 @@ $this->registerJsFile('js/echarts/char.js');
             </div>              
 
             <div class="clearfix row" >
-				<div class="col-md-6 col-sm-12" >
-					<div class="panel panel-success">
+				
+				<div class="col-md-12" >
+					<div class="panel panel-info">
 					  <div class="panel-heading"><?= Wskm::t('System Data', 'admin') ?></div>
 					  <ul class="list-group">
 						<li class="list-group-item">
-							Deruv<span class=" label label-danger pull-right" style="background-color:transparent;color:#333" >1.0</span>
+							Deruv<span class="pull-right" >1.0.0</span>
 						</li>
-						<li class="list-group-item">PHP<span class=" label label-danger pull-right" style="background-color:transparent;color:#333" >7.0</span></li>
-						<li class="list-group-item">Mysql</li>
-						<li class="list-group-item">附件大小</li>
-						<li class="list-group-item">Vestibulum at eros</li>
+						<?php foreach($info as $row) { ?>
+						<li class="list-group-item"><?= Wskm::t($row['name'], 'admin') ?><span class="pull-right"  ><?= $row['value'] ?></span></li>
+						<?php } ?>
 					  </ul>
 					</div>
 				</div>
-				<div class="col-md-6 col-sm-12" >
-					<div class="panel panel-info">
-					  <div class="panel-heading"><?= Wskm::t('Stat Data', 'admin') ?></div>
-					  <ul class="list-group">
-						<li class="list-group-item"><span class=" label label-danger pull-right">142</span>Cras justo odio</li>
-						<li class="list-group-item">Dapibus ac facilisis in</li>
-						<li class="list-group-item">Morbi leo risus</li>
-						<li class="list-group-item">Porta ac consectetur ac</li>
-						<li class="list-group-item">Vestibulum at eros</li>
-					  </ul>
-					</div>
-				</div>
-       
+				
             </div>
 
 			<script type="text/javascript">

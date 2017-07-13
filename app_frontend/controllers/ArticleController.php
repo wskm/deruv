@@ -14,8 +14,10 @@ class ArticleController extends BaseController
 			throw new \yii\web\HttpException(500, \Wskm::t('This category has been disabled', 'frontend'));
 		}
 		
-		if (!$model->status) {
+		if ($model->status == 0) {
 			throw new \yii\web\HttpException(500, \Wskm::t('This article has been closed', 'frontend'));
+		}else if ($model->status == 2) {
+			throw new \yii\web\HttpException(500, \Wskm::t('This article needs to be audited', 'frontend'));
 		}
 		
 		$tplShow = $category->tpl_show ? $category->tpl_show : 'show';

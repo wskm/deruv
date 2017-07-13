@@ -41,7 +41,7 @@ class Comment extends \yii\db\ActiveRecord
 			\Wskm::t('Audit', 'admin'),
 		];
     }
-	
+			
 	public function behaviors()
     {
         return [

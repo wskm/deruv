@@ -94,16 +94,6 @@ class Category
 		return $info ? $info['name'] : \Wskm::t('Category Top');
 	}
 
-	public static function getListStatus()
-	{
-		return \wskm\Status::getEnableOrDisable();
-	}
-
-	public static function getInfoStatus($key)
-	{
-		return isset(self::getListStatus()[$key]) ? self::getListStatus()[$key] : '';
-	}
-
 	public static function setCache($key = self::CACHE_TREE)
 	{
 		if (!$key) {

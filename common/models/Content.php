@@ -3,7 +3,7 @@
 namespace common\models;
 
 use Yii;
-use wskm\db\ActiveRecord;
+use wskm\db\AdminAR;
 use common\models\Article;
 
 /**
@@ -23,10 +23,11 @@ use common\models\Article;
  * @property integer $created_at
  * @property integer $updated_at
  */
-class Content extends ActiveRecord
+class Content extends AdminAR
 {
 	const STATUS_UNPUBLISHED = 0;
 	const STATUS_PUBLISHED = 1;
+	const STATUS_AUDIT = 2;
 
 	/**
      * @inheritdoc
@@ -35,6 +36,15 @@ class Content extends ActiveRecord
     {
         return '{{%content}}';
     }
+	
+	public static function getListStatus()
+	{
+		return [
+			\Wskm::t('Unpublished', 'admin'),
+			\Wskm::t('Published', 'admin'),
+			\Wskm::t('Audit', 'admin'),
+		];
+	}
 	
 	public function primaryName() {
         return $this->title;
@@ -46,7 +56,7 @@ class Content extends ActiveRecord
             [
                 'class' => \yii\behaviors\TimestampBehavior::className(),
                 'attributes' => [
-                    ActiveRecord::EVENT_BEFORE_INSERT => ['created_at', 'updated_at'],
+                    AdminAR::EVENT_BEFORE_INSERT => ['created_at', 'updated_at'],
                     //ActiveRecord::EVENT_BEFORE_UPDATE => [],
                 ],
             ],

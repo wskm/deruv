@@ -12,7 +12,7 @@ use Yii;
  * @property string $key
  * @property integer $sorting
  */
-class BlockKind extends \wskm\db\ActiveRecord
+class BlockKind extends \wskm\db\AdminAR
 {		
     /**
      * @inheritdoc

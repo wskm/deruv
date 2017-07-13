@@ -13,7 +13,6 @@ use yii\bootstrap\Nav;
 
 AppAsset::register($this);
 
-//, [ 'position' => \yii\web\View::POS_HEAD ]
 $this->registerJsFile('themes/default/js/skin.conf.js');
 $this->registerJsFile('themes/default/js/common.js');
 
@@ -35,7 +34,7 @@ $this->registerJsFile('themes/default/js/common.js');
     </script>
 	
     <?php $this->head() ?>
-	<link href="themes/default/css/admin.css" rel="stylesheet">
+	<link href="<?= Url::to('themes/default/css/admin_left.css') ?>" rel="stylesheet">
 	<style>
 		.breadcrumb{
 			margin-bottom: 15px;

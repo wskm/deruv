@@ -72,4 +72,9 @@ return [
 	'Ranking Recommend' => '推荐排行',
 	
 	'Is Comment' => '开启评论',
+	
+	'Web Server' => '服务器软件',
+	'Sapi Name' => '接口类型',
+	'Memory Usage' => '内存使用量',
+	'System Version' => '系统版本',
 ];

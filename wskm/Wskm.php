@@ -1,6 +1,7 @@
 <?php
 
 //use yii\helpers\Url;
+use Yii;
 use wskm\web\Url;
 
 class Wskm
@@ -43,9 +44,12 @@ class Wskm
 			return self::getWebUrl().\yii\helpers\Url::to($route);
 		}
 		
-		$url = Url::getSingle();
+		$url = null;
 		if (defined('IN_ADMIN') && IN_ADMIN) {
+			$url = Url::getSingle();
 			$url->scriptUrl = self::getWebUrl();
+		}else{
+			$url = Yii::$app->urlManager;
 		}
 		
 		if (\service\Setting::getConf('sys', 'enablePrettyUrl')) {

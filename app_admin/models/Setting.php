@@ -2,9 +2,9 @@
 
 namespace admin\models;
 
-use wskm\db\ActiveRecord;
+use wskm\db\AdminAR;
 
-class Setting extends ActiveRecord 
+class Setting extends AdminAR 
 {
 	public function primaryName() {
         return $this->k;

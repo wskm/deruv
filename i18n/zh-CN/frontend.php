@@ -7,6 +7,7 @@ return [
 	
 	'This category has been disabled' => '此分类已经禁用',
 	'This article has been closed' => '这篇文章已经关闭',
+	'This article needs to be audited' => '这篇文章需要审核',
 	
 	'Do not allow comments' => '不允许评论',
 	'Comments failed!' => '评论失败',

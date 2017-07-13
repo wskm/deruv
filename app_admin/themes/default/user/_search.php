@@ -26,7 +26,7 @@ use yii\widgets\ActiveForm;
 	
 <?php  echo $form->field($model, 'status', [
 	'template' => '<div class="input-group input-group-sm"><span class="input-group-addon">{label}</span>{input}</div>',
-])->dropDownList(\service\User::getListStatus(), ['prompt' => \wskm::t('Please select')])->label(\Wskm::t('Status'), [ 'style' => 'line-height: normal']) ?>
+])->dropDownList(\common\models\User::getListStatus(), ['prompt' => \wskm::t('Please select')])->label(\Wskm::t('Status'), [ 'style' => 'line-height: normal']) ?>
 	
 	<div class="form-group">
 		<?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-info btn-sm']) ?>

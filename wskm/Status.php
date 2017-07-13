@@ -43,6 +43,7 @@ class Status
 		return [
 			'<span class="glyphicon glyphicon-remove-sign text-danger" ></span>',
 			'<span class="glyphicon glyphicon-ok-sign text-success" ></span>',
+			'<span class="glyphicon glyphicon-question-sign" ></span>',
 		];
 	}
 

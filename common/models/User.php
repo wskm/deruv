@@ -4,7 +4,7 @@ namespace common\models;
 use Yii;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
-use wskm\db\ActiveRecord;
+use wskm\db\AdminAR;
 use yii\web\IdentityInterface;
 
 /**
@@ -21,7 +21,7 @@ use yii\web\IdentityInterface;
  * @property integer $updated_at
  * @property string $password write-only password
  */
-class User extends ActiveRecord implements IdentityInterface
+class User extends AdminAR implements IdentityInterface
 {
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 1;
@@ -38,6 +38,14 @@ class User extends ActiveRecord implements IdentityInterface
 	public function primaryName() {
         return $this->username;
     }
+	
+	public static function getListStatus()
+	{
+		return [
+			self::STATUS_DELETED => \Wskm::t('Status Deleted', 'user'),
+			self::STATUS_ACTIVE => \Wskm::t('Status Active', 'user'),
+		];
+	}
 	
     public function behaviors()
     {

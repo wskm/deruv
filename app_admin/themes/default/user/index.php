@@ -61,7 +61,7 @@ $this->params['breadcrumbs'][] = $this->title;
 					'width' => 60  
 				],
 				'value'=> function($data){
-					return \service\User::getListStatus()[$data->status];
+					return \common\models\User::getStatusName($data->status);
 				} 
 			], 
 			[  

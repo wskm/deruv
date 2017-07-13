@@ -264,6 +264,7 @@ $this->registerJsFile('js/edit.min.js');
 	</script>
 	
 	<?= \wskm\web\Bower::getEditor('article-detail', [
+		'formId' => '#form-content',
 		'url' => Url::to(['/upload/file', 'edit' => 1]),
 		'name' => 'Uploads[file]',
 		'setupCallback' => 'setupCallback',

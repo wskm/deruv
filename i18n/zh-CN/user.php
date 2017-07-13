@@ -2,6 +2,7 @@
 
 return [
 	'Signup' => '注册',
+	'Signup At' => '注册时间',
 	'Status Deleted' => '停用',
 	'Status Active' => '启用',
 	
@@ -13,4 +14,6 @@ return [
 	'Passwords do not match' => '两个密码不一致',
 	
 	'Profile' => '个人资料',
+	'Contributes' => '稿件',
+	'Contribute' => '投稿',
 ];

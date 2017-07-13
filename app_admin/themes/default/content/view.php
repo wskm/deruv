@@ -62,7 +62,7 @@ $this->params['breadcrumbs'][] = $this->title;
 			],
             [  
 				'attribute' => 'status',
-				'value' => \wskm\Status::getPublishedOrUnpublished()[$model->status],
+				'value' => \common\models\Content::getStatusName($model->status),
 			],
             'created_at:datetime',
             'updated_at:datetime',

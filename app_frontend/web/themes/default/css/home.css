@@ -202,3 +202,10 @@ a:hover{
 
 .comments-list{
 }
+
+.user-avatar{
+	padding:20px 0;
+}
+.user-wrap{
+	margin: 20px 0;
+}

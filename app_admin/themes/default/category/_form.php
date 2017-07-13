@@ -26,7 +26,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'sorting')->input('number', [ 'max' => 99, 'min' => 0 ]) ?>
 
-    <?= $form->field($model, 'status')->radioList(\service\Category::getListStatus()) ?>
+    <?= $form->field($model, 'status')->radioList(\common\models\Category::getListStatus()) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
