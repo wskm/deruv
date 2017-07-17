@@ -1,11 +1,16 @@
 <?php
 $params = array_merge(
     require(__DIR__ . '/../../common/config/params.php'),
-    require(__DIR__ . '/../../common/config/params-local.php'),
-    require(__DIR__ . '/params.php'),
-    require(__DIR__ . '/params-local.php')
+    //require(__DIR__ . '/../../common/config/params-local.php'),
+    require(__DIR__ . '/params.php')
+    //require(__DIR__ . '/params-local.php')
 );
-return [
+
+if (!isset($sysConfig['frontendTheme']) || !$sysConfig['frontendTheme']) {
+    $sysConfig['frontendTheme'] = 'default';
+}
+
+$config = [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
 	'language' => 'zh-CN',
@@ -17,7 +22,7 @@ return [
         ],
         'user' => [
             'identityClass' => 'common\models\User',
-            'enableAutoLogin' => true,
+            'enableAutoLogin' => false,
             'identityCookie' => ['name' => '_id-dfrontend', 'httpOnly' => true],
         ],
         'session' => [
@@ -28,15 +33,15 @@ return [
             'errorAction' => 'site/error',
         ],
 		'assetManager' => [
-			//'bundles' => require(__DIR__ .DIRECTORY_SEPARATOR .(YII_ENV_PROD ? 'assets-prod.php' : 'assets-prod.php')),
+			//'bundles' => require(__DIR__ .DIRECTORY_SEPARATOR .(YII_ENV_PROD ? 'assets-prod.php' : 'assets-dev.php')),
 			'bundles' => require(__DIR__ .DIRECTORY_SEPARATOR .'assets-prod.php'),
         ],
 		'view' => [
             'theme' => [
-                'basePath' => '@frontend/themes/default',
-                'baseUrl' => '@web/themes/default',
+                'basePath' => '@frontend/themes/'.$sysConfig['frontendTheme'],
+                'baseUrl' => '@web/themes/'.$sysConfig['frontendTheme'],
                 'pathMap' => [
-                    '@frontend/views' => '@frontend/themes/default',
+                    '@frontend/views' => '@frontend/themes/'.$sysConfig['frontendTheme'],
                 ],
             ],
         ],
@@ -55,3 +60,20 @@ return [
     ],
     'params' => $params,
 ];
+
+if (YII_ENV_DEV) {
+    
+    // configuration adjustments for 'dev' environment
+    $config['bootstrap'][] = 'debug';
+    $config['modules']['debug'] = [
+        'class' => 'yii\debug\Module',
+    ];
+
+    $config['bootstrap'][] = 'gii';
+    $config['modules']['gii'] = [
+        'class' => 'yii\gii\Module',
+    ];
+
+}
+
+return $config;

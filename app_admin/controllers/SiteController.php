@@ -52,12 +52,8 @@ class SiteController extends CoreController
      * @return string
      */
     public function actionIndex()
-    {
-		
-        return $this->render('index', [
-			'pv' => \service\Stat::pvDay(),
-			'info' => \wskm\Info::getList(),
-        ]);
+    {		
+        return $this->render('index');
     }
 
     /**
@@ -70,9 +66,11 @@ class SiteController extends CoreController
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
-		
+
         $model = new LoginForm();        
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            Yii::$app->session->addFlash('success', \Wskm::t('Welcome!', 'admin'));
+            
             return $this->goBack();
         } else {
             return $this->renderPartial('login', [

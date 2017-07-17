@@ -1,0 +1,38 @@
+<?php
+
+return [
+	'AuditComment' => '审核评论',
+	'AvatarHeight' => '头像高度',
+	'AvatarWidth' => '头像宽度',
+	'BlockList' => '区块缓存时间',
+	'CloseComment' => '关闭评论',
+	'ContentList' => '内容缓存时间',
+	'Debug' => '开启调式',
+	'DefaultWidth' => '图片默认宽度',
+	'EmailEnabled' => '开启邮箱',
+	'EmailFrom' => '发送者邮箱',
+	'EmailFromName' => '发送者名称',
+	'EmailHost' => '服务器地址',
+	'EmailPassword' => '密码',
+	'EmailPort' => '端口',
+	'EmailUserName' => '账号',
+	'EnablePrettyUrl' => '开启美化链接',
+	'Language' => '语言',
+	'PageSize' => '一页显示数量',
+	'Quality' => '图片质量',
+	'SharedHost' => '是否虚拟主机',
+	'TimeZone' => '时区',
+	'UserCommentMax' => '用户12小时内最大评论数',
+	'UserPublishedAudit' => '用户发布是否审核',
+	'WebClose' => '关闭网站',
+	'WebDescription' => '网站详情',
+	'WebKeywords' => '网站关键词',
+	'WebName' => '网站名称',
+	'WebUrl' => '网站链接',
+    
+    //'FrontendDebug' => '前台开启调式',
+    'FrontendTheme' => '前台主题',
+    'AdminLayout' => '后台布局',
+	
+	'The system will automatically update the cache, generally do not need to manually update.' => '系统会自动更新缓存，一般不需要手动更新。',
+];

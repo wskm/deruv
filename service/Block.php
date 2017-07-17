@@ -3,7 +3,6 @@
 namespace service;
 
 use common\models\Block as BlockModel;
-use common\models\BlockKind;
 
 class Block
 {

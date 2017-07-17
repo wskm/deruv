@@ -7,10 +7,19 @@ $this->title = \service\Setting::getParamConf('webName');
 $this->registerJsFile('js/echarts/echarts.common.min.js');
 $this->registerJsFile('js/echarts/char.js');
 
+$pvs = \service\Stat::pvDay();
+$infos = \wskm\Info::getList();
+
+$lastLogin = \wskm\Info::getLastLogin();
+$onlineCount = \wskm\Info::getOnlineCount();
 ?>
             
             <div class="well well-sm" style="margin:0 0 10px 0;"  >
-                在线3人，最后访问 2017年4月10日13:24:21，IP 127.0.0.1
+                <?= Wskm::t('Online quantity {count}, Last logged in {datetime}, {ip}.', 'admin', [
+					'count' => $onlineCount,
+					'datetime' => Yii::$app->formatter->asDatetime($lastLogin['login_time']),
+					'ip' => $lastLogin['ip'],
+				]) ?>
             </div>
 
 			<div class=" clearfix " >
@@ -31,7 +40,7 @@ $this->registerJsFile('js/echarts/char.js');
 						<li class="list-group-item">
 							Deruv<span class="pull-right" >1.0.0</span>
 						</li>
-						<?php foreach($info as $row) { ?>
+						<?php foreach($infos as $row) { ?>
 						<li class="list-group-item"><?= Wskm::t($row['name'], 'admin') ?><span class="pull-right"  ><?= $row['value'] ?></span></li>
 						<?php } ?>
 					  </ul>
@@ -54,7 +63,7 @@ $this->registerJsFile('js/echarts/char.js');
                 xAxis : [
                     {
                         type : 'category',
-                        data : <?= json_encode($pv['day']) ?>
+                        data : <?= json_encode($pvs['day']) ?>
                     }
                 ],
                 yAxis : [
@@ -68,7 +77,7 @@ $this->registerJsFile('js/echarts/char.js');
                 series : [
                     {
                         "name":"PV",
-                        "data" : <?= json_encode($pv['pv']) ?>
+                        "data" : <?= json_encode($pvs['pv']) ?>
                     }
                 ]
             };

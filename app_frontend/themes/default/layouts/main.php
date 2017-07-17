@@ -70,7 +70,7 @@ yii\bootstrap\BootstrapAsset::register($this);
 						<li style="background-color: maroon;display:none" id="site-login"  ><a href="<?= Wskm::url(['/site/login']) ?>"><?= \Wskm::t('Login') ?></a></li>
 						<li id="site-signup"  style="display:none"  ><a href="<?= Wskm::url(['/site/signup']) ?>"><?= \Wskm::t('Signup', 'user') ?></a></li>
 						<li class="dropdown" id="site-user" style="display:none"  >
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?= Wskm::getUser()->username ?> <span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span id='user-name'></span> <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
 							  <li><a href="<?= Wskm::url(['/user']) ?>"><?= Wskm::t('Profile') ?></a></li>
 							  <li class="divider"></li>

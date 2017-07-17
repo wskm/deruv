@@ -1,16 +1,15 @@
 <?php
 $params = array_merge(
     require(__DIR__ . '/../../common/config/params.php'),
-    require(__DIR__ . '/../../common/config/params-local.php'),
-    require(__DIR__ . '/params.php'),
-    require(__DIR__ . '/params-local.php')
+    //require(__DIR__ . '/../../common/config/params-local.php'),
+    require(__DIR__ . '/params.php')
+    //require(__DIR__ . '/params-local.php')
 );
 
-return [
+$config = [
     'id' => 'app-admin',
     'basePath' => dirname(__DIR__),
     'language' => 'zh-CN',
-    //timeZone version
     'controllerNamespace' => 'admin\controllers',
     'bootstrap' => ['log'],
     'modules' => [
@@ -40,7 +39,7 @@ return [
         ],
         'user' => [
             'identityClass' => 'common\models\User',
-            'enableAutoLogin' => true,
+            'enableAutoLogin' => false,
             'identityCookie' => ['name' => '_id-dadmin', 'httpOnly' => true],
         ],
         'session' => [
@@ -81,3 +80,27 @@ return [
     ],
     'params' => $params,
 ];
+
+
+if (YII_ENV_DEV) {
+    
+    $config['bootstrap'][] = 'debug';
+    $config['modules']['debug'] = [
+        'class' => 'yii\debug\Module',
+    ];
+
+    $config['bootstrap'][] = 'gii';
+    $config['modules']['gii'] = [
+        'class' => 'yii\gii\Module',
+		'generators' => [ 
+			'crud' => [
+				'class' => 'yii\gii\generators\crud\Generator', 
+				'templates' => [ 
+					'crud-deruv' => '@app/gii/crud', 
+				] 
+			] 
+		], 
+    ];
+}
+
+return $config;

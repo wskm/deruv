@@ -28,6 +28,7 @@ $this->title = \Wskm::t('Login');
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
+	<link href="themes/default/css/admin.css" rel="stylesheet">
 	<style>
 		.form-group {
 			margin-bottom: 5px;
@@ -48,8 +49,9 @@ $this->title = \Wskm::t('Login');
 
                     <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
                     <?= $form->field($model, 'password')->passwordInput() ?>
+                    <?php if (Wskm::session('login.fail') > 3) { ?>
 					<?= $form->field($model, 'verifyCode')->widget(Captcha::className()) ?>
-					
+                    <?php } ?>
                 </div>
                 <div class="modal-footer">
                     <?= Alert::widget() ?>

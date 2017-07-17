@@ -53,7 +53,7 @@ $this->params['breadcrumbs'][] = $this->title;
 		
 		<div class="form-group">
 		  <div class="col-sm-offset-3 col-sm-6">
-			<button type="submit" class="btn btn-default">提交</button>
+			<button type="submit" class="btn btn-default">Submit</button>
 		  </div>
 		</div>
 	<?php ActiveForm::end(); ?>

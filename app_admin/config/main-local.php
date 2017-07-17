@@ -9,25 +9,4 @@ $config = [
     ],
 ];
 
-//YII_ENV_DEV
-if (YII_DEBUG) {
-    $config['bootstrap'][] = 'debug';
-    $config['modules']['debug'] = [
-        'class' => 'yii\debug\Module',
-    ];
-
-    $config['bootstrap'][] = 'gii';
-    $config['modules']['gii'] = [
-        'class' => 'yii\gii\Module',
-		'generators' => [ 
-			'crud' => [
-				'class' => 'yii\gii\generators\crud\Generator', 
-				'templates' => [ 
-					'crud-deruv' => '@app/gii/crud', 
-				] 
-			] 
-		], 
-    ];
-}
-
 return $config;

@@ -55,8 +55,11 @@ class Setting
 	{
 		$list = self::getList(true);
 		\wskm\Cache::set(self::CACHE_KEY, $list);
-		
-		self::okDebug($list['sys']['debug']);
+        
+		self::writeConfig([
+            //'frontendDebug' => (bool)$list['sys']['frontendDebug'],
+            'frontendTheme' => $list['sys']['frontendTheme'],
+        ], 'sys');
 		
 		return $list;
 	}
@@ -71,19 +74,16 @@ class Setting
 		return $data;
 	}
 	
-	public static function okDebug($isdebug = true)
+	private static function writeConfig($config, $type = 'sys')
 	{
 		$path = \Yii::getAlias('@runtime');
 		if (!is_dir($path)) {
             \yii\helpers\FileHelper::createDirectory($path);
         }
 		
-		$file = $path.DIRECTORY_SEPARATOR.'debug';
-		if (!$isdebug) {
-			@unlink($file);
-			return;
-		}
-		@file_put_contents($file, 'debug');
+		$file = $path.DIRECTORY_SEPARATOR.$type.'.php';
+		
+		@file_put_contents($file, "<?php \nreturn ".var_export($config, true).';');
 	}
 	
 }

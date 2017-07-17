@@ -3,6 +3,8 @@
 namespace wskm;
 
 use Yii;
+use Wskm;
+use admin\models\LogLogin;
 
 class Info
 {
@@ -39,6 +41,23 @@ class Info
 	{
 		return Yii::$app->db->createCommand('SELECT VERSION()')
 						->queryScalar();
+	}
+	
+	public static function getLastLogin()
+	{
+		$data = LogLogin::find()->where([
+			'user_name' => Wskm::getUser()->username,
+		])->orderBy([ 'login_time' => SORT_DESC])->asArray()->limit(2)->all();
+		
+		array_shift($data);
+		return $data ? $data[0] : false;
+	}
+	
+	public static function getOnlineCount()
+	{
+		$query = new \yii\db\Query();
+        return $query->select('COUNT(*)')->from('{{%session}}')
+            ->where('[[expire]]>:expire ', [':expire' => time() ])->scalar();
 	}
 
 }

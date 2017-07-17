@@ -24,7 +24,7 @@ function getUser(url) {
 			$('#site-signup').show();
 			return;
 		}
-		
+		$('#user-name').text(data.name);
 		$('#site-user').show();
 	});
 }

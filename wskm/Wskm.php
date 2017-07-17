@@ -15,6 +15,15 @@ class Wskm
 	{
 		return Yii::$app->request->post($name, $defaultValue);
 	}
+    
+    public static function session($name, $value = null)
+	{
+        if ($value) {
+            Yii::$app->session[$name] = $value;
+            return true;
+        }
+		return Yii::$app->session[$name];
+	}
 			
 	public static function getUser($isthrow = true)
 	{

@@ -154,6 +154,14 @@ class CategoryController extends CoreController
 
 		return $this->redirect(['index']);
 	}
+    
+    public function actionSetCache()
+	{
+        CategoryService::setCache();
+        $this->asJson([
+            'msg' => 'ok',
+        ]);
+    }
 
 	/**
 	 * Finds the Category model based on its primary key value.

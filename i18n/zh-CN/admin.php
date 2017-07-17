@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'Welcome!' => '欢迎！',
+
 	'Home' => '首页',
 	'Content' => '内容',
 	'Content ID' => '内容ID',
@@ -18,7 +20,7 @@ return [
 	'Level' => '级别',
     'Categorie' => '分类',
 	'Block' => '区块',
-	'BlockKind' => '类别',
+	'BlockKind' => '区块类别',
 	'Files' => '文件',
 	'Comment' => '评论',
 	
@@ -77,4 +79,14 @@ return [
 	'Sapi Name' => '接口类型',
 	'Memory Usage' => '内存使用量',
 	'System Version' => '系统版本',
+	
+	'Skinning' => '换肤',
+	'Param' => '参数',
+	'System' => '系统',
+	'Image' => '图片',
+	'Cache' => '缓存',
+	
+	'Update Cache' => '更新缓存',
+	'Online quantity {count}, Last logged in {datetime}, {ip}.' => '在线{count}人，上次登录 {datetime}，IP {ip}',
+	
 ];

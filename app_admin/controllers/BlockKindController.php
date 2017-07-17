@@ -122,6 +122,14 @@ class BlockKindController extends CoreController
 
         return $this->redirect(['index']);
     }
+    
+    public function actionSetCache()
+	{
+        \service\BlockKind::setCache();
+        $this->asJson([
+            'msg' => 'ok',
+        ]);
+    }
 
     /**
      * Finds the BlockKind model based on its primary key value.

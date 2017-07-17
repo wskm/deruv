@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
 			<h2><?= $model->title ?></h2>
 			<div class="view-time clearfix" >
 				<span class="pull-left" ><?= Yii::$app->formatter->asDatetime($model->updated_at) ?>　<!--org--></span>
-				<span class="pull-right" >
+				<span class="pull-right" style="font-size:10px" >
 					<b class="glyphicon glyphicon-eye-open"></b>&nbsp;<span id="content-pv"><?= $model->pv ?></span>&nbsp;&nbsp;&nbsp;
 					<a href="<?= \Wskm::url(['/comment', 'id' => $model->id ]) ?>" ><b class="glyphicon glyphicon-comment"></b>&nbsp;<span id="content-comment"><?= $model->comment ?></span></a>
 				</span>
@@ -46,7 +46,7 @@ $this->params['breadcrumbs'][] = $this->title;
 			
 			<?php if($model->iscomment){ ?>
 			<?= $this->render('/common/comment_form', [
-				'model' => $model
+				'content_id' => $model->id
 			]) ?>
 			<?php } ?>
 

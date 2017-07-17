@@ -138,7 +138,19 @@ class BlockController extends CoreController
 		}
         
     }
-
+    
+    public function actionSetCache()
+	{
+        $list = \service\BlockKind::getList();
+        foreach($list as $row){
+            \service\Block::setCache($row['id']);
+        }
+        
+        $this->asJson([
+            'msg' => 'ok',
+        ]);
+    }
+    
     /**
      * Finds the Block model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.

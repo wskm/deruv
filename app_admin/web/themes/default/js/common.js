@@ -8,8 +8,8 @@ function skinSwitch(){
             if (skin == o.class){
                 selected =  'selected';
             }
-
-            $('#SkinBox').append('<li><img class="'+selected+'" src="' + o.thumb + '" skin="' + o.class + '" ><span class="tempName">' + o.name + '</span><div class="mask"></div></li>');
+			var nameHtml = o.name ? '<span class="tempName">' + o.name + '</span><div class="mask"></div>' : '';
+            $('#SkinBox').append('<li><img class="'+selected+'" src="' + o.thumb + '" skin="' + o.class + '" >' + nameHtml + '</li>');
         });
         
         $('#SkinBox img').click(function(){
