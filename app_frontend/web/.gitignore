@@ -1,2 +1,4 @@
 /assets/*
-
+/uploads/*
+.bowerrc
+bower.json

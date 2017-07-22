@@ -1,7 +1,12 @@
 <?php
 
 return [
-	'Signup' => '注册',
+    'Enter your user name' => '输入用户名',
+    'Enter password' => '输入密码',
+    'Enter your email' => '输入你邮箱',
+    'Remember Me' => '记住我',
+    'Forget password' => '忘记密码',
+    
 	'Signup At' => '注册时间',
 	'Status Deleted' => '停用',
 	'Status Active' => '启用',

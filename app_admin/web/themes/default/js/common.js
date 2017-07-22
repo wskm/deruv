@@ -65,7 +65,7 @@ function getNotice() {
 		$.each(data, function(k,v){
 			var html = '<li><a href="index.php?r=log-action/view&ajax=1&id=' + v.id + '" target="_blank" ><i class="glyphicon glyphicon-exclamation-sign '+ (toInt(v.level) == 2 ? 'text-danger' : '' ) +'"></i> <span class="notice-title">' +
 			v.title + '</span><span class="pull-right text-muted small">' + v.ago + '</span></a></li>';
-			$('.headnotice-menu').append(html);			
+			$('#notice-menu').append(html);			
 		});
 		$('#headnotice-count').text(data.length);
 	});
@@ -73,6 +73,6 @@ function getNotice() {
 
 $(function(){
 	getNotice();
-    initSkin();
+    runSkin && initSkin();
     initTop();
 });

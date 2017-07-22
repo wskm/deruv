@@ -1,9 +1,7 @@
 body{
     background-color: #000;
 }
-nav{
-    margin-top:5px;
-}
+
 td{
     word-break:break-word;
 }
@@ -238,6 +236,7 @@ a.desc:after {
     background-color: #F7F7F7;
     padding:0;
     outline: none;
+    min-height: 380px;
 }
 .snav-stacked li{
     outline: none;

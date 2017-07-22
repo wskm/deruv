@@ -86,6 +86,7 @@ return [
 	'Image' => '图片',
 	'Cache' => '缓存',
 	
+    'View all' => '查看所有',
 	'Update Cache' => '更新缓存',
 	'Online quantity {count}, Last logged in {datetime}, {ip}.' => '在线{count}人，上次登录 {datetime}，IP {ip}',
 	

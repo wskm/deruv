@@ -34,7 +34,7 @@ return [
         'assetManager' => [
             'appendTimestamp' => true,
             'assetMap' => [
-                //'jquery.js' => '@web/js/jquery.min.js',  //yii2 jquery-pjax is old,no sup jquery3
+                //'jquery.js' => '@web/adminlte/bower_components/jquery/dist/jquery.min.js',  //yii2 jquery-pjax is old,no sup jquery3
             ],
         ],
 		'log' => [

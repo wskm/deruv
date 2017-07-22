@@ -36,7 +36,7 @@ class Wskm
 				];
 			}
 			
-			throw new yii\web\HttpException(500, \Wskm::t('Login Required', 'yii'));
+			throw new \yii\web\HttpException(500, \Wskm::t('Login Required', 'yii'));
 		}
 		
 		return $user;

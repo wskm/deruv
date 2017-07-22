@@ -61,7 +61,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 $toList = $langs;
             } else if ($index == 'timeZone') {
-                $toList = \wskm\Timezone::getList();
+                $toList = \wskm\helpers\Timezone::getList();
             } else if ($index == 'frontendTheme') {
                 $dirs = wskm\helpers\File::getDir(Yii::getAlias('@frontend').'/themes');
                 if ($dirs) {
@@ -72,9 +72,9 @@ $this->params['breadcrumbs'][] = $this->title;
             } else if ($index == 'adminLayout') {
                 $toList = [
                     'main' => 'Main',
-                    'main_top' => 'Main Top',
+                    //'main_top' => 'Main Top',
                     'main_left' => 'Main Left',
-                    'main_right' => 'Main Right',
+                    //'main_right' => 'Main Right',
                 ];
             }
 

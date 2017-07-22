@@ -55,4 +55,12 @@ class SignupForm extends Model
         
         return $user->save() ? $user : null;
     }
+    
+    public function attributeLabels()
+    {
+        return [
+            'username' => \Wskm::t('User Name'),
+            'password' => \Wskm::t('Password'),
+        ];
+    }
 }

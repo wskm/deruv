@@ -52,8 +52,8 @@ class Block extends AdminAR
             [
                 'class' => \yii\behaviors\TimestampBehavior::className(),
                 'attributes' => [
-                    ActiveRecord::EVENT_BEFORE_INSERT => [ 'updated_at'],
-                    ActiveRecord::EVENT_BEFORE_UPDATE => [ 'updated_at'],
+                    AdminAR::EVENT_BEFORE_INSERT => [ 'updated_at'],
+                    AdminAR::EVENT_BEFORE_UPDATE => [ 'updated_at'],
                 ],
             ],
         ];

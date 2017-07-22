@@ -5,6 +5,7 @@ namespace common\models;
 use Yii;
 use wskm\db\AdminAR;
 use common\models\Article;
+use common\models\User;
 
 /**
  * This is the model class for table "{{%content}}".
@@ -112,6 +113,11 @@ class Content extends AdminAR
 	public function getArticle()
     {
         return $this->hasOne(Article::className(), ['content_id' => 'id']);
+    }
+    
+    public function getUser()
+    {
+        return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
 
 }

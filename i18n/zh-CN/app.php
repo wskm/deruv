@@ -24,6 +24,7 @@ return [
 	'Comment' => '评论',
 	'Login' => '登录',
 	'Logout' => '注销',
+    'Signup' => '注册',
 	'Name' => '名称',
 	'User Name' => '用户名',
 	'Password' => '密码',

@@ -45,7 +45,7 @@ yii\bootstrap\BootstrapAsset::register($this);
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				  </button>
-				  <h1><a class="navbar-brand" href="<?= Url::home(); ?>" style="padding:0;color:transparent;" ><img alt="Brand" src="./themes/default/img/logo.png" height="60" >web name</a></h1>
+				  <h1><a class="navbar-brand" href="<?= Url::home(); ?>" style="padding:0;color:transparent;" ><img alt="Brand" src="./themes/default/img/logo.png" height="60" >&nbsp;</a></h1>
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
@@ -67,7 +67,7 @@ yii\bootstrap\BootstrapAsset::register($this);
 						</button>
 				    </form>
 					<ul class="nav navbar-nav navbar-right">
-						<li style="background-color: maroon;display:none" id="site-login"  ><a href="<?= Wskm::url(['/site/login']) ?>"><?= \Wskm::t('Login') ?></a></li>
+						<li style="background-color: maroon;display:none" id="site-login" ><a href="<?= Wskm::url(['/site/login']) ?>"><?= \Wskm::t('Login') ?></a></li>
 						<li id="site-signup"  style="display:none"  ><a href="<?= Wskm::url(['/site/signup']) ?>"><?= \Wskm::t('Signup', 'user') ?></a></li>
 						<li class="dropdown" id="site-user" style="display:none"  >
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span id='user-name'></span> <span class="caret"></span></a>

@@ -1,7 +1,9 @@
 <?php
 
 return [
-	
+	'Newer' => '',
+    'Older' => '',
+    
 	'Origin' => '来源：',
 	'Related Reading' => '相关阅读',
 	

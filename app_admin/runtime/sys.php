@@ -1,4 +1,4 @@
 <?php 
 return array (
-  'frontendTheme' => 'default',
+  'frontendTheme' => 'blog',
 );

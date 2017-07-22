@@ -26,16 +26,11 @@ $config = [
             'identityCookie' => ['name' => '_id-dfrontend', 'httpOnly' => true],
         ],
         'session' => [
-            // this is the name of the session cookie used for login on the frontend
             'name' => 'deruv-frontend',
         ],
 		'errorHandler' => [
             'errorAction' => 'site/error',
-        ],
-		'assetManager' => [
-			//'bundles' => require(__DIR__ .DIRECTORY_SEPARATOR .(YII_ENV_PROD ? 'assets-prod.php' : 'assets-dev.php')),
-			'bundles' => require(__DIR__ .DIRECTORY_SEPARATOR .'assets-prod.php'),
-        ],
+        ],		
 		'view' => [
             'theme' => [
                 'basePath' => '@frontend/themes/'.$sysConfig['frontendTheme'],
@@ -60,6 +55,13 @@ $config = [
     ],
     'params' => $params,
 ];
+
+if ($sysConfig['frontendTheme'] == 'default') {
+    $config['components']['assetManager'] = [
+        //'bundles' => require(__DIR__ .DIRECTORY_SEPARATOR .(YII_ENV_PROD ? 'assets-prod.php' : 'assets-dev.php')),
+        'bundles' => require(__DIR__ .DIRECTORY_SEPARATOR .'assets-prod.php'),
+    ];
+}
 
 if (YII_ENV_DEV) {
     

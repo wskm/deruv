@@ -26,7 +26,12 @@ $this->title = \Wskm::t('Login');
     <meta name="description" content="" />
 	<meta name="keywords" content="" />
     <?= Html::csrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
+    <title><?= Html::encode($this->title) ?> | Deruv</title>
+    <script>
+        var runSkin = true;
+		var staticUrl = '<?= \Wskm::getStaticUrl()?>';
+        var siteNav = '<?= Wskm::viewVal('siteNav') ?>';		
+    </script>
     <?php $this->head() ?>
 	<link href="themes/default/css/admin.css" rel="stylesheet">
 	<style>

@@ -24,7 +24,7 @@ $this->title = \Wskm::t('Comment').':'.$modelContent->title;
 					<div class="media-body">
 						<b class="media-heading"><?= $row['user_name'] ?></b>
                         
-                        <?php if($row['user_id'] == Wskm::getUser()->id ){ ?>
+                        <?php if($row['user_id'] == Wskm::getUser(false)->id ){ ?>
                         <small class="pull-right"  >&nbsp;&nbsp;<a href='<?= Wskm::url(['/comment/update', 'id' => $row['id']]) ?>' target="_blank" class="edit glyphicon glyphicon-pencil" ></a>&nbsp;&nbsp;<a href='javascript:;' data-id='<?= $row['id'] ?>' class="del glyphicon glyphicon-trash" ></a></small>
                         <?php }  ?>
                         

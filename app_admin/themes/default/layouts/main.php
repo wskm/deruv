@@ -31,6 +31,7 @@ $this->registerJsFile('themes/default/js/common.js');
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?> - Deruv</title>
 	<script>
+        var runSkin = true;
 		var staticUrl = '<?= \Wskm::getStaticUrl()?>';
         var siteNav = '<?= Wskm::viewVal('siteNav') ?>';		
     </script>
@@ -49,7 +50,7 @@ $this->registerJsFile('themes/default/js/common.js');
 
     <div class="site-wrap" >
             <header class="container-fluid">
-                <nav class="site-header " >
+                <nav class="site-header " style="margin-top:5px;" >
 				<?php
 				
 				$callback = function($menu){
@@ -80,7 +81,7 @@ $this->registerJsFile('themes/default/js/common.js');
                                 <span class="glyphicon glyphicon-bell"></span>
                                 <span class="badge" id="headnotice-count" style="position: absolute; right: 0;top: 0;padding: 2px;min-width: 16px;"></span>
                             </a>
-							<ul class="dropdown-menu dropdown-menu-right headnotice-menu" >
+							<ul class="dropdown-menu dropdown-menu-right headnotice-menu " id="notice-menu" >
 							</ul>
 
 						</li>

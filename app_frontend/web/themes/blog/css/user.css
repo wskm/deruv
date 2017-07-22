@@ -1,0 +1,73 @@
+.header {
+    width: 380px;
+}
+
+.main .box {
+    width: 380px;
+    margin: 30px auto 0;
+    padding: 30px 50px 60px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0,0,0,.1);
+    vertical-align: middle;
+    /*display: inline-block;*/
+}
+.box h2{
+    text-align: center;
+	padding-bottom:20px;
+}
+.box h2 a{
+	color:#c7c7c7;
+}
+.box h2 .active{
+	color:#333;
+}
+
+.box .postform{
+	width:280px;
+	margin: 0 auto;
+}
+
+.box .form-group {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.box , .form-group .form-control{box-sizing:border-box}
+.box .control-label{
+    font-size: 12px;
+}
+.box .form-group .form-control {
+    width: 100%;
+    height: 36px;
+    margin-bottom: 0;
+    padding: 5px 8px;
+    border: 1px solid #c8c8c8;
+    /*background-color: hsla(0,0%,71%,.1);*/
+    vertical-align: middle;
+}
+.box .remember-item{
+	font-size:12px;
+	margin-bottom: 20px;
+}
+.box .has-error .help-block{
+    color: #a94442;
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size:12px;
+}
+.box .submit{
+    clear: both;
+	width: 100%;
+    padding: 9px 18px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    background: #42c02e;
+    cursor: pointer;
+    outline: none;
+    display: block;
+}

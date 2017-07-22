@@ -36,6 +36,7 @@ class LoginForm extends Model
         return [
             'username' => \Wskm::t('User Name'),
             'password' => \Wskm::t('Password'),
+            'rememberMe' => \Wskm::t('Remember Me', 'user'),
         ];
     }
 
