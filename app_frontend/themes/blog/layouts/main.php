@@ -50,16 +50,17 @@ frontend\assets\JqueryAsset::register($this);
 				<a href="/atom.xml" target="_blank"><img src="./themes/blog/img/feed.png"></a>
 			</div>
 		</div>		
-        <div class="main">
-			<?= Alert::widget() ?>
+        <div class="main" id="site-main">
+            <?= \common\widgets\Alert::widget() ?>
+
 			<?= $content ?>
         </div>
     </div>
     
     <div id="sidepanel" style="display:none" >
-		<a href="javascript:;" class="glyphicon glyphicon-circle-arrow-up" ></a>
+		<a href="javascript:;" class="css3top" ></a>
 	</div>
-	<script src="./themes/default/js/site.js"></script>
+	<script src="./themes/blog/js/site.js"></script>
 	<script>
 		$(function(){
 			getUser('<?= Wskm::url(['site/userinfo']) ?>');

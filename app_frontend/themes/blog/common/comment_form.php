@@ -8,5 +8,18 @@
 						<button type="submit" class="debtn debtn-default"><?= \Wskm::t('Submit') ?></button>
 					</div>
 				</form>
-				
+				<script>
+					$('#formComment').submit(function(){
+						var objMsg = $('#msg');
+						var msg = $.trim(objMsg.val());
+						if (!msg) {
+							objMsg.val('');
+							alert('<?php echo \Wskm::t('{attribute} cannot be blank.', 'yii',[
+								'attribute' => \Wskm::t('Comment'),
+							]) ?>');
+							return false;
+						}
+						return true;
+					});
+				</script>
 			</div>

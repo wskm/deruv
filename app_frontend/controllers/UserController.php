@@ -1,69 +1,187 @@
 <?php
+
 namespace frontend\controllers;
 
 use Yii;
 use yii\data\ActiveDataProvider;
+use yii\filters\AccessControl;
+use yii\web\NotFoundHttpException;
+use yii\web\ServerErrorHttpException;
+
 use common\models\Content;
 use common\models\Article;
 
 class UserController extends BaseController
 {
-	public function actionIndex()
+
+    public function behaviors()
     {
-		return $this->render('profile');
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
+        ];
     }
-	
-	public function actionContributes()
+
+    public function actionIndex()
     {
-		$dataProvider = new ActiveDataProvider([
-            'query' => Content::find()->where([
-				'user_id' => $this->getUser()->id,
-			]),
-			'sort' => [
-				'defaultOrder' => [
-					'created_at' => SORT_DESC,            
-				]
-			], 
+        $model = $this->user;
+        $ok = $model->load(Yii::$app->request->post());
+        if ($model->newPassword && !$model->currentPassword) {
+            $model->addError('currentPassword', \Wskm::t('{attribute} cannot be blank.', 'yii', [
+                'attribute' => \Wskm::t('Current Password', 'user'),
+            ]));
+
+            $ok = false;
+        }
+
+        if ($ok) {
+            $ok = $model->save();
+            if ($ok) {
+                Yii::$app->session->addFlash('success', \Wskm::t('Successful operation'));
+                return $this->refresh();
+            }
+        }
+
+        return $this->render('profile', [
+            'model' => $model
         ]);
-		
-		return $this->render('index', [
-					'dataProvider' => $dataProvider,
-		]);
     }
-	
-	public function actionContribute()
+
+    public function actionContributes()
     {
-		$model = new Content();
-		$modelArticle = new Article();
+        $dataProvider = new ActiveDataProvider([
+            'query' => Content::find()->where([
+                'user_id' => $this->getUser()->id,
+            ]),
 
-		if ($model->load(Yii::$app->request->post()) && $modelArticle->load(Yii::$app->request->post())) {
-			$model->user_id = $this->user->id;
-			$model->user_name = $this->user->username;
+            'sort' => [
+                'defaultOrder' => [
+                    'created_at' => SORT_DESC,
+                ]
+            ],
+        ]);
 
-			$model->updated_at = time();
-			$modelArticle->updated_at = $model->updated_at;
+        return $this->render('contributes', [
+            'dataProvider' => $dataProvider,
+        ]);
+    }
 
-			$isValid = $model->validate();
-			$isValid = $modelArticle->validate() && $isValid;
-			if ($isValid) {
-				$model->status = \service\Setting::getConf('content', 'userPublishedAudit') ? 2 : 1;
+    public function actionContribute()
+    {
+        $model = new Content();
+        $modelArticle = new Article();
 
-				$model->save(false);
+        if ($model->load(Yii::$app->request->post()) && $modelArticle->load(Yii::$app->request->post())) {
+            $model->user_id = $this->user->id;
+            $model->user_name = $this->user->username;
 
-				$modelArticle->content_id = $model->id;
-				$modelArticle->detail = \yii\helpers\HtmlPurifier::process($modelArticle->detail);
+            $model->updated_at = time();
+            $modelArticle->updated_at = $model->updated_at;
 
-				$modelArticle->save(false);
+            $isValid = $model->validate();
+            $isValid = $modelArticle->validate() && $isValid;
+            if ($isValid) {
+                $model->status = \service\Setting::getConf('content', 'userPublishedAudit') ? 2 : 1;
 
-				return $this->redirect(['contributes']);
+                $model->save(false);
+
+                $modelArticle->content_id = $model->id;
+                $modelArticle->detail = \yii\helpers\HtmlPurifier::process($modelArticle->detail);
+
+                $modelArticle->save(false);
+
+                return $this->redirect(['contributes']);
+            }
+        }
+
+        $model->iscomment = 1;
+        return $this->render('contribute', [
+            'model' => $model,
+            'article' => $modelArticle,
+        ]);
+    }
+    
+    public function actionContributeUpdate($id)
+    {
+        $model = Content::findOne([
+            'id' => $id,
+        ]);
+        if (!$model) {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+        
+        if ($model->user_id != $this->user->id) {
+            throw new ServerErrorHttpException('You are not allowed to perform this action.');
+        }
+        
+        $modelArticle = $model->article;
+
+        if ($model->load(Yii::$app->request->post()) && $modelArticle->load(Yii::$app->request->post())) {
+
+            $model->updated_at = time();
+            $modelArticle->updated_at = $model->updated_at;
+
+            $isValid = $model->validate();
+            $isValid = $modelArticle->validate() && $isValid;
+            if ($isValid) {
+
+                $model->save(false);
+
+                $modelArticle->detail = \yii\helpers\HtmlPurifier::process($modelArticle->detail);
+                $modelArticle->save(false);
+
+                return $this->redirect(['contributes']);
+            }
+        }
+
+        return $this->render('contribute', [
+            'model' => $model,
+            'article' => $modelArticle,
+        ]);
+    }
+    
+    public function actionDelete($id)
+    {
+        $id = (int)$id;
+        $model = Content::findOne([
+            'id' => $id,
+        ]);
+        if (!$model) {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+        
+        if ($model->user_id != $this->user->id) {
+            throw new ServerErrorHttpException('You are not allowed to perform this action.');
+        }
+        
+        $files = \common\models\Files::find()->select(['id'])->where([
+					'content_id' => $id
+				])->all();
+		foreach ($files as $file) {
+
+			$ok = \service\Files::del($file->id);
+			if (isset($ok['error'])) {
+				Yii::$app->session->addFlash('error', $ok['error']);
 			}
 		}
-	
-		$model->iscomment = 1;
-		return $this->render('contribute', [
-					'model' => $model,
-					'article' => $modelArticle,
-		]);
+
+		$ok = \common\models\Article::findOne([
+					'content_id' => $id
+				])->delete();
+
+		if ($ok !== false) {
+			$model->delete();
+		}
+
+		return $this->redirect(['contributes']);
+        
     }
-	
+
 }

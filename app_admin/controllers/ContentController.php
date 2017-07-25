@@ -164,6 +164,7 @@ class ContentController extends CoreController
 	public function actionDelete($id)
 	{
 		$id = (int) $id;
+        $model = $this->findModel($id);
 		$files = \common\models\Files::find()->select(['id'])->where([
 					'content_id' => $id
 				])->all();
@@ -180,9 +181,8 @@ class ContentController extends CoreController
 				])->delete();
 
 		if ($ok !== false) {
-			$this->findModel($id)->delete();
+			$model->delete();
 		}
-
 
 		return $this->redirect(['index']);
 	}

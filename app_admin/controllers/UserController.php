@@ -46,8 +46,23 @@ class UserController extends CoreController
 
 	public function actionProfile()
     {
-		$model = $this->findModel($this->getUser()->id);
-		$model->load(Yii::$app->request->post()) && $model->save();
+        $model = $this->user;
+        $ok = $model->load(Yii::$app->request->post());
+        if ($model->newPassword && !$model->currentPassword) {
+            $model->addError('currentPassword', \Wskm::t('{attribute} cannot be blank.', 'yii', [
+                'attribute' => \Wskm::t('Current Password', 'user'),
+            ]));
+
+            $ok = false;
+        }
+
+        if ($ok) {
+            $ok = $model->save();
+            if ($ok) {
+                Yii::$app->session->addFlash('success', \Wskm::t('Successful operation'));
+                return $this->refresh();
+            }
+        }
 		
 		return $this->render('update', [
                 'model' => $model,

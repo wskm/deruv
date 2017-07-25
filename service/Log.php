@@ -48,8 +48,8 @@ class Log
 
 		$log = new LogAction();
 		$log->title = Wskm::t($title);
-		$log->user_id = Wskm::getUser()->id;
-		$log->user_name = Wskm::getUser()->username;
+		$log->user_id = Wskm::getUser(false)->id;
+		$log->user_name = Wskm::getUser(false)->username;
 		$log->url = Yii::$app->request->url;
 		$log->type = $type;
 		$log->level = $level;

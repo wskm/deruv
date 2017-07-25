@@ -173,6 +173,11 @@ class CommentController extends BaseController
         }
 
         $commentObj = $this->findModel($id);
+        
+        if ($commentObj->user_id != $this->user->id) {
+            throw new ServerErrorHttpException('You are not allowed to perform this action.');
+        }
+        
         $contentObj = Content::findOne($commentObj->content_id);
         if (!$contentObj) {
             throw new \yii\web\NotFoundHttpException('The requested page does not exist.');

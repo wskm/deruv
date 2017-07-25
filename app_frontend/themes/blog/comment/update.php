@@ -7,16 +7,11 @@ use yii\widgets\LinkPager;
 $this->title = \Wskm::t('Update').':'.\Wskm::t('Comment');
 
 ?>
+<link rel="stylesheet" href="./themes/blog/css/view.css" type="text/css">
 
 <h2 style="margin: 10px 0 25px 0;"><a href="<?= \Wskm::url(['/article', 'id' => $modelContent->id ]) ?>"  ><?= $modelContent->title ?></a></h2>
-
-<div class="row">
-	<div class="col-xs-12 " >
 		
-		<?= $this->render('/common/comment_form', [
-				'content_id' => $modelContent->id,
-                'comment' => $model
-			]) ?>
-	</div>
-	
-</div>
+<?= $this->render('/common/comment_form', [
+        'content_id' => $modelContent->id,
+        'comment' => $model
+    ]) ?>

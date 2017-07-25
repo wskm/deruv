@@ -51,6 +51,10 @@ $temp->thumb = $model->avatar;
     <?= $form->field($model, 'status')->dropDownList(\service\User::getListStatus()) ?>
 	<?php } ?>
 	
+    <?php if($model->id == \Wskm::getUser()->id) { ?>
+	<?= $form->field($model, 'currentPassword')->passwordInput() ?>
+	<?php } ?>
+    
 	<?= $form->field($model, 'newPassword')->passwordInput() ?>
     <?= $form->field($model, 'newPasswordConfirm')->passwordInput() ?>
 	

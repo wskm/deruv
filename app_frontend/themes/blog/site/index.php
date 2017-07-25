@@ -38,7 +38,7 @@ $list = $data['list'];
 <?php }else{ ?>
 <?= Wskm::t('No results found.', 'yii') ?>
 <?php } ?>
-
+<!--
 <div class="categorys">
     <a href="#">衣服</a>&nbsp;&nbsp;
     <a href="#">短裤</a>&nbsp;&nbsp;
@@ -89,3 +89,4 @@ $list = $data['list'];
     <a href="#">短裤</a>&nbsp;&nbsp;
     <a href="#">保龄球</a>&nbsp;&nbsp;
 </div>
+-->

@@ -64,4 +64,5 @@ return [
 	'Please select' => '请选择',
 	'Verify code' => '验证码',
 	
+    'Successful operation' => '操作成功',
 ];

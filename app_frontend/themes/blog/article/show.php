@@ -39,3 +39,9 @@ $UrlNext = Content::getUrlNext($model->id);
     'content_id' => $model->id
 ]) ?>
 <?php } ?>
+
+<script>
+	$(function(){
+		statContent('<?= Wskm::url(['stat/content', 'id' => $model->id]) ?>');
+	});
+</script>

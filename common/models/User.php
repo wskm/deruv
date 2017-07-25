@@ -70,8 +70,8 @@ class User extends AdminAR implements IdentityInterface
             [['newPassword', 'newPasswordConfirm'], 'required', 'on' => ['reset']],
             [['newPasswordConfirm'], 'compare', 'compareAttribute' => 'newPassword', 'message' => Yii::t('user', 'Passwords do not match')],
 			
-			[['currentPassword'], 'validateCurrentPassword', 'on' => ['account']],
-			[['currentPassword'], 'required', 'on' => ['account']],
+			[['currentPassword'], 'validateCurrentPassword'], //, 'on' => ['account']
+			[['currentPassword', 'newPassword', 'newPasswordConfirm'], 'required', 'on' => ['account']],
         ];
     }
 
@@ -241,7 +241,7 @@ class User extends AdminAR implements IdentityInterface
     public function validateCurrentPassword()
     {
         if (!$this->validatePassword($this->currentPassword)) {
-            $this->addError("currentPassword", "Current password incorrect");
+            $this->addError("currentPassword", Yii::t('user', "Current password incorrect"));
         }
     }
 }
