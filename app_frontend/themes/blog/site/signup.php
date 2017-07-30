@@ -7,8 +7,7 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
-$this->title = 'Signup';
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = \Wskm::t('Signup');
 ?>
 <link rel="stylesheet" href="./themes/blog/css/user.css" type="text/css">
 <div class="box" >
@@ -31,6 +30,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <?= $form->field($model, 'password')->passwordInput([
                 'placeholder' => Wskm::t('Enter password', 'user'), 
+                ])->label(false) ?>
+            
+            <?= $form->field($model, 'passwordConfirm')->passwordInput([
+                'placeholder' => Wskm::t('Enter password confirm', 'user'), 
                 ])->label(false) ?>
 
             <div class="form-group">

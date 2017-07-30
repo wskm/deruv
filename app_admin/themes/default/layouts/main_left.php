@@ -171,7 +171,8 @@ $this->registerJsFile('themes/default/js/common.js');
                 <ul class="dropdown-menu">
                  <li><a href="<?= Url::to(['/user/profile']) ?>"><?= Wskm::t('Profile', 'user') ?></a></li>
                  <li><a href="<?= Url::to(['/site/logout']) ?>" ><?= Wskm::t('Logout') ?></a></li>
-                 
+                 <li class="divider"></li>
+                 <li><a href="<?= Wskm::getWebUrl() ?>" target="_blank" ><?= Wskm::t('Frontend Url', 'admin') ?></a></li>
                 </ul>
               </li>
               <!-- Control Sidebar Toggle Button -->

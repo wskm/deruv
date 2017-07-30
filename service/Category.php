@@ -4,6 +4,7 @@ namespace service;
 
 use Yii;
 use common\models\Category as CategoryModel;
+use wskm\helpers\Tree;
 
 class Category
 {
@@ -17,7 +18,7 @@ class Category
 	public static function loadTree()
 	{
 		if (!is_object(self::$tree)) {
-			self::$tree = new \wskm\Tree();
+			self::$tree = new Tree();
 			self::$tree->setTree(self::getList(), 'id', 'parentid', 'name');
 		}
 
@@ -100,7 +101,7 @@ class Category
 			return false;
 		}
 		$list = self::getList();
-		$tree = new \wskm\Tree();
+		$tree = new Tree();
 		$tree->setTree($list, 'id', 'parentid', 'name');
 		
 		\wskm\Cache::set(self::CACHE_TREE, $tree->getTreeList());

@@ -23,6 +23,7 @@ class Setting extends AdminAR
 			[['k', 'v'], 'trim'],
 			['type', 'in', 'range' => [0, 1]],
 			[['v', 'out'], 'default', 'value' => '' ],
+            [['k', 'v'], 'string', 'max' => 255],
         ];
     }
 

@@ -16,6 +16,10 @@ class CategoryController extends BaseController
 		if (!$category['status']) {
 			throw new \yii\web\HttpException(500, \Wskm::t('This category has been disabled', 'frontend'));
 		}
+        
+        if ($category['gourl']) {
+            return $this->redirect($category['gourl']);
+        }
 
 		$childIds = \service\Category::getChilds($id);
 		$childIds[] = $id;

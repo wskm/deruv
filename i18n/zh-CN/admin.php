@@ -85,6 +85,8 @@ return [
 	'System' => '系统',
 	'Image' => '图片',
 	'Cache' => '缓存',
+    
+    'Frontend Url' => '前台网站',
 	
     'View all' => '查看所有',
 	'Update Cache' => '更新缓存',

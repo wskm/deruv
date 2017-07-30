@@ -32,8 +32,8 @@ var char = {
             toolbox: {
                 show : true,
                 feature : {                                                            
-                    magicType : {show: true, type: ['line', 'bar']},
-                    dataView : {show: true, readOnly: false},
+                    magicType : {show: true, type: ['line', 'bar'] },
+                    dataView : {show: true, readOnly: false },
                     restore : {show: true},
                     saveAsImage : {show: true}
                 }                           

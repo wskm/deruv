@@ -26,12 +26,15 @@ return [
 	'Logout' => '注销',
     'Signup' => '注册',
 	'Name' => '名称',
+    'User ID' => '用户ID',
 	'User Name' => '用户名',
 	'Password' => '密码',
 	'Avatar' => '头像',
 	'Profile' => '个人中心',
 	'Incorrect username or password.' => '用户名或密码错误',
 	
+    'Email' => '邮箱',
+
 	'Add' => '新增',
 	'Create' => '新增',
 	'Update' => '更新',

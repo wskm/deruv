@@ -18,7 +18,7 @@ frontend\assets\JqueryAsset::register($this);
   <title><?= Html::encode($this->title) ?> | <?= \service\Setting::getParamConf('webName') ?></title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta name="description">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="<?= Yii::$app->controller->id ?>">
   <meta property="og:title" content="<?= Html::encode($this->title) ?>" >
   <meta property="og:url" content="<?= Yii::$app->request->absoluteUrl ?>" >
   <meta property="og:site_name" content="<?= \service\Setting::getParamConf('webName') ?>">
@@ -47,7 +47,7 @@ frontend\assets\JqueryAsset::register($this);
                     <a href="<?= Wskm::url(['/user']) ?>" id="user-name" ><?= Wskm::t('Profile') ?></a>&nbsp;
                     <a href="<?= Wskm::url(['/site/logout']) ?>"><?= \Wskm::t('Logout') ?></a>
                 </span>
-				<a href="/atom.xml" target="_blank"><img src="./themes/blog/img/feed.png"></a>
+				<a href="<?= Wskm::url(['feed/atom']) ?>" target="_blank"><img src="./themes/blog/img/feed.png"></a>
 			</div>
 		</div>		
         <div class="main" id="site-main">

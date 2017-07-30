@@ -7,7 +7,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
-$this->title = 'Login';
+$this->title = Wskm::t('Login');
 ?>
 <link rel="stylesheet" href="./themes/blog/css/user.css" type="text/css">
 <div class="box" >

@@ -1,6 +1,7 @@
 <?php
 namespace frontend\models;
 
+use Yii;
 use yii\base\Model;
 use common\models\User;
 
@@ -12,7 +13,7 @@ class SignupForm extends Model
     public $username;
     public $email;
     public $password;
-
+    public $passwordConfirm;
 
     /**
      * @inheritdoc
@@ -22,17 +23,20 @@ class SignupForm extends Model
         return [
             ['username', 'trim'],
             ['username', 'required'],
-            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This username has already been taken.'],
-            ['username', 'string', 'min' => 2, 'max' => 255],
+            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => Yii::t('user', 'This username has already been taken.')],
+            ['username', 'string', 'min' => 4, 'max' => 255],
 
             ['email', 'trim'],
             ['email', 'required'],
             ['email', 'email'],
             ['email', 'string', 'max' => 255],
-            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This email address has already been taken.'],
+            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => Yii::t('user', 'This email address has already been taken.')],
 
-            ['password', 'required'],
-            ['password', 'string', 'min' => 6],
+            [['password', 'passwordConfirm' ], 'required'],
+            ['password', 'string', 'min' => 4],
+            [['password'], 'filter', 'filter' => 'trim'],
+            [['passwordConfirm'], 'compare', 'compareAttribute' => 'password', 'message' => Yii::t('user', 'Passwords do not match')],
+
         ];
     }
 
@@ -61,6 +65,7 @@ class SignupForm extends Model
         return [
             'username' => \Wskm::t('User Name'),
             'password' => \Wskm::t('Password'),
+            'passwordConfirm' => Yii::t('user', 'New Password Confirm'),
         ];
     }
 }

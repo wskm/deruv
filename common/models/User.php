@@ -64,7 +64,7 @@ class User extends AdminAR implements IdentityInterface
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
 			
-			[['newPassword'], 'string', 'min' => 3],
+			[['newPassword'], 'string', 'min' => 4],
             [['newPassword'], 'filter', 'filter' => 'trim'],
             [['username', 'email', 'newPassword', 'newPasswordConfirm'], 'required', 'on' => ['register']],
             [['newPassword', 'newPasswordConfirm'], 'required', 'on' => ['reset']],

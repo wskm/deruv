@@ -35,10 +35,15 @@ $model = \Wskm::getUser();
 	]); ?>
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-3">
+            <?php if($model->avatar){ ?>
             <img src="<?= $model->avatar ?>" height="100" />
+            <?php } ?>
         </div>
     </div>
-    <?= $form->field($model, 'avatar')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'avatar')->textInput([
+        'placeholder' => 'http://', 
+        'maxlength' => true
+     ]) ?>
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
     

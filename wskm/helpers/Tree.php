@@ -1,6 +1,6 @@
 <?php
 
-namespace wskm;
+namespace wskm\helpers;
 
 class Tree
 {

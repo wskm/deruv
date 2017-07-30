@@ -39,11 +39,6 @@ $this->registerJsFile('themes/default/js/common.js');
     <?php $this->head() ?>
     <link href="css/toastr.min.css" rel="stylesheet">
 	<link href="themes/default/css/admin.css" rel="stylesheet">
-	<style>
-		.breadcrumb{
-			margin-bottom: 15px;
-		}
-	</style>
 </head>
 <body>
 <?php $this->beginBody() ?>
@@ -59,7 +54,8 @@ $this->registerJsFile('themes/default/js/common.js');
 						'label' => \Wskm::t($menu['name'], 'admin'), 
 						'url' => [$menu['route']],
 						'options' => [ 
-							'id' => 'siteNav-'.$menu['name'],
+							'id' => 'siteNav-'.md5($menu['name']) ,
+                            'nav_route' => 'route'.str_replace('/', '_', $menu['route']) ,
 						],
 						'items' => $menu['children']
 					];
@@ -100,6 +96,7 @@ $this->registerJsFile('themes/default/js/common.js');
                            <ul class="dropdown-menu" role="menu">
                               <li><a href="javascript:;" onclick="skinSwitch()" ><?= Wskm::t('Skinning', 'admin') ?></a></li>
                               <li><a href="<?= Url::to(['/user/profile']) ?>"><?= Wskm::t('Profile', 'user') ?></a></li>
+                              <li><a href="<?= Wskm::getWebUrl() ?>" target="_blank" ><?= Wskm::t('Frontend Url', 'admin') ?></a></li>
 							  <li class="divider"></li>
                               <li><a href="<?= Url::to(['/site/logout']) ?>"><?= Wskm::t('Logout') ?></a></li>
                             </ul>
@@ -156,11 +153,15 @@ $this->registerJsFile('themes/default/js/common.js');
             
         <script>
         
+        var navRoute = '<?= (Yii::$app->controller->module->id != 'app-admin' ? '_'.Yii::$app->controller->module->id :'') ?>_<?= Yii::$app->controller->id .'_'.Yii::$app->controller->action->id?>';
+        var siteNav = '<?= md5(Wskm::viewVal('siteNav')) ?>';
         if(siteNav == ''){
-            siteNav = 'Home';
+            siteNav = '<?= md5('Home') ?>';
         }
 
-        $('#siteNav-'+ siteNav).addClass('active');
+        $('#siteNav-'+ siteNav).addClass('active menu-open');
+        $('li[nav_route=route' + navRoute + ']').addClass('active menu-open');
+        $('li[nav_route=route' + navRoute + ']').parents('li:first').addClass('active menu-open');
         </script>
 		
 		<?php $this->endBody() ?>

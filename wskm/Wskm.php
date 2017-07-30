@@ -6,6 +6,8 @@ use wskm\web\Url;
 
 class Wskm
 {
+    public static $version = '0.9.1';
+    
 	public static function get($name = null, $defaultValue = null)
 	{
 		return Yii::$app->request->get($name, $defaultValue);

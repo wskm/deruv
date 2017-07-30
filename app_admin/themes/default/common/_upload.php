@@ -8,7 +8,9 @@
 <script>
 	$(function(){
 		$("#blockUpload").fileinput({
+            <?php if(Yii::$app->language == 'zh-CN'){ ?>
 			language : "zh",
+            <?php } ?>
 			uploadUrl : "<?= \yii\helpers\Url::to(['upload/file']) ?>",
 			overwriteInitial: true,
 			showClose: false,

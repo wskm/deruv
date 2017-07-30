@@ -22,7 +22,7 @@ $list = $data['list'];
         <?= Yii::$app->formatter->asText($row['summary']) ?>
         </div>
         <div class="meta" >
-        <?= Yii::$app->formatter->asRelativeTime($row['updated_at']) ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= Wskm::t('View') ?>&nbsp;<?= $row['pv'] ?>
+        <?= Wskm::t('View') ?>&nbsp;<?= $row['pv'] ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= Yii::$app->formatter->asRelativeTime($row['updated_at']) ?>
         </div>
     </li>
     <?php } ?>
@@ -38,55 +38,3 @@ $list = $data['list'];
 <?php }else{ ?>
 <?= Wskm::t('No results found.', 'yii') ?>
 <?php } ?>
-<!--
-<div class="categorys">
-    <a href="#">衣服</a>&nbsp;&nbsp;
-    <a href="#">短裤</a>&nbsp;&nbsp;
-    <a href="#">保龄球</a>&nbsp;&nbsp;
-    <a href="#">衣服</a>&nbsp;&nbsp;
-    <a href="#">短裤</a>&nbsp;&nbsp;
-    <a href="#">保龄球</a>&nbsp;&nbsp;
-    <a href="#">衣服</a>&nbsp;&nbsp;
-    <a href="#">短裤</a>&nbsp;&nbsp;
-    <a href="#">保龄球</a>&nbsp;&nbsp;
-    <a href="#">衣服</a>&nbsp;&nbsp;
-    <a href="#">短裤</a>&nbsp;&nbsp;
-    <a href="#">保龄球</a>&nbsp;&nbsp;
-    <a href="#">衣服</a>&nbsp;&nbsp;
-    <a href="#">短裤</a>&nbsp;&nbsp;
-    <a href="#">保龄球</a>&nbsp;&nbsp;
-    <a href="#">衣服</a>&nbsp;&nbsp;
-    <a href="#">短裤</a>&nbsp;&nbsp;
-    <a href="#">保龄球</a>&nbsp;&nbsp;
-    <a href="#">衣服</a>&nbsp;&nbsp;
-    <a href="#">短裤</a>&nbsp;&nbsp;
-    <a href="#">保龄球</a>&nbsp;&nbsp;
-    <a href="#">衣服</a>&nbsp;&nbsp;
-    <a href="#">短裤</a>&nbsp;&nbsp;
-    <a href="#">保龄球</a>&nbsp;&nbsp;
-    <a href="#">衣服</a>&nbsp;&nbsp;
-    <a href="#">短裤</a>&nbsp;&nbsp;
-    <a href="#">保龄球</a>&nbsp;&nbsp;
-    <a href="#">衣服</a>&nbsp;&nbsp;
-    <a href="#">短裤</a>&nbsp;&nbsp;
-    <a href="#">保龄球</a>&nbsp;&nbsp;
-    <a href="#">衣服</a>&nbsp;&nbsp;
-    <a href="#">短裤</a>&nbsp;&nbsp;
-    <a href="#">保龄球</a>&nbsp;&nbsp;
-    <a href="#">衣服</a>&nbsp;&nbsp;
-    <a href="#">短裤</a>&nbsp;&nbsp;
-    <a href="#">保龄球</a>&nbsp;&nbsp;
-    <a href="#">衣服</a>&nbsp;&nbsp;
-    <a href="#">短裤</a>&nbsp;&nbsp;
-    <a href="#">保龄球</a>&nbsp;&nbsp;
-    <a href="#">衣服</a>&nbsp;&nbsp;
-    <a href="#">短裤</a>&nbsp;&nbsp;
-    <a href="#">保龄球</a>&nbsp;&nbsp;
-    <a href="#">衣服</a>&nbsp;&nbsp;
-    <a href="#">短裤</a>&nbsp;&nbsp;
-    <a href="#">保龄球</a>&nbsp;&nbsp;
-    <a href="#">衣服</a>&nbsp;&nbsp;
-    <a href="#">短裤</a>&nbsp;&nbsp;
-    <a href="#">保龄球</a>&nbsp;&nbsp;
-</div>
--->

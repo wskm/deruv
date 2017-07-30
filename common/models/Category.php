@@ -61,13 +61,13 @@ class Category extends \wskm\db\AdminAR
         return [
             'id' => Yii::t('category', 'ID'),
             'parentid' => Yii::t('category', 'Parentid'),
-            'name' => Yii::t('category', 'Name'),
+            'name' => Yii::t('app', 'Name'),
             'key' => Yii::t('category', 'Key'),
-            'gourl' => Yii::t('category', 'Gourl'),
+            'gourl' => Yii::t('category', 'Go Url'),
             'tpl_list' => Yii::t('category', 'Tpl List'),
             'tpl_show' => Yii::t('category', 'Tpl Show'),
-            'sorting' => Yii::t('category', 'Sorting'),
-            'status' => Yii::t('category', 'Status'),
+            'sorting' => Yii::t('app', 'Sorting'),
+            'status' => Yii::t('app', 'Status'),
         ];
     }
 

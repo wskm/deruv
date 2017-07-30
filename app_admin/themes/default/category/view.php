@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             [ 
-				'label' => '上级分类',
+				'label' => Wskm::t('Parent category', 'category'),
 				'value' => \service\Category::getInfoName($model->parentid) ,
 			],
             'name',

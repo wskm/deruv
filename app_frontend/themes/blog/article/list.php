@@ -8,51 +8,40 @@ use yii\widgets\Breadcrumbs;
 
 $this->title = $category['name'];
 
+/*
 $parents = \service\Category::getParents($category['id']);
-
 foreach($parents as $parentid){
 	if ($parentid > 0) {
 		$this->params['breadcrumbs'][] = ['label' => \service\Category::getInfoName($parentid), 'url' => ['/category', 'id' => $parentid ]];
 	}
 }
 $this->params['breadcrumbs'][] = $this->title;
+*/
 ?>
-<div class="row">
-	<div class="col-sm-8 col-xs-12 " >
+<link rel="stylesheet" href="./themes/blog/css/index.css" type="text/css">
 
-		<?= Breadcrumbs::widget([
-			'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-		]) ?>
-		
-		<div class="content-list" >
-			<?php if($list) { ?>
-			<?php foreach($list as $row){ ?>
-			<div class="media">
-				<?php if($row['thumb']){ ?>
-				<a class="media-left" href="<?= Wskm::url(['article', 'id' => $row['id']]) ?>" >
-					<img src="<?= $row['thumb'] ?>" alt="<?= $row['title'] ?>"  height="88" width="140" >
-				</a>
-				<?php } ?>
-				<div class="media-body">
-					<h4 class="media-heading"><a href="<?= Wskm::url(['article', 'id' => $row['id']]) ?>"><?= $row['title'] ?></a></h4>
-					<div class="media-foot"><?= Yii::$app->formatter->asRelativeTime($row['updated_at']) ?></div>
-				</div>
-			</div>
-			<?php } ?>
-			
-			<div class="page-wrap">
-			<?php echo LinkPager::widget([
-				'pagination' => $pages,
-			]); ?>
-			</div>
-			<?php }else{ ?>
-			<?= Wskm::t('No results found.', 'yii') ?>
-			<?php } ?>
+<?php if($list) { ?>
+<ul>
+    <?php foreach($list as $row){ ?>
+    <li>
+        <h2><a href="<?= Wskm::url(['article', 'id' => $row['id']]) ?>"><?= $row['title'] ?></a></h2>
+        <div class="summary">
+        <?= Yii::$app->formatter->asText($row['summary']) ?>
+        </div>
+        <div class="meta" >
+        <?= Wskm::t('View') ?>&nbsp;<?= $row['pv'] ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= Yii::$app->formatter->asRelativeTime($row['updated_at']) ?>
+        </div>
+    </li>
+    <?php } ?>
+</ul>
 
-		</div>
-
-	</div>
-	
-	<?= $this->render('/common/side_right') ?>
-	
+<div class="page-wrap">
+<?php echo LinkPager::widget([
+   'pagination' => $pages,
+    'options' => ['class' => 'pagination pagination-sm'] 
+]); ?>
 </div>
+
+<?php }else{ ?>
+<?= Wskm::t('No results found.', 'yii') ?>
+<?php } ?>

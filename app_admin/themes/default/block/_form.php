@@ -55,7 +55,7 @@ $this->registerJsFile('js/edit.min.js');
 		<label class="control-label col-sm-2" ><?= \Wskm::t('Title')?></label>
 		<div class="col-sm-9">
 				<div class="input-group">
-					<input type="text" class="form-control" value="<?= $model->title ?>" autocomplete="off"  name="Block[title]" id="block-title" placeholder="" maxlength="100" data-container="body" data-toggle="popover" data-trigger="manual" data-html="true" data-placement="bottom" data-content=""  >
+                    <input type="text" class="form-control" value="<?= Html::encode($model->title) ?>" autocomplete="off"  name="Block[title]" id="block-title" placeholder="" maxlength="100" data-container="body" data-toggle="popover" data-trigger="manual" data-html="true" data-placement="bottom" data-content=""  >
 					<span class="input-group-btn">
 						<button class="btn btn-default"  id="searchTitleBtn" type="button"><?= \Wskm::t('Search') ?></button>
 					</span>

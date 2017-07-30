@@ -8,7 +8,7 @@ return [
             'username' => 'root',
             'password' => 'root',
             'charset' => 'utf8',
-			'enableSchemaCache' => false,
+			'enableSchemaCache' => true,
         ],
 		'formatter' => [
 			'dateFormat' => 'yyyy-MM-dd',

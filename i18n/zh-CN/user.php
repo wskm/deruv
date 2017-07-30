@@ -4,6 +4,11 @@ return [
     'Enter your user name' => '输入用户名',
     'Enter password' => '输入密码',
     'Enter your email' => '输入你邮箱',
+    'Enter password confirm' => '再次输入密码',
+    
+    'This username has already been taken.' => '用户名已经存在',
+    'This email address has already been taken.' => '邮箱已经存在',
+    
     'Remember Me' => '记住我',
     'Forget password' => '忘记密码',
     'Reset' => '重置',

@@ -27,10 +27,15 @@ class Bower
 		}
 		
 		$staticUrl = STATIC_URL;
+        
+        $lang = '';
+        if(Yii::$app->language == 'zh-CN'){
+            $lang = '<script src="'.$staticUrl.'bower/tinymce/langs/zh_CN.js"></script>';
+        }
 		
 		$script = <<<"AAA"
 		<script src="{$staticUrl}bower/tinymce/tinymce.min.js"></script>
-		<script src="{$staticUrl}bower/tinymce/langs/zh_CN.js"></script>
+        {$lang}
 		<script>
 		tinymce.init({
 		  selector: '#{$id}',
@@ -104,10 +109,15 @@ AAA;
 	public static function getUploadStatic()
 	{
 		$staticUrl = STATIC_URL;
+        $lang = '';
+        if(Yii::$app->language == 'zh-CN'){
+            $lang = '<script src="'.$staticUrl.'bower/bootstrap-fileinput/js/locales/zh.js"></script>';
+        }
+        
 		return <<< "AAA"
 		<link href="{$staticUrl}bower/bootstrap-fileinput/css/fileinput.min.css" rel="stylesheet">
 		<script src="{$staticUrl}bower/bootstrap-fileinput/js/fileinput.min.js" ></script>
-		<script src="{$staticUrl}bower/bootstrap-fileinput/js/locales/zh.js" ></script>
+        {$lang}
 		<style>
 			.kv-avatar .krajee-default.file-preview-frame,.kv-avatar .krajee-default.file-preview-frame:hover , .file-drop-zone, .file-drop-zone.clickable:hover{
 				margin: 0;

@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
 				'attribute' => 'id',  
 				'contentOptions' => [ 'style'=> 'vertical-align: middle;' ],
 				'headerOptions' => [  
-					'width' => '5%'  
+					'width' => '6%'  
 				],				
 			], 
             [  
@@ -55,7 +55,7 @@ $this->params['breadcrumbs'][] = $this->title;
 				'attribute' => 'msg',  
 				'contentOptions' => [ 'style'=> 'vertical-align: middle;' ],				
 				'value'=> function($data){
-					return \wskm\helper\StringHelper::substr($data->msg, 0,50);
+					return \wskm\helpers\StringHelper::substr($data->msg, 0,50);
 				}
 			],
 			[  

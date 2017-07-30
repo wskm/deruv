@@ -49,6 +49,10 @@ a.desc:after {
     content: "\e156";
 }
 
+.breadcrumb{
+    margin-bottom:10px;
+}
+
 .grid-view .filters input,
 .grid-view .filters select {
     min-width: 50px;

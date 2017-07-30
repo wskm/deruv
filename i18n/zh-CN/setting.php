@@ -16,6 +16,7 @@ return [
 	'EmailPassword' => '密码',
 	'EmailPort' => '端口',
 	'EmailUserName' => '账号',
+    'EmailEncryption' => '加密方式',
 	'EnablePrettyUrl' => '开启美化链接',
 	'Language' => '语言',
 	'PageSize' => '一页显示数量',

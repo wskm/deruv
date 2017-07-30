@@ -39,7 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
 			[              
 				'attribute' => 'status',  
 				//'label' => \Wskm::t('Thumb'),
-				'value' => \service\User::getListStatus()[$model->status],
+				'value' => \common\models\User::getStatusName($model->status),
 			],
             'created_at:datetime',
             'updated_at:datetime',

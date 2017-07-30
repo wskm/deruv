@@ -18,7 +18,12 @@ $UrlNext = Content::getUrlNext($model->id);
         <a href="javascript:;" class="avatar" ><img src="<?php if($model->user->avatar){ ?><?= $model->user->avatar ?><?php }else{ ?>themes/default/img/avatar.png<?php } ?>" alt="144"></a>
 		<div class="author-info" >
 			<div class="author-name"><?= $model->user_name ?></div>
-            <div class="author-meta"><span class="date" ><?= Yii::$app->formatter->asDatetime($model->updated_at) ?></span>&nbsp;&nbsp;<?= Wskm::t('View') ?><span id="content-pv"><?= $model->pv ?></span>&nbsp;&nbsp;<a href="<?= \Wskm::url(['/comment', 'id' => $model->id ]) ?>" ><?= Wskm::t('Comment') ?><span id="content-comment"><?= $model->comment ?></span></a></div>
+            <div class="author-meta">
+                <span class="date" ><?= Yii::$app->formatter->asDatetime($model->updated_at) ?></span>
+                &nbsp;&nbsp;<a href="<?= Wskm::url(['/category', 'id' => $category['id']]) ?>" ><?= $category['name'] ?></a>
+                &nbsp;&nbsp;<a ><?= Wskm::t('View') ?><span id="content-pv"><?= $model->pv ?></span></a>
+                &nbsp;&nbsp;<a href="<?= \Wskm::url(['/comment', 'id' => $model->id ]) ?>" ><?= Wskm::t('Comment') ?><span id="content-comment"><?= $model->comment ?></span></a>
+            </div>
 		</div>
 	</div>
 

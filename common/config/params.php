@@ -1,8 +1,6 @@
 <?php
 return [
-    'adminEmail' => 'admin@example.com',
-    'supportEmail' => 'support@example.com',
-    'user.passwordResetTokenExpire' => 3600,
+    'user.passwordResetTokenExpire' => 1800,
 	
 	'uploadPath' => '@frontend/web/uploads/',
 ];

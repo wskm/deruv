@@ -139,7 +139,7 @@ class CategoryController extends CoreController
 	public function actionDelete($id)
 	{
 		if (CategoryService::getChilds($id)) {
-			throw new \yii\web\HttpException(500, 'There are subcategories.');
+			throw new \yii\web\HttpException(500, \Wskm::t('There are subcategories.', 'category'));
 		}
 
 		$count = \common\models\Content::find()

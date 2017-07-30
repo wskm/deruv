@@ -91,7 +91,7 @@ yii\bootstrap\BootstrapAsset::register($this);
 	</div>
 	<div class="container-fluid foot" >
 		<div class="foot-main" >
-			&copy; <?= \service\Setting::getParamConf('webName').'&nbsp;'.date('Y') ?>&nbsp;&nbsp;|&nbsp;&nbsp;网站地图
+			&copy; <?= \service\Setting::getParamConf('webName').'&nbsp;'.date('Y') ?><!--&nbsp;&nbsp;|&nbsp;&nbsp;SiteMap -->
 		</div>
 	</div>
 	

@@ -13,8 +13,9 @@ $this->registerJsFile('js/edit.min.js');
 ?>
 <link rel="stylesheet" href="<?= STATIC_URL ?>bower/flatpickr/dist/flatpickr.min.css">
 <script src="<?= STATIC_URL?>bower/flatpickr/dist/flatpickr.min.js"></script>
+<?php if(Yii::$app->language == 'zh-CN'){ ?>
 <script src="<?= STATIC_URL?>bower/flatpickr/dist/l10n/zh.js"></script>
-
+<?php } ?>
 <?= \wskm\web\Bower::getUploadStatic() ?>
 
 <div class="content-form">
@@ -43,7 +44,7 @@ $this->registerJsFile('js/edit.min.js');
 	<?php echo Html::hiddenInput('Content[thumb]', $model->thumb, ['id' => 'content-thumb'])	?>
 
 	<div class="form-group field-content-thumbup required">
-		<label class="control-label col-sm-2" ><?= \Wskm::t('Upload').\Wskm::t('Thumb')?></label>
+		<label class="control-label col-sm-2" ><?= \Wskm::t('Thumb')?></label>
 		<div class="col-sm-9">
 			<div class="kv-avatar" style="width:200px">
 				<input id="thumbUpload" name="Uploads[file]" type="file" class="file-loading" >
@@ -88,7 +89,9 @@ $this->registerJsFile('js/edit.min.js');
 	<script>
 	$(function(){
 		$("#thumbUpload").fileinput({
+            <?php if(Yii::$app->language == 'zh-CN'){ ?>
 			language : "zh",
+            <?php } ?>
 			uploadUrl : "<?= \yii\helpers\Url::to(['upload/file']) ?>",
 			overwriteInitial: true,
 			showClose: false,
@@ -218,7 +221,9 @@ $this->registerJsFile('js/edit.min.js');
 		
 		//flatpickr.l10ns.default.firstDayOfWeek = 1; 
 		flatpickr("#content-updated_at", {
+            <?php if(Yii::$app->language == 'zh-CN'){ ?>
 			locale : "zh",
+            <?php } ?>
 			time_24hr : true,
 			allowInput : true,
 			minuteIncrement : 1,
@@ -254,13 +259,7 @@ $this->registerJsFile('js/edit.min.js');
 			$('#content-filelink').append('<input type="hidden" name="fids[]" id="fids-'+ id +'" value="'+ id +'">');
 			//layer.close(layerIndex);
 		}
-	
-		//$("#form-content").submit( function () {
-		//} );
-		$("#form-content").bind('beforeValidate', function(){ 
-			tinyMCE.triggerSave();
-			return true;
-		});
+
 	</script>
 	
 	<?= \wskm\web\Bower::getEditor('article-detail', [
