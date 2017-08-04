@@ -48,7 +48,7 @@ $temp->thumb = $model->avatar;
 	<?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 	
 	<?php if($model->id != 1 && $model->id != \Wskm::getUser()->id) { ?>
-    <?= $form->field($model, 'status')->dropDownList(\service\User::getListStatus()) ?>
+    <?= $form->field($model, 'status')->dropDownList(User::getListStatus()) ?>
 	<?php } ?>
 	
     <?php if($model->id == \Wskm::getUser()->id) { ?>

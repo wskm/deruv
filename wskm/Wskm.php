@@ -86,6 +86,10 @@ class Wskm
 	
 	public static function getWebUrl($lastsp = true)
 	{
+        if (!defined('IN_ADMIN')) {
+            return rtrim(Yii::$app->request->baseUrl, '/').($lastsp ? '/' : '');
+        }
+        
 		$frontendUrl = \service\Setting::getParamConf('webUrl');
 		if (!$frontendUrl){
 			$baseUrl = Yii::$app->request->baseUrl;

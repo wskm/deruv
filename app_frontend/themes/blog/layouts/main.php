@@ -9,6 +9,9 @@ use common\widgets\Alert;
 
 frontend\assets\JqueryAsset::register($this);
 
+$webDescription = Html::encode(\service\Setting::getParamConf('webDescription'));
+$webKeywords = Html::encode(\service\Setting::getParamConf('webKeywords'));
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -17,14 +20,18 @@ frontend\assets\JqueryAsset::register($this);
   <meta charset="<?= Yii::$app->charset ?>">
   <title><?= Html::encode($this->title) ?> | <?= \service\Setting::getParamConf('webName') ?></title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <meta name="description">
+  <?php if($webKeywords){ ?>
+  <meta name="keywords" content="<?= $webKeywords ?>" />
+  <?php } ?>
+  <?php if($webDescription){ ?>
+  <meta name="description" content="<?= $webDescription ?>" />
+  <meta property="og:description" content='<?= $webDescription ?>' >
+  <?php } ?>
   <meta property="og:type" content="<?= Yii::$app->controller->id ?>">
   <meta property="og:title" content="<?= Html::encode($this->title) ?>" >
   <meta property="og:url" content="<?= Yii::$app->request->absoluteUrl ?>" >
   <meta property="og:site_name" content="<?= \service\Setting::getParamConf('webName') ?>">
-  <meta property="og:description">
   <?= Html::csrfMetaTags() ?>
-  <link rel="icon" href="/favicon.png" type="image/x-icon">
   <?php $this->head() ?>
   <!--<link href='http://fonts.googleapis.com/css?family=Montserrat|Roboto:400,400italic,600|Roboto+Mono' rel='stylesheet' type='text/css'>-->
   <link rel="stylesheet" href="<?= STATIC_URL ?>fonts/css/Montserrat.css" type="text/css">

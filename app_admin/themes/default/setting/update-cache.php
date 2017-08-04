@@ -34,9 +34,12 @@ $this->params['breadcrumbs'][] = $this->title;
 				<input type="checkbox"  value="content" disabled='true' id="update-content" class="caches  " > <del><?= Wskm::t('Content', 'admin') ?></del>
 			</label>
 		</div>
-    	<div class="alert alert-warning " role="alert"><?= Wskm::t('The system will automatically update the cache, generally do not need to manually update.', 'setting')?></div>
-
+        <div style="margin:0 0 10px 0">
+            <mark><?= Wskm::t('The system will automatically update the cache, generally do not need to manually update.', 'setting')?></mark>
+        </div>
+        
         <button type="button" id="updateBtn" onclick="updataCache()" class="btn btn-default"><?= Wskm::t('Update') ?></button>
+        
 </div>
 
 <script>

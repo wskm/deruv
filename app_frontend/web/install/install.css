@@ -1,0 +1,71 @@
+body {
+  font-family: "Roboto", "Helvetica Neue", "Hiragino Sans GB", "LiHei Pro", Arial, serif;
+}
+img {
+  border: none;
+}
+a {
+  color: #666;
+  text-decoration: none;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.header {
+	width:600px;
+    margin: 30px auto 10px;
+    letter-spacing: 3px;
+}
+.header img{
+	vertical-align: middle;
+    display: inline-block;
+	height: 15px;
+    margin-bottom: 3px;
+}
+
+.header a{
+    font-size:20px;
+	font-family: "Roboto", "Helvetica Neue", "Hiragino Sans GB", "LiHei Pro", Arial, serif;
+}
+
+.header,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", "Helvetica Neue", "Hiragino Sans GB", "LiHei Pro", Arial, sans-serif;
+  font-weight: 400;
+  color: #444;
+}
+
+.main {
+    max-width: 500px;
+    margin: 30px auto 60px;
+    position: relative;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0,0,0,.1);
+    min-height: 380px;
+    box-sizing: border-box;
+    padding: 10px;
+}
+.breadcrumb{
+    background-color: #fff;
+    margin-bottom:10px;
+    padding-left:0;
+}
+
+#install-msg {
+    font-size: 12px;
+    background-color: #272727;
+    box-sizing: border-box;
+    border: solid 1px #e8e8e8;
+    padding: 6px;
+    border-radius: 5px;
+    color: #bdbdbd;
+    min-height: 250px;
+    max-height: 300px;
+    overflow: auto;
+    line-height: 8px;
+}

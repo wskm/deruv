@@ -9,6 +9,10 @@ use service\Block;
 use common\widgets\Alert;
 
 yii\bootstrap\BootstrapAsset::register($this);
+
+$webDescription = Html::encode(\service\Setting::getParamConf('webDescription'));
+$webKeywords = Html::encode(\service\Setting::getParamConf('webKeywords'));
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -17,9 +21,13 @@ yii\bootstrap\BootstrapAsset::register($this);
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?> | <?= \service\Setting::getParamConf('webName') ?></title>
-	<meta name="description" content="" />
-	<meta name="keywords" content="" />
+    <title><?= Html::encode($this->title) ?> | <?= Html::encode(\service\Setting::getParamConf('webName')) ?></title>
+    <?php if($webKeywords){ ?>
+    <meta name="keywords" content="<?= $webKeywords ?>" />
+    <?php } ?>
+    <?php if($webDescription){ ?>
+    <meta name="description" content="<?= $webDescription ?>" />
+    <?php } ?>
     <?php $this->head() ?>
 	<link rel="stylesheet" href="./themes/default/css/home.css" />		
 </head>
