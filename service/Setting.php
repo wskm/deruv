@@ -56,10 +56,11 @@ class Setting
 		$list = self::getList(true);
 		\wskm\Cache::set(self::CACHE_KEY, $list);
         
-		self::writeConfig([
-            //'frontendDebug' => (bool)$list['sys']['frontendDebug'],
-            'frontendTheme' => $list['sys']['frontendTheme'],
-        ], 'sys');
+        $confFile = \yii\helpers\FileHelper::normalizePath(\Yii::getAlias('@common/config/setting.php'));
+        $setting = require $confFile;
+        $setting['frontendTheme'] = $list['sys']['frontendTheme'];
+        $phpstr = "<?php \nreturn ".var_export($setting, true).';';
+        file_put_contents($confFile, $phpstr);
 		
 		return $list;
 	}

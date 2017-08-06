@@ -14,7 +14,7 @@ JqueryAsset::register($this);
 <div class="container-fluid">
 	
 	<form class="form-horizontal" id="formWrap" method="post" action="<?= Url::to([ 'require' ]) ?>" >
-		<?= Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
+		<?php // echo Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
 		<h2>Language</h2>
 		<hr>
         <div class="form-group" >

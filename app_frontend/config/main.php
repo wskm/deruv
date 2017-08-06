@@ -6,8 +6,12 @@ $params = array_merge(
     //require(__DIR__ . '/params-local.php')
 );
 
-if (!isset($sysConfig['frontendTheme']) || !$sysConfig['frontendTheme']) {
-    $sysConfig['frontendTheme'] = 'default';
+if (!is_array($setting)) {
+    $setting = [];
+}
+
+if (!isset($setting['frontendTheme'])) {
+    $setting['frontendTheme'] = 'default';
 }
 
 $config = [
@@ -33,10 +37,10 @@ $config = [
         ],		
 		'view' => [
             'theme' => [
-                'basePath' => '@frontend/themes/'.$sysConfig['frontendTheme'],
-                'baseUrl' => '@web/themes/'.$sysConfig['frontendTheme'],
+                'basePath' => '@frontend/themes/'.$setting['frontendTheme'],
+                'baseUrl' => '@web/themes/'.$setting['frontendTheme'],
                 'pathMap' => [
-                    '@frontend/views' => '@frontend/themes/'.$sysConfig['frontendTheme'],
+                    '@frontend/views' => '@frontend/themes/'.$setting['frontendTheme'],
                 ],
             ],
         ],
@@ -56,16 +60,22 @@ $config = [
     'params' => $params,
 ];
 
-if ($sysConfig['frontendTheme'] == 'default') {
+if ($setting['frontendTheme'] == 'default') {
     $config['components']['assetManager'] = [
         //'bundles' => require(__DIR__ .DIRECTORY_SEPARATOR .(YII_ENV_PROD ? 'assets-prod.php' : 'assets-dev.php')),
         'bundles' => require(__DIR__ .DIRECTORY_SEPARATOR .'assets-prod.php'),
     ];
 }
 
+if ($setting['db']) {
+    $config['components']['db'] = $setting['db'];
+}
+
+if (isset($setting['frontendRequest']['cookieValidationKey'])) {
+    $config['components']['request']['cookieValidationKey'] = $setting['frontendRequest']['cookieValidationKey'];
+}
+
 if (YII_ENV_DEV) {
-    
-    // configuration adjustments for 'dev' environment
     $config['bootstrap'][] = 'debug';
     $config['modules']['debug'] = [
         'class' => 'yii\debug\Module',
@@ -75,7 +85,6 @@ if (YII_ENV_DEV) {
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
     ];
-
 }
 
 return $config;

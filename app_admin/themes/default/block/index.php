@@ -28,7 +28,7 @@ $this->registerJsFile('js/edit.min.js');
 				 <ul class="snav-stacked">
 			     <?php foreach($kinds as $row){ ?>
 				 <li upid="<?= $row['id'] ?>" key="<?= $row['key'] ?>" >
-					 <a href="javascript:;" class="stacked-name" style="padding-right:10px" ><?= \Wskm::t($row['name'], 'admin') ?>
+					 <a href="javascript:;" class="stacked-name" style="padding-right:10px" ><?= $row['name'] ?>
 					 
 					 </a>
 				 </li>

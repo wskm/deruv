@@ -9,7 +9,9 @@ a {
   text-decoration: none;
   transition: color 0.2s ease, border-color 0.2s ease;
 }
-
+label{
+    font-weight:400;
+}
 .header {
 	width:600px;
     margin: 30px auto 10px;

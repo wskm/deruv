@@ -21,8 +21,8 @@ $UrlNext = Content::getUrlNext($model->id);
             <div class="author-meta">
                 <span class="date" ><?= Yii::$app->formatter->asDatetime($model->updated_at) ?></span>
                 &nbsp;&nbsp;<a href="<?= Wskm::url(['/category', 'id' => $category['id']]) ?>" ><?= $category['name'] ?></a>
-                &nbsp;&nbsp;<a ><?= Wskm::t('View') ?><span id="content-pv"><?= $model->pv ?></span></a>
-                &nbsp;&nbsp;<a href="<?= \Wskm::url(['/comment', 'id' => $model->id ]) ?>" ><?= Wskm::t('Comment') ?><span id="content-comment"><?= $model->comment ?></span></a>
+                &nbsp;&nbsp;<a ><?= Wskm::t('View') ?>&nbsp;<span id="content-pv"><?= $model->pv ?></span></a>
+                &nbsp;&nbsp;<a href="<?= \Wskm::url(['/comment', 'id' => $model->id ]) ?>" ><?= Wskm::t('Comment') ?>&nbsp;<span id="content-comment"><?= $model->comment ?></span></a>
             </div>
 		</div>
 	</div>

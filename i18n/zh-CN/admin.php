@@ -67,6 +67,7 @@ return [
 	
 	'Has been used' => '已经被使用',
 	
+    'Uncategorised' => '未分类',
 	'Nav' => '网站导航条',
 	'Home News' => '首页新闻',
 	'Home Headline' => '首页头条',

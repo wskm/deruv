@@ -25,11 +25,11 @@ use yii\widgets\ActiveForm;
 
 <?= $form->field($model, 'category_id', [
 	'template' => '<div class="input-group input-group-sm"><span class="input-group-addon">{label}</span>{input}</div>',
-])->dropDownList([])->label(null, [ 'style' => 'line-height: normal']) ?>
+])->dropDownList(\service\Category::getListOptions(false), ['prompt' => \wskm::t('Please select')])->label(null, [ 'style' => 'line-height: normal']) ?>
 
 <?php echo $form->field($model, 'status', [
 	'template' => '<div class="input-group input-group-sm"><span class="input-group-addon">{label}</span>{input}</div>',
-])->dropDownList(\wskm\Status::getPublishedOrUnpublished(), ['prompt' => \wskm::t('Please select')])->label(\Wskm::t('Status', 'admin'), [ 'style' => 'line-height: normal']) ?>
+])->dropDownList(\wskm\Status::getPublishedOrUnpublished(), ['prompt' => \wskm::t('Please select')])->label(null, [ 'style' => 'line-height: normal']) ?>
 
 <div class="form-group">
 	<?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-info btn-sm']) ?>

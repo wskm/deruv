@@ -1,7 +1,6 @@
 <?php
 
 //use yii\helpers\Url;
-use Yii;
 use wskm\web\Url;
 
 class Wskm

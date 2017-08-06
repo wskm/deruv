@@ -1,9 +1,11 @@
 <?php 
 return array (
+  'installed' => true,
+  'frontendTheme' => 'blog',
   'db' => 
   array (
     'class' => 'yii\\db\\Connection',
-    'dsn' => 'mysql:host=localhost;port=3306;dbname=test',
+    'dsn' => 'mysql:host=localhost;port=3306;dbname=deruv',
     'username' => 'root',
     'password' => 'root',
     'charset' => 'utf8mb4',
@@ -12,10 +14,10 @@ return array (
   ),
   'adminRequest' => 
   array (
-    'cookieValidationKey' => 'E_WkMXOaxbQNZIdqPXAlFgQFECCSFjSO',
+    'cookieValidationKey' => 'heqRlfbZWXWcaMq_ics-tfzYbmLg7xFr',
   ),
   'frontendRequest' => 
   array (
-    'cookieValidationKey' => 'vNkKaC-BJioM3J9zoHtY8HhyJuisL4sO',
+    'cookieValidationKey' => 'jJFDsyae57tCo5XGqHKSBOlidm6qA4x-',
   ),
 );

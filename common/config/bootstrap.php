@@ -10,3 +10,5 @@ Yii::setAlias('@wskm', dirname(dirname(__DIR__)) . '/wskm');
 
 Yii::$classMap['Wskm'] = '@wskm/Wskm.php';
 
+error_reporting(E_ALL ^ E_NOTICE);
+

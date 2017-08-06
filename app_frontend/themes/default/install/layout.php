@@ -3,7 +3,6 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
-use Wskm;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use service\Block;
@@ -19,7 +18,7 @@ use yii\widgets\Breadcrumbs;
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?= Html::csrfMetaTags() ?>
+    <?php // echo Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?> | Deruv Install</title>
     <?php $this->head() ?>
     <link rel="stylesheet" href="<?= STATIC_URL ?>fonts/css/Montserrat.css" type="text/css">

@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
 				'format' => 'raw',
 				'attribute' => 'level',  
 				'headerOptions' => [  
-					'width' => 60  
+					'width' => 66  
 				],
 				'value'=> function($data){
 					return  '<span class="'.($data->level > 0 ? 'text-danger' : 'text-success').'" >'.\service\Log::getListLevel()[$data->level].'</span>';

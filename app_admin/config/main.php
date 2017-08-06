@@ -81,6 +81,13 @@ $config = [
     'params' => $params,
 ];
 
+if ($setting['db']) {
+    $config['components']['db'] = $setting['db'];
+}
+
+if (isset($setting['adminRequest']['cookieValidationKey'])) {
+    $config['components']['request']['cookieValidationKey'] = $setting['adminRequest']['cookieValidationKey'];
+}
 
 if (YII_ENV_DEV) {
     

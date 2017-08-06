@@ -35,7 +35,7 @@ $this->registerJsFile('js/edit.min.js');
 		],
 	]); ?>
 
-	<?= $form->field($model, 'category_id')->dropDownList(\service\Category::getListOptions(false, $model->category_id), [
+	<?= $form->field($model, 'category_id')->dropDownList(\service\Category::getListOptions(false), [
 		'encode'=>false,
 		//'style' => 'width:280px',
 		])->label(\Wskm::t('Category', 'admin'))?>	

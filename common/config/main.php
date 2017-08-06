@@ -2,6 +2,7 @@
 return [
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'components' => [
+        /*
         'db' => [
             'class' => 'yii\\db\\Connection',
             'dsn' => 'mysql:host=localhost;dbname=test',
@@ -11,6 +12,7 @@ return [
             'tablePrefix' => 'de_', 
 			'enableSchemaCache' => true,
         ],
+         */
 		'formatter' => [
 			'dateFormat' => 'yyyy-MM-dd',
 			'datetimeFormat' => 'yyyy-MM-dd HH:mm:ss',
