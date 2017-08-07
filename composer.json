@@ -4,13 +4,10 @@
     "keywords": ["yii2", "framework", "cms", "blog"],
     "homepage": "http://www.deruv.com/",
     "type": "project",
-    "license": "BSD-3-Clause",
+    "license": "MIT",
     "support": {
-        "issues": "https://github.com/yiisoft/yii2/issues?state=open",
-        "forum": "http://www.yiiframework.com/forum/",
-        "wiki": "http://www.yiiframework.com/wiki/",
-        "irc": "irc://irc.freenode.net/yii",
-        "source": "https://github.com/yiisoft/yii2"
+        "issues": "https://github.com/wskm/deruv/issues?state=open",
+        "source": "https://github.com/wskm/deruv"
     },
     "minimum-stability": "stable",
     "require": {
