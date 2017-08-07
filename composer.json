@@ -1,7 +1,7 @@
 {
     "name": "wskm/deruv",
-    "description": "Yii Cms Blog",
-    "keywords": ["yii2", "framework", "cms", "blog"],
+    "description": "Deruv Cms",
+    "keywords": ["deruv", "yii2", "cms", "blog"],
     "homepage": "http://www.deruv.com/",
     "type": "project",
     "license": "MIT",
