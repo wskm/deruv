@@ -60,12 +60,14 @@ $config = [
     'params' => $params,
 ];
 
+/*
 if ($setting['frontendTheme'] == 'default') {
     $config['components']['assetManager'] = [
         //'bundles' => require(__DIR__ .DIRECTORY_SEPARATOR .(YII_ENV_PROD ? 'assets-prod.php' : 'assets-dev.php')),
         'bundles' => require(__DIR__ .DIRECTORY_SEPARATOR .'assets-prod.php'),
     ];
 }
+*/
 
 if ($setting['db']) {
     $config['components']['db'] = $setting['db'];
