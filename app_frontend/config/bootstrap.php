@@ -1,7 +1,5 @@
 <?php
 
-$app->language = \service\Setting::getSysConf('language');
-$app->timeZone = \service\Setting::getSysConf('timeZone');
 define('STATIC_URL', './');
 
 if (!is_array($setting) || !$setting['installed']) {
@@ -10,10 +8,12 @@ if (!is_array($setting) || !$setting['installed']) {
         header('Location: index.php?r=install');
         exit();
     }
-}
-
-if (\service\Setting::getConf('sys', 'webClose')) {
-    $app->catchAll = [
-        'site/close',
-    ];
+}else{
+    $app->language = \service\Setting::getSysConf('language');
+    $app->timeZone = \service\Setting::getSysConf('timeZone');
+    if (\service\Setting::getConf('sys', 'webClose')) {
+        $app->catchAll = [
+            'site/close',
+        ];
+    }
 }
