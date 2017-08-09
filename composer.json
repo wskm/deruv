@@ -9,7 +9,7 @@
         "issues": "https://github.com/wskm/deruv/issues?state=open",
         "source": "https://github.com/wskm/deruv"
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require": {
         "php": ">=5.4.0",
         "yiisoft/yii2": "~2.0.6",
@@ -28,12 +28,14 @@
         "codeception/verify": "~0.3.1"
     },
     "config": {
-        "process-timeout": 1800
-    },
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://asset-packagist.org"
+        "process-timeout": 1800,
+        "sort-packages": true,
+        "optimize-autoloader": true,
+        "fxp-asset":{
+            "installer-paths": {
+                "npm-asset-library": "vendor/npm",
+                "bower-asset-library": "vendor/bower"
+            }
         }
-    ]
+    }
 }
