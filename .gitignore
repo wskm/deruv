@@ -32,5 +32,4 @@ phpunit.phar
 /.vagrant
 
 /bin
-
-composer.lock
+/composer.lock
