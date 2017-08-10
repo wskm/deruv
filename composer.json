@@ -4,7 +4,7 @@
     "keywords": ["deruv", "yii2", "cms", "blog"],
     "homepage": "http://www.deruv.com/",
     "type": "project",
-    "license": "MIT",
+    "license": "GPL-2.0+",
     "support": {
         "issues": "https://github.com/wskm/deruv/issues?state=open",
         "source": "https://github.com/wskm/deruv"
