@@ -13,6 +13,9 @@ $config = [
     'controllerNamespace' => 'admin\controllers',
     'bootstrap' => ['log'],
     'modules' => [
+        'rest' => [
+            'class' => 'common\modules\Rest',
+        ],
         'admin' => [
             'class' => 'mdm\admin\Module',
             'layout' => 'top-menu',
@@ -26,7 +29,7 @@ $config = [
             ],
             'menus' => [
             ],
-        ]
+        ],
     ],
 	'controllerMap' => [
 		 'upload' => [

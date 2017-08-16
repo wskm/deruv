@@ -7,8 +7,19 @@ use yii\widgets\Breadcrumbs;
 
 $this->title = $model->title;
 
+$this->registerMetaTag([
+    'name' => 'keywords',
+    'content' => $model->article->seo_keywords
+], 'keywords');
+
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => $model->article->seo_description
+], 'description');
+
 $this->params['breadcrumbs'][] = ['label' => $category['name'], 'url' => ['/category', 'id' => $category['id']]];
 $this->params['breadcrumbs'][] = $this->title;
+
 ?>
 <div class="row">
 	<div class="col-sm-8 col-xs-12 " >

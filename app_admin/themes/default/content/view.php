@@ -54,6 +54,14 @@ $this->params['breadcrumbs'][] = $this->title;
 				'label' => Yii::t('admin', 'Content'),
 				'value' => $model->article->detail,
 			],
+            [  
+				'label' => Yii::t('admin', 'Seo Keywords'),
+				'value' => $model->article->seo_keywords,
+			],
+            [  
+				'label' => Yii::t('admin', 'Seo Description'),
+				'value' => $model->article->seo_description,
+			],
             'pv',
             'comment',
 			[  

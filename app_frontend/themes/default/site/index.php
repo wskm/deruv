@@ -84,12 +84,12 @@ $news = Block::shows('home_news');
 						<?php foreach($contents as $row) { ?>
 						<div class="media">
                             <?php if($row['thumb']){ ?>
-							<a class="media-left" href="#">
+							<a class="media-left" href="<?= Wskm::url(['article', 'id' => $row['id']]) ?>">
 							  <img src="<?= $row['thumb'] ?>" alt="<?= $row['title'] ?>"  height="88" width="140" >
 							</a>
                             <?php } ?>
 							<div class="media-body">
-							  <h4 class="media-heading"><?= $row['title'] ?></h4>
+                                <h4 class="media-heading"><a href="<?= Wskm::url(['article', 'id' => $row['id']]) ?>"><?= $row['title'] ?></a></h4>
 							  <div class="media-foot" ><?= Yii::$app->formatter->asRelativeTime($row['updated_at']) ?></div>
 							</div>
 						</div>

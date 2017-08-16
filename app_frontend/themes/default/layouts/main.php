@@ -8,10 +8,21 @@ use yii\helpers\Url;
 use service\Block;
 use common\widgets\Alert;
 
-yii\bootstrap\BootstrapAsset::register($this);
+frontend\assets\AppAsset::register($this);
 
-$webDescription = Html::encode(\service\Setting::getParamConf('webDescription'));
-$webKeywords = Html::encode(\service\Setting::getParamConf('webKeywords'));
+if (!isset($this->metaTags['keywords'])) {
+    $this->registerMetaTag([
+        'name' => 'keywords',
+        'content' => \service\Setting::getParamConf('webKeywords')
+    ]);
+}
+
+if (!isset($this->metaTags['description'])) {
+    $this->registerMetaTag([
+        'name' => 'description',
+        'content' => \service\Setting::getParamConf('webDescription')
+    ]);
+}
 
 ?>
 <?php $this->beginPage() ?>
@@ -22,12 +33,7 @@ $webKeywords = Html::encode(\service\Setting::getParamConf('webKeywords'));
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?> | <?= Html::encode(\service\Setting::getParamConf('webName')) ?></title>
-    <?php if($webKeywords){ ?>
-    <meta name="keywords" content="<?= $webKeywords ?>" />
-    <?php } ?>
-    <?php if($webDescription){ ?>
-    <meta name="description" content="<?= $webDescription ?>" />
-    <?php } ?>
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
     <?php $this->head() ?>
 	<link rel="stylesheet" href="./themes/default/css/home.css" />		
 </head>
@@ -53,7 +59,7 @@ $webKeywords = Html::encode(\service\Setting::getParamConf('webKeywords'));
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				  </button>
-				  <h1><a class="navbar-brand" href="<?= Url::home(); ?>" style="padding:0;color:transparent;" ><img alt="Brand" src="./themes/default/img/logo.png" height="60" >&nbsp;</a></h1>
+				  <h1><a class="navbar-brand" href="<?= Url::home(); ?>" style="padding:0;color:transparent;" ><img alt="Brand" src="./themes/default/img/logo.png" height="50" >&nbsp;</a></h1>
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
@@ -97,7 +103,7 @@ $webKeywords = Html::encode(\service\Setting::getParamConf('webKeywords'));
 			<?= $content ?>
 		</div>
 	</div>
-	<div class="container-fluid foot" >
+	<div class="container-fluid foot"   >
 		<div class="foot-main" >
 			&copy; <?= \service\Setting::getParamConf('webName').'&nbsp;'.date('Y') ?><!--&nbsp;&nbsp;|&nbsp;&nbsp;SiteMap -->
 		</div>

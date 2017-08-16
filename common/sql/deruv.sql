@@ -329,6 +329,8 @@ CREATE TABLE `de_category` (
   `gourl` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `tpl_list` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `tpl_show` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `seo_keywords` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `seo_description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `sorting` tinyint(2) NOT NULL DEFAULT '0',
   `status` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
@@ -396,6 +398,8 @@ CREATE TABLE `de_content_article` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `content_id` int(11) NOT NULL,
   `detail` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `seo_keywords` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `seo_description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `created_at` int(11) NOT NULL,
   `updated_at` int(11) NOT NULL,
   PRIMARY KEY (`id`),

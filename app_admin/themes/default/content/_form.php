@@ -62,7 +62,11 @@ $this->registerJsFile('js/edit.min.js');
 	<?= $form->field($model, 'summary')->textarea([
 		'rows' => 3,
 	]) ?>
-			
+
+	<?= $form->field($article, 'seo_keywords')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($article, 'seo_description')->textInput(['maxlength' => true]) ?>
+
     <?= $form->field($model, 'status')->inline(true)->radioList(\wskm\Status::getPublishedOrUnpublished()) ?>
 	
 	<?= $form->field($model, 'iscomment')->inline(true)->radioList(\wskm\Status::getNoOrYes()) ?>

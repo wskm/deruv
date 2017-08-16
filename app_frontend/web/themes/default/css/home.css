@@ -43,28 +43,6 @@ a:hover{
 	text-decoration: none;
 }
 
-@media screen and (min-width: 1120px){
-    .dnav, .main, .foot-main{
-        max-width:960px;
-        margin:0 auto;
-        padding:0;
-    }
-	/*.view-related .desc{
-		width:480px;
-	}*/
-}
-
-@media screen and (min-width: 1500px){
-    .dnav, .main, .foot-main{
-        max-width:1200px;
-        margin:0 auto;
-        padding:0;
-    }
-	/*.view-related .desc{
-		width:480px;
-	}*/
-}
-
 @media screen and (min-width: 768px){
 	.carousel-caption {
 		right: 10%;
@@ -72,6 +50,22 @@ a:hover{
 		padding-bottom: 10px;
 		bottom: 5px;
 	}
+}
+
+@media screen and (min-width: 1120px){
+    .dnav, .main, .foot-main{
+        max-width:960px;
+        margin:0 auto;
+        padding:0;
+    }
+}
+
+@media screen and (min-width: 1400px){
+    .dnav, .main, .foot-main{
+        max-width:1200px;
+        margin:0 auto;
+        padding:0;
+    }
 }
 
 #sidepanel{position:fixed;bottom:80px;right:0;z-index:1000;width: 30px;height: 30px;overflow: hidden;}
@@ -122,7 +116,6 @@ a:hover{
 	padding-top: 25px;
 }
 .main{
-    min-height: 550px;
 }
 .top-list li{
     font-size:18px;

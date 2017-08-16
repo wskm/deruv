@@ -71,6 +71,20 @@ h6 {
     }
 }
 
+@media screen and (min-width: 1400px) {
+
+    .header .logoinfo a{
+      font-size: 13px;
+    }
+    
+    .main {
+        margin: 50px auto;
+    }
+    .header{
+        margin-top:50px;
+    }
+}
+
 .clearfix:before,
 .clearfix:after {
     content: " "; /* 1 */

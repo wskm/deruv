@@ -43,4 +43,6 @@ function statContent(url) {
 
 $(function(){
     initTop();	
+        
+    $('.main-wrap').attr('style', 'min-height:' + ($(window).height() - 100) + 'px');
 });

@@ -5,7 +5,7 @@ return [
         /*
         'db' => [
             'class' => 'yii\\db\\Connection',
-            'dsn' => 'mysql:host=localhost;dbname=test',
+            'dsn' => 'mysql:host=localhost;dbname=deruv',
             'username' => 'root',
             'password' => 'root',
             'charset' => 'utf8mb4',

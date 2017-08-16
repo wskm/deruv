@@ -26,7 +26,7 @@ return [
 	'UserCommentMax' => '用户12小时内最大评论数',
 	'UserPublishedAudit' => '用户发布是否审核',
 	'WebClose' => '关闭网站',
-	'WebDescription' => '网站详情',
+	'WebDescription' => '网站描述',
 	'WebKeywords' => '网站关键词',
 	'WebName' => '网站名称',
 	'WebUrl' => '网站链接',

@@ -37,6 +37,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'gourl:url',
             'tpl_list',
             'tpl_show',
+            'seo_keywords',
+            'seo_description',
             'sorting',
 			[ 
 				'attribute' => 'status',

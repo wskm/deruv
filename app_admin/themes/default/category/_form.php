@@ -24,6 +24,10 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'tpl_show')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'seo_keywords')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'seo_description')->textInput(['maxlength' => true]) ?>
+
     <?= $form->field($model, 'sorting')->input('number', [ 'max' => 99, 'min' => 0 ]) ?>
 
     <?= $form->field($model, 'status')->radioList(\common\models\Category::getListStatus()) ?>

@@ -23,6 +23,7 @@ $this->registerJsFile('themes/default/js/common.js');
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
     <title><?= Html::encode($this->title) ?> - Deruv</title>
     <?= Html::csrfMetaTags() ?>
     <script>

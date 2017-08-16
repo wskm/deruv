@@ -8,8 +8,17 @@ use yii\widgets\Breadcrumbs;
 
 $this->title = $category['name'];
 
-$parents = \service\Category::getParents($category['id']);
+$this->registerMetaTag([
+    'name' => 'keywords',
+    'content' => $category['seo_keywords'],
+], 'keywords');
 
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => $category['seo_description'],
+], 'description');
+
+$parents = \service\Category::getParents($category['id']);
 foreach($parents as $parentid){
 	if ($parentid > 0) {
 		$this->params['breadcrumbs'][] = ['label' => \service\Category::getInfoName($parentid), 'url' => ['/category', 'id' => $parentid ]];

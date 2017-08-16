@@ -94,7 +94,7 @@ pre .xml .cdata {
 }
 .post h1,
 .post h2 {
-  text-transform: uppercase;
+    
 }
 .post h1 a:hover,
 .post h2 a:hover {

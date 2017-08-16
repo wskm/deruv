@@ -14,16 +14,12 @@
  * @license http://www.yiiframework.com/license/
  */
 
-if (!extension_loaded('openssl')) {
-    die('The OpenSSL PHP extension is required by Yii2.');
-}
-
 $params = getParams();
 $root = str_replace('\\', '/', __DIR__);
 $envs = require("$root/environments/index.php");
 $envNames = array_keys($envs);
 
-echo "Yii Application Initialization Tool v1.0\n\n";
+echo "Application Initialization Tool \n\n";
 
 $envName = null;
 if (empty($params['env']) || $params['env'] === '1') {
@@ -173,14 +169,14 @@ function getParams()
 function setWritable($root, $paths)
 {
     foreach ($paths as $writable) {
-        if (is_dir("$root/$writable")) {
+        if (is_dir("$root/$writable") || is_file("$root/$writable")) {
             if (@chmod("$root/$writable", 0777)) {
                 echo "      chmod 0777 $writable\n";
             } else {
-                printError("Operation chmod not permitted for directory $writable.");
+                printError("Operation chmod not permitted for directory or file $writable.");
             }
         } else {
-            printError("Directory $writable does not exist.");
+            printError("Directory Or File $writable does not exist.");
         }
     }
 }
@@ -202,6 +198,10 @@ function setExecutable($root, $paths)
 
 function setCookieValidationKey($root, $paths)
 {
+    if (!extension_loaded('openssl')) {
+        die('The OpenSSL PHP extension is required by Yii2.');
+    }
+    
     foreach ($paths as $file) {
         echo "   generate cookie validation key in $file\n";
         $file = $root . '/' . $file;

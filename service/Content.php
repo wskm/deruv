@@ -150,6 +150,10 @@ class Content
 
     public static function getCache($category_id, $limit = 20, $w = false)
     {
+        $sec = \service\Setting::getConf('cache', 'contentList') !== false ? (int)\service\Setting::getConf('cache', 'contentList') : 0;
+        if ($sec < 0) {
+            $w = true;
+        }
         $data = \wskm\Cache::get(self::CACHE_KEY_PRE.$category_id.':'.$limit);
         if ($data === false || $w) {
             $data = self::setCache($category_id, $limit);

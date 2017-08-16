@@ -25,6 +25,7 @@ $this->title = \Wskm::t('Login');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="" />
 	<meta name="keywords" content="" />
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?> | Deruv</title>
     <script>

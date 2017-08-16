@@ -93,4 +93,6 @@ return [
 	'Update Cache' => '更新缓存',
 	'Online quantity {count}, Last logged in {datetime}, {ip}.' => '在线{count}人，上次登录 {datetime}，IP {ip}',
 	
+    'Seo Keywords' => 'SEO关键词',
+	'Seo Description' => 'SEO描述',
 ];

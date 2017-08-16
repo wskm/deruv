@@ -19,7 +19,10 @@ JqueryAsset::register($this);
 		<hr>
         <div class="form-group" >
 		  <div class="col-sm-offset-1 col-sm-9">
-                <small><samp>Version <?= Wskm::$version ?></samp></small>
+                <small><samp><b>Version</b> <?= Wskm::$version ?></samp></small>
+		  </div>
+          <div class="col-sm-offset-1 col-sm-9">
+              <small><samp><b>License</b> GPL-2.0</samp></small>
 		  </div>
 		</div>
 		<div class="form-group" >

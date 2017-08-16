@@ -31,6 +31,7 @@ $webKeywords = Html::encode(\service\Setting::getParamConf('webKeywords'));
   <meta property="og:title" content="<?= Html::encode($this->title) ?>" >
   <meta property="og:url" content="<?= Yii::$app->request->absoluteUrl ?>" >
   <meta property="og:site_name" content="<?= \service\Setting::getParamConf('webName') ?>">
+  <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
   <?= Html::csrfMetaTags() ?>
   <?php $this->head() ?>
   <!--<link href='http://fonts.googleapis.com/css?family=Montserrat|Roboto:400,400italic,600|Roboto+Mono' rel='stylesheet' type='text/css'>-->

@@ -52,6 +52,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 $langs = [];
                 if ($dirs) {
                     $langs = array_combine(array_values($dirs), $dirs);
+                    if (!isset($langs['en-US'])) {
+                        $langs['en-US'] = 'en-US';
+                    }
                 } else {
                     $langs = [
                         'zh-CN' => 'zh-CN',
