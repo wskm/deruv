@@ -4,7 +4,7 @@ $params = array_merge(
     require(__DIR__ . '/params.php')
 );
 
-return [
+$config = [
     'id' => 'app-console',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log', 'gii' ],
@@ -30,3 +30,9 @@ return [
     ],
     'params' => $params,
 ];
+
+if ($setting['db']) {
+    $config['components']['db'] = $setting['db'];
+}
+
+return $config;
