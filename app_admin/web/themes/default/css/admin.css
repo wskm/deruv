@@ -108,9 +108,6 @@ a.desc:after {
         /*border-left:solid 1px #D1D1D1;max-width:260px;
         border-right:solid 1px #D1D1D1;*/
     }
-	.charBox{
-		width:960px;
-	}
 }
 
 @media screen and (min-width: 1500px){
