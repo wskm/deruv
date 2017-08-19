@@ -212,7 +212,7 @@ hr {
 #sidepanel a{display:block;position:relative;text-align:center;color: black;text-decoration: none;font-size: 26px;outline: none;}
 
 .css3top{overflow:hidden; height:25px;}
-.css3top:before{content:''; height:10px; width:10px; display:block; border:2px solid #807f7f; border-left-width:0; border-bottom-width:0; transform:rotate(-45deg);-webkit-transform:rotate(-45deg);-moz-transform:rotate(-45deg);-o-transform:rotate(-45deg);-ms-transform:rotate(-45deg); position:absolute; top:7px; left:7px;}
+.css3top:before{content:''; height:10px; width:10px; display:block; border:2px solid #b3b3b3; border-left-width:0; border-bottom-width:0; transform:rotate(-45deg);-webkit-transform:rotate(-45deg);-moz-transform:rotate(-45deg);-o-transform:rotate(-45deg);-ms-transform:rotate(-45deg); position:absolute; top:7px; left:7px;}
 
 .bs-wrap{
 }

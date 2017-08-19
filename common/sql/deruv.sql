@@ -397,7 +397,7 @@ DROP TABLE IF EXISTS `de_content_article`;
 CREATE TABLE `de_content_article` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `content_id` int(11) NOT NULL,
-  `detail` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `detail` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `seo_keywords` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `seo_description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `created_at` int(11) NOT NULL,

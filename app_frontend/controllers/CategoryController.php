@@ -38,6 +38,7 @@ class CategoryController extends BaseController
 
 		$models = $query->offset($pages->offset)
 						->limit($pages->limit)
+                        ->orderBy(['id' => SORT_DESC])
 						->asArray()->all();
 
 		$tplList = $category['tpl_list'] ? $category['tpl_list'] : '/article/list';

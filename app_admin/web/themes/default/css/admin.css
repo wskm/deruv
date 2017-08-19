@@ -1,17 +1,9 @@
 body{
     background-color: #000;
 }
-
+/*
 td{
     word-break:break-word;
-}
-/*
-th a{
-	color:#333;
-}
-
-th a:hover {
-  color: #777;
 }
 */
 a.asc:after, a.desc:after {

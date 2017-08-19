@@ -31,6 +31,8 @@ return [
 	'WebName' => '网站名称',
 	'WebUrl' => '网站链接',
     
+    'RefreshCache' => '刷新缓存',
+    
     //'FrontendDebug' => '前台开启调式',
     'FrontendTheme' => '前台主题',
     'AdminLayout' => '后台布局',

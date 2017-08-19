@@ -41,6 +41,10 @@ class Log
 
 	public static function action($title, $type, $level = self::LEVEL_NORMAL)
 	{
+        if (defined('NO_LOG') && NO_LOG) {
+            return;
+        }
+        
 		$type = strtolower($type);
 		if ($type == self::TYPE_DELETE) {
 			$level = self::LEVEL_WARN;

@@ -51,6 +51,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'summary',
 			[  
 				'format' => 'raw',
+                'contentOptions' => [
+                    'style' => 'overflow: hidden;display: block;width: 777px;',
+                ],
 				'label' => Yii::t('admin', 'Content'),
 				'value' => $model->article->detail,
 			],

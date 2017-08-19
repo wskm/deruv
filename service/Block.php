@@ -90,8 +90,7 @@ class Block
 		$key = trim($key);
 		$data = \wskm\Cache::get(self::CACHE_KEY_PRE.$key);
 		
-        $sec = \service\Setting::getConf('cache', 'blockList') !== false ? (int)\service\Setting::getConf('cache', 'blockList') : 0;
-        if ($sec < 0) {
+        if (\service\Setting::getConf('cache', 'refreshCache')) {
             $w = true;
         }
 		if ($data === false || $w) {

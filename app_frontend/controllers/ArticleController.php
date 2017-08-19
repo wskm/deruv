@@ -29,17 +29,6 @@ class ArticleController extends BaseController
         ]);
     }
 
-    /**
-     * Atom
-     */
-    public function actionImport()
-    {
-        $content = file_get_contents('E:\WWW\my\Deruv\CNBlogs_BlogBackup_131_201110_201708.xml');
-        $xmlObj = \wskm\feed\Parser::rss2($content);
-        var_dump($xml);
-   
-    }
-
     protected function findModel($id)
     {
         if (($model = Content::findOne($id)) !== null) {

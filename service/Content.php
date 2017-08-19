@@ -124,7 +124,7 @@ class Content
         ->andWhere([
             'status' => ContentModel::STATUS_PUBLISHED
         ])
-        ->orderBy('updated_at DESC')
+        ->orderBy('id DESC')
         ->limit($limit);
 
         foreach ($query->each() as $item) {
@@ -150,8 +150,7 @@ class Content
 
     public static function getCache($category_id, $limit = 20, $w = false)
     {
-        $sec = \service\Setting::getConf('cache', 'contentList') !== false ? (int)\service\Setting::getConf('cache', 'contentList') : 0;
-        if ($sec < 0) {
+        if (\service\Setting::getConf('cache', 'refreshCache')) {
             $w = true;
         }
         $data = \wskm\Cache::get(self::CACHE_KEY_PRE.$category_id.':'.$limit);

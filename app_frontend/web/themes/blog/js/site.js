@@ -2,7 +2,7 @@
 function initTop(){
     if ($(window).width() > 1000)
     {
-        $('#sidepanel').css('right', ($(window).width()-$('#site-main').outerWidth(false)) / 2 - 35 );
+        $('#sidepanel').css('right', ($(window).width()-$('#site-main').outerWidth(false)) / 2 - 80 );
         $(window).on('scroll', function(){
             if ($(document).scrollTop() > 300) {
                 $("#sidepanel").show();
