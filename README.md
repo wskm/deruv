@@ -1,8 +1,8 @@
-<p align="center">
+<h2 align="center">
     <a href="http://www.deruv.com/" target="_blank">
         Deruv
     </a>
-</p>
+</h2>
 
 [![Latest Stable Version](https://poser.pugx.org/wskm/deruv/v/stable)](https://packagist.org/packages/wskm/deruv)
 [![Total Downloads](https://poser.pugx.org/wskm/deruv/downloads)](https://packagist.org/packages/wskm/deruv)
