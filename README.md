@@ -31,7 +31,7 @@ wskm                     contains help yii2 classes
 CMD
 -------------
 
-yii asset assets.php app_frontend\config\assets-prod.php
+yii asset assets.php app_frontend/config/assets-prod.php
 
 Documentation
 -------------
