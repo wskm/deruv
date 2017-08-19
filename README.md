@@ -1,4 +1,4 @@
-<h2 align="center">
+<h1 align="center">
     <a href="http://www.deruv.com/" target="_blank">
         Deruv
     </a>
