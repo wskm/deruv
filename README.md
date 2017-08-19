@@ -19,6 +19,16 @@ Installation
 - [Master the Yii2 Definitive Guide](http://www.yiiframework.com/doc-2.0/guide-start-installation.html).
 - composer create-project wskm/deruv
 
+
+DIRECTORY STRUCTURE
+-------------------
+
+```
+......
+service                  contains help model classes
+wskm                     contains help yii2 classes
+```
+
 Documentation
 -------------
 
