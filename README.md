@@ -22,4 +22,4 @@ Installation
 Documentation
 -------------
 
-- [Visit deruv.com](http://www.deruv.com).
+- [Visit deruv.com](http://www.deruv.com)
