@@ -5,6 +5,7 @@ namespace service;
 use Yii;
 use Wskm;
 use yii\data\Pagination;
+use yii\web\ServerErrorHttpException;
 use common\models\Content as ContentModel;
 use service\Category;
 
@@ -25,12 +26,12 @@ class Content
             $list = [];
 
             $query = (new \yii\db\Query())
-            ->from(ContentModel::tableName())
-            ->where([
-                'status' => ContentModel::STATUS_PUBLISHED
-            ])
-            ->orderBy([$order => SORT_DESC])
-            ->limit($limit);
+                ->from(ContentModel::tableName())
+                ->where([
+                    'status' => ContentModel::STATUS_PUBLISHED
+                ])
+                ->orderBy([$order => SORT_DESC])
+                ->limit($limit);
 
             foreach ($query->each() as $item) {
                 $list[] = $item;
@@ -43,28 +44,76 @@ class Content
         return $list;
     }
 
+    public static function downloadImgs($html)
+    {
+        preg_match_all("/<[img|IMG].*?src=[\'|\"](.*?)[\'|\"].*?[\/]?>/", $html, $imgs);
+        if (!isset($imgs[1]) || !$imgs[1]) {
+            throw new ServerErrorHttpException('Image not found');
+        }
+        
+        $day = date('y_m_d');
+        $dir = \Wskm::getUploadPath().$day;
+        if (!is_dir($dir)) {
+            \yii\helpers\FileHelper::createDirectory($dir);
+        }
+        
+        $newImgs = [];
+        foreach ($imgs[1] as $img) {
+            if ($img && substr($img, 0, 4) == 'http') {
+
+                $fileExt = \wskm\helpers\File::normalizeExt($img);
+                $fileName = md5($img).($fileExt ? '.'.$fileExt : '');
+
+                $file = $dir.DIRECTORY_SEPARATOR.$fileName;
+                $urlFile = $day.'/'.$fileName;
+                $newImgs[$urlFile] = $img;
+
+                if (file_exists($file)) {
+                    continue;
+                }
+
+                try {
+                    $img = \wskm\helpers\Curl::normalizeUrl($img);
+                    $data = \wskm\helpers\Curl::get($img);
+                    if ($data) {
+                        file_put_contents($file, $data);
+                    }
+                } catch (\Exception $ex) {
+                    throw $ex;
+                }
+            }
+        }
+
+        $uploadDir = \Wskm::getUploadUrl();
+        foreach ($newImgs as $newimg => $img) {
+            $html = str_replace($img, $uploadDir.$newimg, $html);
+        }
+
+        return $html;
+    }
+
     public static function getUrlPrevious($id)
     {
         return (new \yii\db\Query())
-        ->select(['id', 'title'])
-        ->from(ContentModel::tableName())
-        ->where(['>', 'id', $id])
-        ->andWhere([ 'status' => ContentModel::STATUS_PUBLISHED])
-        ->limit(1)
-        ->orderBy(['id' => SORT_ASC])
-        ->one();
+                ->select(['id', 'title'])
+                ->from(ContentModel::tableName())
+                ->where(['>', 'id', $id])
+                ->andWhere(['status' => ContentModel::STATUS_PUBLISHED])
+                ->limit(1)
+                ->orderBy(['id' => SORT_ASC])
+                ->one();
     }
-    
+
     public static function getUrlNext($id)
     {
         return (new \yii\db\Query())
-        ->select(['id', 'title'])
-        ->from(ContentModel::tableName())
-        ->where(['<', 'id', $id])
-        ->andWhere([ 'status' => ContentModel::STATUS_PUBLISHED])
-        ->limit(1)
-        ->orderBy(['id' => SORT_DESC])
-        ->one();
+                ->select(['id', 'title'])
+                ->from(ContentModel::tableName())
+                ->where(['<', 'id', $id])
+                ->andWhere(['status' => ContentModel::STATUS_PUBLISHED])
+                ->limit(1)
+                ->orderBy(['id' => SORT_DESC])
+                ->one();
     }
 
     public static function getListByPage($page, $pageSize = '', $params = [])
@@ -102,8 +151,8 @@ class Content
         }
 
         $list = $query->offset($pages->offset)
-        ->limit($pages->limit)
-        ->asArray()->all();
+                ->limit($pages->limit)
+                ->asArray()->all();
 
         return [
             'list' => $list,
@@ -119,13 +168,13 @@ class Content
         $cateIds[] = $categoryid;
 
         $query = (new \yii\db\Query())
-        ->from(ContentModel::tableName())
-        ->where(['in', 'category_id', $cateIds])
-        ->andWhere([
-            'status' => ContentModel::STATUS_PUBLISHED
-        ])
-        ->orderBy('id DESC')
-        ->limit($limit);
+            ->from(ContentModel::tableName())
+            ->where(['in', 'category_id', $cateIds])
+            ->andWhere([
+                'status' => ContentModel::STATUS_PUBLISHED
+            ])
+            ->orderBy('id DESC')
+            ->limit($limit);
 
         foreach ($query->each() as $item) {
             $list[] = $item;

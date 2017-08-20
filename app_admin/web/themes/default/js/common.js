@@ -57,13 +57,13 @@ function initTop(){
     }
 }
 
-function getNotice() {
-	$.getJSON('index.php?r=notice/list',function(data){
+function getNotice(args) {
+	$.getJSON(args.url,function(data){
 		if (!data || !data.length) {
 			return;
 		}
 		$.each(data, function(k,v){
-			var html = '<li><a href="index.php?r=log-action/view&ajax=1&id=' + v.id + '" target="_blank" ><i class="glyphicon glyphicon-exclamation-sign '+ (toInt(v.level) == 2 ? 'text-danger' : '' ) +'"></i> <span class="notice-title">' +
+			var html = '<li><a href="' + args.viewUrl + '&ajax=1&id=' + v.id + '" target="_blank" ><i class="glyphicon glyphicon-exclamation-sign '+ (toInt(v.level) == 2 ? 'text-danger' : '' ) +'"></i> <span class="notice-title">' +
 			v.title + '</span><span class="pull-right text-muted small">' + v.ago + '</span></a></li>';
 			$('#notice-menu').append(html);			
 		});
@@ -72,7 +72,6 @@ function getNotice() {
 }
 
 $(function(){
-	getNotice();
     runSkin && initSkin();
     initTop();
 });

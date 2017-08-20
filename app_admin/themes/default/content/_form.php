@@ -112,6 +112,7 @@ $this->registerJsFile('js/edit.min.js');
 			uploadExtraData : { 
 				'<?= Yii::$app->request->csrfParam ?>' : '<?= Yii::$app->request->getCsrfToken() ?>',
 				content_id : '<?= $model->id ?>',
+                thumb : 1,
 				category_id : '<?= $model->category_id ?>',
 				preview : 1 
 			},
@@ -183,6 +184,30 @@ $this->registerJsFile('js/edit.min.js');
 		var layerIndex;
 		var defaultWidth = parseInt('<?= \service\Setting::getConf('content', 'defaultWidth') ?>');
 		var setupCallback = function(editor){
+            editor.addButton('downimg', {
+                icon: 'arrowdown',
+				tooltip: "Download",
+				onclick: function(){
+                    loadShow();
+                    
+                    $.ajax({
+                        type : "post",
+                        url : '<?= Url::to(['content/downimg']) ?>',
+                        data : {
+                            html : editorGet()
+                        }
+                        //dataType : 'json',
+                    }).done(function(data) {
+                        loadHide();
+                        editorSet(data);
+                        tip('ok', '#mceu_25');
+                    }).fail(function(xhr) {
+                        loadHide();
+                        tip(xhr.responseText, '#mceu_25');
+                    });
+                }
+            });
+            
 			editor.addButton('upload', {
 				icon: 'upload',
 				tooltip: "Upload",

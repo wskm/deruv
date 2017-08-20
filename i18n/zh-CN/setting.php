@@ -32,6 +32,10 @@ return [
 	'WebUrl' => '网站链接',
     
     'RefreshCache' => '刷新缓存',
+    'ArticleCoverHeight' => '文章封面高度',
+    'ArticleCoverWidth' => '文章封面宽度',
+    'ImageMaxWidth' => '图片最大宽度',
+    'ImageMaxHeight' => '图片最大高度',
     
     //'FrontendDebug' => '前台开启调式',
     'FrontendTheme' => '前台主题',

@@ -165,6 +165,10 @@ a:hover{
 	text-indent: 2em;
     line-height: 1.6666666667;
 }
+.view-text img{
+    display: block;
+    max-width: 100%;
+}
 .view-related{
 	margin-bottom:20px;
 }

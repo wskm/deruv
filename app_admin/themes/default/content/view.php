@@ -45,7 +45,7 @@ $this->params['breadcrumbs'][] = $this->title;
 			[              
 				'format' => 'raw',
 				'attribute' => 'thumb',
-				'value' => $model->thumb ? "<img src='{$model->thumb}' width='300' />" : '',
+				'value' => $model->thumb ? "<img src='{$model->thumb}' width='150' />" : '',
 			],
             'title',
             'summary',

@@ -27,7 +27,7 @@ class FeedController extends BaseController
             ->withSiteUrl(\Wskm::getWebUrl())
             ->withDate(new DateTime());
         
-        foreach (Content::find()->orderBy(['id' => SORT_DESC])->each(20) as $content) {
+        foreach (Content::find()->orderBy(['id' => SORT_DESC])->limit(20)->each(20) as $content) {
             $publishedDate = new DateTime();
             $publishedDate->setTimestamp($content->created_at);
 
@@ -63,7 +63,7 @@ class FeedController extends BaseController
             ->withSiteUrl(\Wskm::getWebUrl())
             ->withDate(new DateTime());
 
-        foreach (Content::find()->orderBy(['id' => SORT_DESC])->each(20) as $content) {
+        foreach (Content::find()->orderBy(['id' => SORT_DESC])->limit(20)->each(20) as $content) {
             $publishedDate = new DateTime();
             $publishedDate->setTimestamp($content->created_at);
 

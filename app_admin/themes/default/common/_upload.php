@@ -27,6 +27,7 @@
 			uploadExtraData : { 
 				'<?= Yii::$app->request->csrfParam ?>' : '<?= Yii::$app->request->getCsrfToken() ?>',
 				plan : '<?= $plan ?>',
+                thumb : 1,
 				<?php if($iscontent){ ?>
 				content_id : curContentid,
 				<?php } ?>

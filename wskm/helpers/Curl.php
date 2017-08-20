@@ -4,6 +4,12 @@ namespace wskm\helpers;
 
 class Curl
 {
+    public static function normalizeUrl($url)
+    {
+        $url = str_replace('&amp;', '&', $url);
+        return $url;
+    }
+    
 	public static function post($url, $post, array $args = [])
 	{
 		$options = array(

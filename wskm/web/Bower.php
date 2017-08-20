@@ -45,7 +45,7 @@ class Bower
 			'searchreplace wordcount code fullscreen insertdatetime media',
 			'save table contextmenu directionality emoji template paste textcolor codesample'
 		  ],
-		  toolbar: 'code | insertfile undo redo | fontselect fontsizeselect | bold italic forecolor backcolor styleselect |  removeformat blockquote anchor |  pagebreak codesample | bullist numlist outdent indent | table emoji link image media upload | charmap print preview fullpage fullscreen ',
+		  toolbar: 'code | insertfile undo redo | fontselect fontsizeselect | bold italic forecolor backcolor styleselect |  removeformat blockquote anchor |  pagebreak codesample | bullist numlist outdent indent | table emoji link image media upload downimg | charmap print preview fullpage fullscreen ',
 		  pagebreak_split_block: true,
 		  
 		  setup: function(editor) {
@@ -91,6 +91,10 @@ class Bower
 			  
 	    function editorGet(){
 			return tinymce.get('{$id}').getContent();
+		}
+            
+        function editorSet(html){
+			return tinymce.get('{$id}').setContent(html);
 		}
 			  
 		function editorAdd(html){

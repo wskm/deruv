@@ -90,7 +90,7 @@ $this->registerJsFile('js/edit.min.js');
 
 	<script>
 		$(function(){
-			searchInit();
+			searchInit('<?= \yii\helpers\Url::to(['content/search']) ?>');
 		});
 	</script>
 </div>

@@ -163,6 +163,13 @@ $this->registerJsFile('themes/default/js/common.js');
         $('#siteNav-'+ siteNav).addClass('active menu-open');
         $('li[nav_route=route' + navRoute + ']').addClass('active menu-open');
         $('li[nav_route=route' + navRoute + ']').parents('li:first').addClass('active menu-open');
+        
+        $(function(){
+            getNotice({
+                url : '<?= Url::to(['/notice/list']) ?>',
+                viewUrl : '<?= Url::to(['/log-action/view', 't' => time() ]) ?>'
+            });
+        });
         </script>
 		
 		<?php $this->endBody() ?>

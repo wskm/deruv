@@ -290,7 +290,7 @@ $this->registerJsFile('js/edit.min.js');
 			console.log('hide modal');
 		});
 		
-		searchInit();
+		searchInit('<?= \yii\helpers\Url::to(['content/search']) ?>');
 		
 		blockSubmitInit();
 	});

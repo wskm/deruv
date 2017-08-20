@@ -103,7 +103,7 @@ class ArticleController extends Controller
                     \yii\helpers\FileHelper::createDirectory($dir);
                 }
 
-                $fileExt = str_replace(['?', '|'], '', pathinfo($img, PATHINFO_EXTENSION));
+                $fileExt = \wskm\helpers\File::normalizeExt($img);
                 $fileName = md5($img).($fileExt ? '.'.$fileExt : '');
                 
                 $file = $dir.DIRECTORY_SEPARATOR.$fileName;
@@ -116,6 +116,7 @@ class ArticleController extends Controller
 
                 echo "down\t";
                 try {
+                    $img = \wskm\helpers\Curl::normalizeUrl($img);
                     $data = \wskm\helpers\Curl::get($img);
                     if ($data) {
                         file_put_contents($file, $data);

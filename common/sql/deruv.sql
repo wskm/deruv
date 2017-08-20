@@ -561,9 +561,11 @@ CREATE TABLE `de_setting` (
 -- Records of de_setting
 -- ----------------------------
 INSERT INTO `de_setting` VALUES ('adminLayout', 'main', 'sys', 'select', '0');
+INSERT INTO `de_setting` VALUES ('articleCoverHeight', '88', 'image', '', '97');
+INSERT INTO `de_setting` VALUES ('articleCoverWidth', '140', 'image', '', '97');
 INSERT INTO `de_setting` VALUES ('auditComment', '0', 'content', 'radio_noyes', '0');
-INSERT INTO `de_setting` VALUES ('avatarHeight', '100', 'image', '', '0');
-INSERT INTO `de_setting` VALUES ('avatarWidth', '100', 'image', '', '0');
+INSERT INTO `de_setting` VALUES ('avatarHeight', '100', 'image', '', '98');
+INSERT INTO `de_setting` VALUES ('avatarWidth', '100', 'image', '', '98');
 INSERT INTO `de_setting` VALUES ('blockList', '0', 'cache', '', '0');
 INSERT INTO `de_setting` VALUES ('closeComment', '0', 'content', 'radio_noyes', '0');
 INSERT INTO `de_setting` VALUES ('contentList', '0', 'cache', '', '0');
@@ -577,9 +579,12 @@ INSERT INTO `de_setting` VALUES ('emailPort', '994', 'email', '', '97');
 INSERT INTO `de_setting` VALUES ('emailUserName', '', 'email', '', '96');
 INSERT INTO `de_setting` VALUES ('enablePrettyUrl', '0', 'sys', 'radio_noyes', '0');
 INSERT INTO `de_setting` VALUES ('frontendTheme', 'blog', 'sys', 'select', '0');
+INSERT INTO `de_setting` VALUES ('imageMaxHeight', '1000', 'image', '', '0');
+INSERT INTO `de_setting` VALUES ('imageMaxWidth', '1000', 'image', '', '0');
 INSERT INTO `de_setting` VALUES ('language', 'zh-CN', 'sys', 'select', '0');
 INSERT INTO `de_setting` VALUES ('pageSize', '20', 'param', '', '0');
-INSERT INTO `de_setting` VALUES ('quality', '50', 'image', '', '0');
+INSERT INTO `de_setting` VALUES ('quality', '50', 'image', '', '99');
+INSERT INTO `de_setting` VALUES ('refreshCache', '0', 'cache', 'radio_noyes', '0');
 INSERT INTO `de_setting` VALUES ('sharedHost', '0', 'sys', 'radio_noyes', '0');
 INSERT INTO `de_setting` VALUES ('timeZone', 'Asia/Shanghai', 'sys', 'select', '0');
 INSERT INTO `de_setting` VALUES ('userCommentMax', '300', 'content', '', '0');
@@ -587,7 +592,7 @@ INSERT INTO `de_setting` VALUES ('userPublishedAudit', '1', 'content', 'radio_no
 INSERT INTO `de_setting` VALUES ('webClose', '0', 'sys', 'radio_noyes', '0');
 INSERT INTO `de_setting` VALUES ('webDescription', '', 'param', '', '96');
 INSERT INTO `de_setting` VALUES ('webKeywords', '', 'param', '', '97');
-INSERT INTO `de_setting` VALUES ('webName', '', 'param', '', '99');
+INSERT INTO `de_setting` VALUES ('webName', 'Test', 'param', '', '99');
 INSERT INTO `de_setting` VALUES ('webUrl', '/', 'param', '', '98');
 
 -- ----------------------------
