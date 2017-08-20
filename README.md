@@ -16,8 +16,8 @@ Installation
 ------------
 
 - The minimum required PHP version of Yii is PHP 5.4.
-- [Master the Yii2 Definitive Guide](http://www.yiiframework.com/doc-2.0/guide-start-installation.html).
 - composer create-project wskm/deruv
+- [Master the Yii2 Definitive Guide](http://www.yiiframework.com/doc-2.0/guide-start-installation.html).
 
 DIRECTORY STRUCTURE
 -------------------
