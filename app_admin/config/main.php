@@ -14,7 +14,7 @@ $config = [
     'bootstrap' => ['log'],
     'modules' => [
         'rest' => [
-            'class' => 'common\modules\Rest',
+            'class' => 'common\modules\rest\Rest',
         ],
         'admin' => [
             'class' => 'mdm\admin\Module',

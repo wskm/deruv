@@ -22,10 +22,13 @@
   letter-spacing: 1px;
 }
 .main h2 a {
-  color: #444;
+  color: #333;
 }
 .main h2 a:hover {
   color: #f33;
+}
+.main h2 a:visited {
+    color: #969696;
 }
 .main .summary {
 	font-size:12px;

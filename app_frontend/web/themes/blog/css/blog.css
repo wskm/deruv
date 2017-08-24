@@ -13,7 +13,7 @@ img {
   border: none;
 }
 a {
-  color: #666;
+  color: #333; /*#666*/
   text-decoration: none;
   transition: color 0.2s ease, border-color 0.2s ease;
 }

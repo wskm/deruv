@@ -108,7 +108,7 @@ pre .xml .cdata {
 
 .post h2 {
   font-size: 24px;
-  margin: 60px 0 30px;
+  margin: 30px 0 10px;
   position: relative;
 }
 .post h2:before {
@@ -159,12 +159,12 @@ pre .xml .cdata {
 }
 .post .content {
   text-align: left;
-  line-height: 1.8em;
+  line-height: 1.7em;
 }
 .post .content p,
 .post .content ul,
 .post .content ol {
-  margin: 1em 0 1.5em;
+  margin: 1em 0 1em;
 }
 .post .content strong {
   font-weight: 600;
@@ -219,7 +219,7 @@ pre .xml .cdata {
   font-size: 13px;
   overflow-x: auto;
   text-align: left;
-  padding: 15px 25px;
+  padding: 10px 15px;
   background-color: #f6f6f6;
   line-height: 1.5em;
 }

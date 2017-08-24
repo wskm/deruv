@@ -7,8 +7,8 @@ use Wskm;
 use yii\helpers\FileHelper;
 use yii\web\HttpException;
 
-ignore_user_abort(true);
-set_time_limit(0);
+//ignore_user_abort(true);
+//set_time_limit(0);
 
 class InstallController extends BaseController
 {
