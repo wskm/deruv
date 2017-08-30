@@ -37,3 +37,8 @@ Documentation
 -------------
 
 - [Visit github.com/wskm/deruv-doc](https://github.com/wskm/deruv-doc)
+
+Preview
+-------
+
+<img src="https://raw.githubusercontent.com/wskm/deruv-doc/master/static/imgs/deruv.png" height="200" />
