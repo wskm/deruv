@@ -6,7 +6,7 @@ use wskm\web\Url;
 class Wskm
 {
 
-    public static $version = '0.9.1';
+    public static $version = '0.8';
 
     public static function get($name = null, $defaultValue = null)
     {
@@ -112,7 +112,7 @@ class Wskm
         return self::getWebUrl();
     }
 
-    public static function getUploadUrl($isabsolute = false)
+    public static function getUploadUrl($isabsolute = true)
     {
         $dirUrl = self::getWebUrl().'uploads/';
         if ($isabsolute) {
