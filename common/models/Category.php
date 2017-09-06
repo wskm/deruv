@@ -22,6 +22,9 @@ use Yii;
  */
 class Category extends \wskm\db\AdminAR
 {
+    const STATUS_DISABLE = 0;
+    const STATUS_ENABLE = 1;
+    
     /**
      * @inheritdoc
      */

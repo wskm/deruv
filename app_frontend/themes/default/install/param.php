@@ -27,7 +27,7 @@ $this->title = Wskm::t('Configuration', 'install');
 		<div class="form-group">
 		  <label for="" class="col-sm-3 control-label"><?= Wskm::t('Frontend Url', 'install') ?></label>
 		  <div class="col-sm-9">
-              <input type="text" class="form-control" id="web-url" name="params[webUrl]" value="<?= rtrim(Yii::$app->request->baseUrl, '/').'/' ?>" placeholder="">
+              <input type="text" class="form-control" id="web-url" name="params[webUrl]" value="<?= Yii::$app->request->hostInfo.rtrim(Yii::$app->request->baseUrl, '/').'/' ?>" placeholder="">
               <p class="help-block"><?= Wskm::t('The backend will use this.', 'install') ?></p>
 		  </div>
 		</div>

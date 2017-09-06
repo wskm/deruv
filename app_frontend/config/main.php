@@ -46,6 +46,12 @@ $config = [
         ],
 		'urlManager' => [
 			'class' => 'wskm\web\Url',
+            /*
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => [
+            ],
+            */
         ],
 		/*
         'redis' => [

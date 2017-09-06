@@ -18,7 +18,7 @@ foreach($parents as $parentid){
 $this->params['breadcrumbs'][] = $this->title;
 */
 ?>
-<link rel="stylesheet" href="./themes/blog/css/index.css" type="text/css">
+<link rel="stylesheet" href="<?= WEB_URL ?>themes/blog/css/index.css" type="text/css">
 
 <?php if($list) { ?>
 <ul>

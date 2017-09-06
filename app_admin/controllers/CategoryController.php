@@ -37,8 +37,7 @@ class CategoryController extends CoreController
 	 */
 	public function actionIndex()
 	{
-		$list = CategoryService::getListOptions(false);
-
+        $list = CategoryService::getListOptionsByDb(false);
 		return $this->render('index', [
 					'list' => $list
 		]);

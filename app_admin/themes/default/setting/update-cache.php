@@ -43,6 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
 </div>
 
 <script>
+var url_update = '<?= Url::to(['category/set-cache']) ?>';
 function updataCache() {    
     var cacheTypes = $('.caches:checked');
     if (!cacheTypes.length) {
@@ -55,7 +56,9 @@ function updataCache() {
             return;
         }
         loadShow();
-        updateUrl('index.php?r=' + type + '/set-cache', type);
+        //updateUrl('index.php?r=' + type + '/set-cache', type);
+        updateUrl(url_update.replace('category', type), type);
+        
     });
 }
 

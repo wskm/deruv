@@ -24,10 +24,11 @@ return [
     
     'Site Setting' => '网站设置',
     'Site Name' => '网站名称',
-    'Frontend Url' => '前台连接',
+    'Frontend Url' => '前台链接',
+    'Frontend Absolute Url' => '前台绝对链接',
     'Backend Layout' => '后台布局',
     'Frontend Theme' => '前台主题',
-    'The backend will use this.' => '后台会用到这个链接',
+    'The backend will use this.' => '后台会用到这个链接，子目录可以去掉域名或IP。',
     'Administrator' => '管理员',
     'Database Configuration' => '数据库配置',
     'Host' => '服务器地址',

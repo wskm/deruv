@@ -9,13 +9,13 @@ $UrlPrevious = Content::getUrlPrevious($model->id);
 $UrlNext = Content::getUrlNext($model->id);
 
 ?>
-<link rel="stylesheet" href="./themes/blog/css/view.css" type="text/css">
+<link rel="stylesheet" href="<?= WEB_URL ?>themes/blog/css/view.css" type="text/css">
 
 <div class="post">
 
     <h1><?= $model->title ?></h1>
 	<div class="author">
-        <a href="javascript:;" class="avatar" ><img src="<?php if($model->user->avatar){ ?><?= $model->user->avatar ?><?php }else{ ?>themes/default/img/avatar.png<?php } ?>" alt="144"></a>
+        <a href="javascript:;" class="avatar" ><img src="<?php if($model->user->avatar){ ?><?= $model->user->avatar ?><?php }else{ ?>themes/default/img/avatar.png<?php } ?>" alt="<?= $model->user_name ?>"></a>
 		<div class="author-info" >
 			<div class="author-name"><?= $model->user_name ?></div>
             <div class="author-meta">

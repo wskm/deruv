@@ -15,7 +15,7 @@ $this->title = Wskm::t('Done', 'install');;
         </h2>
 	</div>
     <div style="margin:50px 0 0 30px;">
-        <a href="<?= Yii::$app->request->baseUrl ?>" class="btn btn-success"><?= Wskm::t('Frontend', 'install') ?></a>
+        <a href="<?= Yii::$app->request->baseUrl ? Yii::$app->request->baseUrl : '/' ?>" class="btn btn-success"><?= Wskm::t('Frontend', 'install') ?></a>
         <p class="help-block"><?= Wskm::t('The backend is accessed according to the configuration of the web server.', 'install') ?></p>
         <p class="text-danger" style="word-wrap: break-word;"><b><?= Wskm::t('Please delete the file', 'install') ?></b> : <?= yii\helpers\FileHelper::normalizePath(Yii::getAlias('@app/controllers/InstallController.php')) ?></p>
     </div>

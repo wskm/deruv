@@ -25,7 +25,7 @@ use yii\widgets\ActiveForm;
 
 <?= $form->field($model, 'category_id', [
 	'template' => '<div class="input-group input-group-sm"><span class="input-group-addon">{label}</span>{input}</div>',
-])->dropDownList(\service\Category::getListOptions(false), ['prompt' => \wskm::t('Please select')])->label(null, [ 'style' => 'line-height: normal']) ?>
+])->dropDownList(\service\Category::getListOptionsByDb(false), ['prompt' => \wskm::t('Please select'), 'encode'=>false ])->label(null, [ 'style' => 'line-height: normal']) ?>
 
 <?php echo $form->field($model, 'status', [
 	'template' => '<div class="input-group input-group-sm"><span class="input-group-addon">{label}</span>{input}</div>',

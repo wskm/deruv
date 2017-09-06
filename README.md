@@ -36,4 +36,4 @@ yii asset assets.php app_frontend/config/assets-prod.php
 Documentation
 -------------
 
-- [Visit github.com/wskm/deruv-doc](https://github.com/wskm/deruv-doc)
+- [Visit deruv.com](http://www.deruv.com)

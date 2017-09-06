@@ -1,6 +1,7 @@
 <?php
 
-define('STATIC_URL', './');
+define('STATIC_URL', Wskm::getWebUrl());
+define('WEB_URL', Wskm::getWebUrl());
 
 if (!is_array($setting) || !$setting['installed']) {
     if (!isset($_COOKIE['install'])) {
@@ -15,5 +16,9 @@ if (!is_array($setting) || !$setting['installed']) {
         $app->catchAll = [
             'site/close',
         ];
+    }
+    
+    if (\service\Setting::getConf('sys', 'enablePrettyUrl')) {
+        Yii::$app->urlManager->initRules();
     }
 }

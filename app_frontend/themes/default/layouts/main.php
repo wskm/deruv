@@ -71,7 +71,7 @@ if (!isset($this->metaTags['description'])) {
 						<li ><a href="<?= $v['url'] ?>"><?= $v['title'] ?></a></li>
 						<?php } ?>
 				    </ul>
-				    <form class="navbar-form navbar-right" role="search" action="" method="get" >
+				    <form class="navbar-form navbar-right" role="search" action="<?= Wskm::Url(['/search']) ?>" method="get" >
 						<input type="hidden" name="r" value="search" >
 						<div class="form-group">
 							<input type="text" name="query" value="<?= Yii::$app->formatter->asText(Wskm::viewVal('query')) ?>" class="form-control" placeholder="<?= Wskm::t('Search') ?>">

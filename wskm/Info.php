@@ -20,6 +20,10 @@ class Info
 				'name' => 'Mysql',
 				'value' => self::mysqlVersion(),
 			],
+            [
+                'name' => 'Disk Free Space',
+				'value' => Yii::$app->formatter->asShortSize((float)disk_free_space(__DIR__)),
+            ],
 			[
 				'name' => 'Memory Usage',
 				'value' => Yii::$app->formatter->asShortSize(memory_get_usage()),

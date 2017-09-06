@@ -42,6 +42,7 @@ return [
     'Error' => '错误',
     'View' => '查看',
 	'Close' => '关闭',
+    'Generate' => '生成',
 	
 	'Title' => '标题',
 	'Thumb' => '缩略图',

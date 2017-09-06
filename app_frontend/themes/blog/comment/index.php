@@ -7,7 +7,7 @@ use yii\widgets\LinkPager;
 $this->title = \Wskm::t('Comment').':'.$modelContent->title;
 
 ?>
-<link rel="stylesheet" href="./themes/blog/css/view.css" type="text/css">
+<link rel="stylesheet" href="<?= WEB_URL ?>themes/blog/css/view.css" type="text/css">
 
 <h2 style="margin: 10px 0 25px 0;"><?= \Wskm::t('Comment').': ' ?><a href="<?= \Wskm::url(['/article', 'id' => $modelContent->id ]) ?>"  ><?= $modelContent->title ?></a></h2>
 
@@ -18,7 +18,7 @@ $this->title = \Wskm::t('Comment').':'.$modelContent->title;
         <?php foreach($comments as $row){ ?>
         <li class="media">
             <a class="media-left" href="#">
-              <img src="<?= $row['avatar'] ? $row['avatar'] : './themes/default/img/avatar.png' ?>" class="img-circle" data-holder-rendered="true" style="width: 45px; height: 45px;">
+              <img src="<?= $row['avatar'] ? $row['avatar'] : WEB_URL.'themes/default/img/avatar.png' ?>" class="img-circle" data-holder-rendered="true" style="width: 45px; height: 45px;">
             </a>
             <div class="media-body">
                 <b class="media-heading"><?= $row['user_name'] ?></b>

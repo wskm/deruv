@@ -41,5 +41,7 @@ return [
     'FrontendTheme' => '前台主题',
     'AdminLayout' => '后台布局',
 	
+    'GenerateHtml' => '生成Html',
+    
 	'The system will automatically update the cache, generally do not need to manually update.' => '系统会自动更新缓存，一般不需要手动更新。',
 ];

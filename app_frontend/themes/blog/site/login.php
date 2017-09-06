@@ -9,7 +9,7 @@ use yii\widgets\ActiveForm;
 
 $this->title = Wskm::t('Login');
 ?>
-<link rel="stylesheet" href="./themes/blog/css/user.css" type="text/css">
+<link rel="stylesheet" href="<?= WEB_URL ?>themes/blog/css/user.css" type="text/css">
 <div class="box" >
 	<h2>
         <a  class="active" ><?= Wskm::t('Login') ?></a>&nbsp;&nbsp;&&nbsp;&nbsp;

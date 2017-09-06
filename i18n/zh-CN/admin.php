@@ -8,6 +8,7 @@ return [
 	'Content ID' => '内容ID',
 	'User ID' => '用户ID',
 	'Article' => '文章',
+    'All Category' => '所有分类',
 	'Category' => '分类',
 	'Block' => '区块',
 	'Log' => '日志',
@@ -78,6 +79,7 @@ return [
 	
 	'Web Server' => '服务器软件',
 	'Sapi Name' => '接口类型',
+    'Disk Free Space' => '磁盘剩余',
 	'Memory Usage' => '内存使用量',
 	'System Version' => '系统版本',
 	
@@ -95,4 +97,7 @@ return [
 	
     'Seo Keywords' => 'SEO关键词',
 	'Seo Description' => 'SEO描述',
+    
+    'Save Config' => '保存配置',
+
 ];

@@ -31,14 +31,14 @@ $webKeywords = Html::encode(\service\Setting::getParamConf('webKeywords'));
   <meta property="og:title" content="<?= Html::encode($this->title) ?>" >
   <meta property="og:url" content="<?= Yii::$app->request->absoluteUrl ?>" >
   <meta property="og:site_name" content="<?= \service\Setting::getParamConf('webName') ?>">
-  <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="<?= WEB_URL ?>favicon.ico" type="image/x-icon" />
   <?= Html::csrfMetaTags() ?>
   <?php $this->head() ?>
   <!--<link href='http://fonts.googleapis.com/css?family=Montserrat|Roboto:400,400italic,600|Roboto+Mono' rel='stylesheet' type='text/css'>-->
   <link rel="stylesheet" href="<?= STATIC_URL ?>fonts/css/Montserrat.css" type="text/css">
   <link rel="stylesheet" href="<?= STATIC_URL ?>fonts/css/Roboto.css" type="text/css">
   <link rel="stylesheet" href="<?= STATIC_URL ?>fonts/css/Roboto Mono.css" type="text/css">
-  <link rel="stylesheet" href="./themes/blog/css/blog.css" type="text/css">
+  <link rel="stylesheet" href="<?= WEB_URL ?>themes/blog/css/blog.css" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 <body>
@@ -55,7 +55,7 @@ $webKeywords = Html::encode(\service\Setting::getParamConf('webKeywords'));
                     <a href="<?= Wskm::url(['/user']) ?>" id="user-name" ><?= Wskm::t('Profile') ?></a>&nbsp;
                     <a href="<?= Wskm::url(['/site/logout']) ?>"><?= \Wskm::t('Logout') ?></a>
                 </span>
-				<a href="<?= Wskm::url(['feed/atom']) ?>" target="_blank"><img src="./themes/blog/img/feed.png"></a>
+				<a href="<?= Wskm::url(['feed/atom']) ?>" target="_blank"><img src="<?= WEB_URL ?>themes/blog/img/feed.png"></a>
 			</div>
 		</div>		
         <div class="main" id="site-main">
@@ -68,7 +68,7 @@ $webKeywords = Html::encode(\service\Setting::getParamConf('webKeywords'));
     <div id="sidepanel" style="display:none" >
 		<a href="javascript:;" class="css3top" ></a>
 	</div>
-	<script src="./themes/blog/js/site.js"></script>
+	<script src="<?= WEB_URL ?>themes/blog/js/site.js"></script>
 	<script>
 		$(function(){
 			getUser('<?= Wskm::url(['site/userinfo']) ?>');
