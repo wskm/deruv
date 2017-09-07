@@ -43,7 +43,7 @@ Preview
 
 <img src="https://raw.githubusercontent.com/wskm/deruv-doc/master/static/imgs/deruv.png" height="200" />
 
->    [Donate](http://www.deruv.com/en/donate.html)
+> [Donate](http://www.deruv.com/en/donate.html)
 
->    [Share Hosting installation file](https://pan.baidu.com/), [共享主机版下载](https://pan.baidu.com/)
+> [Share Hosting installation file](https://pan.baidu.com/), [共享主机版下载](https://pan.baidu.com/)
 
