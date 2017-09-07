@@ -46,7 +46,8 @@ return [
     'Directory Write Permission Errors' => '目录写权限错误数',
     
     'Successful installation!' => '安装成功！',
-    'The backend is accessed according to the configuration of the web server.' => '后端链接根据网站服务器的配置来访问。',
+    'The backend is accessed according to the configuration of the web server.' => '后台链接根据网站服务器的配置来访问。',
     'Please delete the file' => '请删除这个文件',
     'Frontend' => '网站前台',
+    'Admin' => '网站后台',
 ];
