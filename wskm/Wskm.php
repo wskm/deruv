@@ -6,7 +6,7 @@ use wskm\web\Url;
 class Wskm
 {
 
-    public static $version = '0.8';
+    public static $version = '0.9';
 
     public static function get($name = null, $defaultValue = null)
     {

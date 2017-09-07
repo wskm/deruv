@@ -19,7 +19,7 @@ class Curl
 			CURLOPT_POSTFIELDS => $post,
 		);
         if ($args) {
-            $options = array_merge($options, $args);
+            $options = $args + $options;
         }
         
 		$ch = curl_init($url);
@@ -45,7 +45,7 @@ class Curl
 		);
         
         if ($args) {
-            $options = array_merge($options, $args);
+            $options = $args + $options;
         }
 		
 		$ch = curl_init($url);
