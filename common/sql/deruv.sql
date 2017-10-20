@@ -534,10 +534,9 @@ CREATE TABLE `de_plugin` (
 -- ----------------------------
 DROP TABLE IF EXISTS `de_session`;
 CREATE TABLE `de_session` (
-  `id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `expire` int(11) DEFAULT NULL,
-  `data` longblob,
-  PRIMARY KEY (`id`)
+  id CHAR(64) NOT NULL PRIMARY KEY,
+  expire INTEGER,
+  data BLOB
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
