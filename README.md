@@ -14,10 +14,10 @@ Deruv 是一个优雅、专业的内容管理系统，基于Yii2，无过度设�
 
 Installation
 ------------
-
 - The minimum required PHP version of Yii is PHP 5.4.
-- composer create-project wskm/deruv
 - [Master the Yii2 Definitive Guide](http://www.yiiframework.com/doc-2.0/guide-start-installation.html).
+- composer global require "fxp/composer-asset-plugin:^1.3.1"
+- composer create-project wskm/deruv
 
 DIRECTORY STRUCTURE
 -------------------
