@@ -19,6 +19,8 @@ Installation
 - composer global require "fxp/composer-asset-plugin:^1.3.1"
 - composer create-project wskm/deruv
 
+If installed locally, execute the command: composer update
+
 DIRECTORY STRUCTURE
 -------------------
 
