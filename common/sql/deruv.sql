@@ -534,7 +534,7 @@ CREATE TABLE `de_plugin` (
 -- ----------------------------
 DROP TABLE IF EXISTS `de_session`;
 CREATE TABLE `de_session` (
-  `id` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `expire` int(11) DEFAULT NULL,
   `data` longblob,
   PRIMARY KEY (`id`)
