@@ -10,6 +10,7 @@ CREATE TABLE `de_auth_assignment` (
   `user_id` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` int(11) DEFAULT NULL,
   PRIMARY KEY (`item_name`,`user_id`),
+  KEY `auth_assignment_user_id_idx` (`user_id`),
   CONSTRAINT `de_auth_assignment_ibfk_1` FOREIGN KEY (`item_name`) REFERENCES `de_auth_item` (`name`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
