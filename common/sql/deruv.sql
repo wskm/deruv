@@ -650,6 +650,10 @@ CREATE TABLE `de_log_action` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
+-- ----------------------------
+-- Table structure for de_tag
+-- ----------------------------
+DROP TABLE IF EXISTS `de_tag`;
 CREATE TABLE `de_tag` (
   `id` mediumint(8) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8 NOT NULL,
@@ -659,9 +663,14 @@ CREATE TABLE `de_tag` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
+-- ----------------------------
+-- Table structure for de_content_tag
+-- ----------------------------
+DROP TABLE IF EXISTS `de_content_tag`;
 CREATE TABLE `de_content_tag` (
   `content_id` int(11) NOT NULL,
   `tag_id` mediumint(8) NOT NULL,
   UNIQUE KEY `tags` (`tag_id`,`content_id`),
   KEY `content_id` (`content_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
