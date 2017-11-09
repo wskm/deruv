@@ -97,6 +97,7 @@ return [
 	
     'Seo Keywords' => 'SEO关键词',
 	'Seo Description' => 'SEO描述',
+    'Allow up to 5 words, Split with dots or spaces.' => '最多5个单词，用点号或空格分割',
     
     'Save Config' => '保存配置',
 

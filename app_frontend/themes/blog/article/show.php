@@ -15,7 +15,7 @@ $UrlNext = Content::getUrlNext($model->id);
 
     <h1><?= $model->title ?></h1>
 	<div class="author">
-        <a href="javascript:;" class="avatar" ><img src="<?php if($model->user->avatar){ ?><?= $model->user->avatar ?><?php }else{ ?>themes/default/img/avatar.png<?php } ?>" alt="<?= $model->user_name ?>"></a>
+        <a href="<?= Wskm::url(['/user/show', 'id' => $model->user_id]) ?>" target="_blank" class="avatar" ><img src="<?php if($model->user->avatar){ ?><?= $model->user->avatar ?><?php }else{ ?>themes/default/img/avatar.png<?php } ?>" alt="<?= $model->user_name ?>"></a>
 		<div class="author-info" >
 			<div class="author-name"><?= $model->user_name ?></div>
             <div class="author-meta">
@@ -30,6 +30,14 @@ $UrlNext = Content::getUrlNext($model->id);
     <div class="content">
         <?= $model->article->detail ?>
     </div>
+    
+    <?php if($model->tag){ ?>
+    <div class="tag-list">
+        <?php foreach($model->tag as $tag){ ?>
+        <a href="<?= Wskm::url([ '/tag', 'name' => $tag]) ?>" ><?= $tag ?></a>&nbsp;&nbsp;
+        <?php } ?>
+    </div>
+    <?php } ?>
             
     <?php if(isset($UrlPrevious['id'])){ ?>
     <a id="newer" class="blog-nav" href="<?= Wskm::url(['/article', 'id' => $UrlPrevious['id']] ) ?>">&lt;&nbsp;<?= Wskm::t('Newer') ?></a>

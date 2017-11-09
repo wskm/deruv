@@ -10,6 +10,7 @@ use yii\web\ServerErrorHttpException;
 
 use common\models\Content;
 use common\models\Article;
+use common\models\User;
 
 class UserController extends BaseController
 {
@@ -19,6 +20,7 @@ class UserController extends BaseController
         return [
             'access' => [
                 'class' => AccessControl::className(),
+                'except' => [ 'show' ],
                 'rules' => [
                     [
                         'allow' => true,
@@ -110,6 +112,7 @@ class UserController extends BaseController
     
     public function actionContributeUpdate($id)
     {
+        $id = (int)$id;
         $model = Content::findOne([
             'id' => $id,
         ]);
@@ -184,4 +187,19 @@ class UserController extends BaseController
         
     }
 
+    public function actionShow($id)
+    {
+        $id = (int)$id;
+        $model = User::findOne([
+            'id' => $id,
+            'status' => User::STATUS_ACTIVE
+        ]);
+        if (!$model) {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+        
+        return $this->render('show', [
+            'model' => $model,
+        ]);
+    }
 }

@@ -29,4 +29,14 @@ class ArrayHelper
 		return $num;
 	}
 
+    public static function num2Assoc($arr, $defaultVal = 1)
+	{
+		$data = [];
+        foreach($arr as $v){
+            $data[$v] = $defaultVal;
+        }
+        
+		return $data;
+	}
+    
 }

@@ -62,6 +62,8 @@ $this->registerJsFile('js/edit.min.js');
 	<?= $form->field($model, 'summary')->textarea([
 		'rows' => 3,
 	]) ?>
+    
+    <?= $form->field($model, 'tag')->textInput(['maxlength' => true, 'placeholder' => Wskm::t('Allow up to 5 words, Split with dots or spaces.', 'admin')]) ?>
 
 	<?= $form->field($article, 'seo_keywords')->textInput(['maxlength' => true]) ?>
 

@@ -17,6 +17,7 @@ use common\models\User;
  * @property string $thumb
  * @property string $title
  * @property string $summary
+ * @property string $tag
  * @property integer $pv
  * @property integer $comment
  * @property integer $iscomment
@@ -72,7 +73,7 @@ class Content extends AdminAR
         return [
             [['category_id', 'user_id', 'user_name', 'title'], 'required'],
             [['category_id', 'user_id', 'pv', 'comment', 'iscomment', 'status', 'created_at' ], 'integer'],
-            [['user_name', 'thumb', 'title', 'summary'], 'string', 'max' => 255],
+            [['user_name', 'thumb', 'title', 'summary', 'tag'], 'string', 'max' => 255],
 			[['status'], 'default', 'value' => 0 ],
 			[['title'], 'unique', 'targetAttribute' => ['category_id', 'title']],
 			['updated_at', 'safe'],
@@ -92,6 +93,7 @@ class Content extends AdminAR
             'thumb' => Yii::t('app', 'Thumb'),
             'title' => Yii::t('app', 'Title'),
             'summary' => Yii::t('app', 'Summary'),
+            'tag' => Yii::t('app', 'Tag'),
             'pv' => Yii::t('app', 'Pv'),
             'comment' => Yii::t('app', 'Comment'),
 			'iscomment' => Yii::t('admin', 'Is Comment'),

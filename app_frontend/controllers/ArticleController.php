@@ -21,7 +21,13 @@ class ArticleController extends BaseController
         } else if ($model->status == 2) {
             throw new \yii\web\HttpException(500, \Wskm::t('This article needs to be audited', 'frontend'));
         }
-
+        
+        if ($model->tag) {
+            $model->tag = explode(',', $model->tag);
+        }else{
+            $model->tag = [];
+        }
+        
         $tplShow = $category->tpl_show ? $category->tpl_show : 'show';
         return $this->render($tplShow, [
                 'model' => $model,

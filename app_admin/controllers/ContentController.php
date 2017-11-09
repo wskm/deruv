@@ -9,6 +9,8 @@ use common\models\ContentSearch;
 use common\models\Article;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\ServerErrorHttpException;
+use service\Tag as TagServer;
 
 /**
  * ContentController implements the CRUD actions for Content model.
@@ -73,21 +75,41 @@ class ContentController extends CoreController
             $model->user_name = $this->user->username;
 
             $model->updated_at = time();
+            $model->tag = TagServer::getTags($model->tag);
+            if ($model->tag) {
+                $model->tag = implode(',', $model->tag);
+            }
             $modelArticle->updated_at = $model->updated_at;
 
             $isValid = $model->validate();
             $isValid = $modelArticle->validate() && $isValid;
             if ($isValid) {
-                $model->save(false);
-
-                $modelArticle->content_id = $model->id;
                 $modelArticle->detail = \yii\helpers\HtmlPurifier::process($modelArticle->detail, [
                         'Attr.AllowedFrameTargets' => ['_blank']
                 ]);
 
-                $modelArticle->save(false);
+                $transaction = Yii::$app->db->beginTransaction();
+                try {
+                    $ok = $model->save(false);
+                    if (!$ok) {
+                        throw new ServerErrorHttpException(var_export($model->getErrors(), true));
+                    }
+
+                    $modelArticle->content_id = $model->id;
+                    $ok = $modelArticle->save(false);
+                    if (!$ok) {
+                        throw new ServerErrorHttpException(var_export($modelArticle->getErrors(), true));
+                    }
+
+                    $transaction->commit();
+                } catch (\Exception $e) {
+
+                    $transaction->rollBack();
+                    throw $e;
+                }
 
                 $this->updateFile('fids', $model->id);
+                TagServer::update($model->id, $model->tag);
 
                 return $this->redirect(['view', 'id' => $model->id]);
             }
@@ -119,6 +141,10 @@ class ContentController extends CoreController
 
         if ($model->load($post) && $modelArticle->load($post)) {
             $modelArticle->updated_at = $model->updated_at;
+            $model->tag = TagServer::getTags($model->tag);
+            if ($model->tag) {
+                $model->tag = implode(',', $model->tag);
+            }
 
             $isValid = $model->validate();
             $isValid = $modelArticle->validate() && $isValid;
@@ -128,10 +154,27 @@ class ContentController extends CoreController
                         'Attr.AllowedFrameTargets' => ['_blank']
                 ]);
 
-                $model->save(false);
-                $modelArticle->save(false);
+                $oldTag = $model->getOldAttribute('tag');
+                $transaction = Yii::$app->db->beginTransaction();
+                try {
+                    $ok = $model->save(false);
+                    if (!$ok) {
+                        throw new ServerErrorHttpException(var_export($model->getErrors(), true));
+                    }
+
+                    $ok = $modelArticle->save(false);
+                    if (!$ok) {
+                        throw new ServerErrorHttpException(var_export($modelArticle->getErrors(), true));
+                    }
+
+                    $transaction->commit();
+                } catch (\Exception $e) {
+                    $transaction->rollBack();
+                    throw $e;
+                }
 
                 $this->updateFile('fids', $model->id);
+                TagServer::update($model->id, $model->tag, $oldTag);
 
                 return $this->redirect(['view', 'id' => $model->id]);
             }
@@ -206,7 +249,7 @@ class ContentController extends CoreController
     {
         $html = Wskm::post('html');
         $html = \service\Content::downloadImgs($html);
-        
+
         echo $html;
     }
 

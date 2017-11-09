@@ -37,6 +37,7 @@ return [
 
 	'Add' => '新增',
 	'Create' => '新增',
+    'Reply' => '回复',
 	'Update' => '更新',
 	'Delete' => '删除',
     'Error' => '错误',
@@ -48,12 +49,14 @@ return [
 	'Thumb' => '缩略图',
 	'Detail' => '内容',
 	'Summary' => '摘要',
+    'Tag' => '标签',
 	'Category Top' => '顶级分类',
 	
     'Yes' => '是',
 	'No' => '否',	
 	
 	'Submit' => '提交',
+    'Cancel' => '取消',
 	'Reset' => '重置',
 	'Search' => '搜索',
 	'Upload' => '上传',

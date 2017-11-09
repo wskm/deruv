@@ -10,7 +10,6 @@ CREATE TABLE `de_auth_assignment` (
   `user_id` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` int(11) DEFAULT NULL,
   PRIMARY KEY (`item_name`,`user_id`),
-  KEY `auth_assignment_user_id_idx` (`user_id`),
   CONSTRAINT `de_auth_assignment_ibfk_1` FOREIGN KEY (`item_name`) REFERENCES `de_auth_item` (`name`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -347,12 +346,14 @@ CREATE TABLE `de_category` (
 DROP TABLE IF EXISTS `de_comment`;
 CREATE TABLE `de_comment` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parent_id` int(11) NOT NULL DEFAULT '0',
   `content_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `user_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `avatar` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `msg` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `ip` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `reply` mediumint(8) NOT NULL DEFAULT '0',
   `status` tinyint(1) NOT NULL DEFAULT '1',
   `created_at` int(11) NOT NULL,
   `updated_at` int(11) NOT NULL,
@@ -377,6 +378,7 @@ CREATE TABLE `de_content` (
   `thumb` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `summary` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `tag` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `pv` int(11) NOT NULL DEFAULT '0',
   `comment` int(11) NOT NULL DEFAULT '0',
   `iscomment` tinyint(1) NOT NULL DEFAULT '1',
@@ -645,4 +647,21 @@ CREATE TABLE `de_log_action` (
   `level` tinyint(1) NOT NULL DEFAULT '0' COMMENT '1 warning 2 danger',
   `created_at` int(11) NOT NULL,
   PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+CREATE TABLE `de_tag` (
+  `id` mediumint(8) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+CREATE TABLE `de_content_tag` (
+  `content_id` int(11) NOT NULL,
+  `tag_id` mediumint(8) NOT NULL,
+  UNIQUE KEY `tags` (`tag_id`,`content_id`),
+  KEY `content_id` (`content_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

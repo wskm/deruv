@@ -273,7 +273,7 @@ pre .xml .cdata {
 }
 .comment-wrap {
 }
-.comment-wrap .input-msg{
+.input-msg{
     box-sizing: border-box;
     width: 100%;
     font-size: 12px;
@@ -391,3 +391,28 @@ pre .xml .cdata {
   }
 }
 
+/* reply */
+.media .media-reply{
+    padding: 0 0 6px 0;
+    color: gray;
+    font-size: 10px;
+}
+
+.media .media-reply .author{
+    color:#3788b9;
+}
+
+.subcomment-list{
+    padding: 5px 0 5px 20px;
+    border-left: 2px solid #d9d9d9;
+}
+
+.tag-list{
+    padding:5px 0;
+}
+
+.tag-list a{
+    color: #7b7979;
+    text-decoration: underline;
+    font-size:10px;
+}

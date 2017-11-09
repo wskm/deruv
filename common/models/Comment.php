@@ -9,13 +9,15 @@ use yii\behaviors\TimestampBehavior;
  * This is the model class for table "{{%comment}}".
  *
  * @property integer $id
+ * @property integer $parent_id
  * @property integer $content_id
  * @property integer $user_id
  * @property string $user_name
  * @property string $avatar
  * @property string $msg
  * @property string $ip
- * @property integer $status
+ * @property integer $status 
+ * @property integer $reply
  * @property integer $created_at
  * @property integer $updated_at
  */
@@ -58,7 +60,7 @@ class Comment extends \yii\db\ActiveRecord
     {
         return [
             [['content_id', 'user_id', 'user_name', 'msg', 'ip'], 'required'],
-            [['content_id', 'user_id', 'status', 'created_at', 'updated_at'], 'integer'],
+            [['content_id', 'parent_id', 'user_id', 'status', 'reply', 'created_at', 'updated_at'], 'integer'],
             [['msg'], 'string'],
             [['user_name', 'avatar'], 'string', 'max' => 255],
             [['ip'], 'string', 'max' => 128],
@@ -79,6 +81,7 @@ class Comment extends \yii\db\ActiveRecord
             'msg' => Yii::t('app', 'Message'),
             'ip' => Yii::t('app', 'Ip'),
             'status' => Yii::t('app', 'Status'),
+            'reply' => Yii::t('app', 'Reply'),
             'created_at' => Yii::t('app', 'Created At'),
             'updated_at' => Yii::t('app', 'Updated At'),
         ];
