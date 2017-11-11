@@ -6,12 +6,50 @@ use Yii;
 use yii\console\Controller;
 use common\models\Content;
 use common\models\Article;
+use wskm\char\Word;
+use service\Tag;
 
 set_time_limit(0);
 
 class ArticleController extends Controller
 {
 
+    /**
+     * Warning: Need to increase the memory limit
+     */
+    public function actionTag()
+    {
+        defined('NO_LOG') or define('NO_LOG', true);
+
+        $i = 0;
+        foreach (Content::find()->where([
+            'tag' => '',
+            'status' => Content::STATUS_PUBLISHED
+        ])->orderBy(['id' => SORT_DESC])->each(30) as $content) {
+
+            $words = Word::getKeywords($content->article->detail, 5);
+            $content->tag = implode(',', $words);
+            Tag::update($content->id, $content->tag, $content->getOldAttribute('tag'));
+
+            $ok = $content->save();
+            if ($ok === false) {
+                throw new \Exception('save error:'.var_export($content->errors, true));
+            }
+
+            $i++;
+
+            echo "$i\n";
+        }
+
+        echo "\nend";
+        exit(0);
+    }
+
+    /**
+     * demo: yii article/import-rss /home/rss
+     * @param type $file
+     * @throws \Exception
+     */
     public function actionImportRss($file)
     {
         if (!is_file($file)) {
@@ -105,7 +143,7 @@ class ArticleController extends Controller
 
                 $fileExt = \wskm\helpers\File::normalizeExt($img);
                 $fileName = md5($img).($fileExt ? '.'.$fileExt : '');
-                
+
                 $file = $dir.DIRECTORY_SEPARATOR.$fileName;
                 $urlFile = $day.'/'.$fileName;
                 $newImgs[$urlFile] = $img;
@@ -121,7 +159,7 @@ class ArticleController extends Controller
                     if ($data) {
                         file_put_contents($file, $data);
                         echo "ok\n";
-                    }else{
+                    } else {
                         echo "empty\n";
                     }
                 } catch (\Exception $ex) {

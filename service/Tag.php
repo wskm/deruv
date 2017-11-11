@@ -14,7 +14,7 @@ class Tag
 {
 
     public static function filterTag($txt) {
-        $txt = trim($txt);
+        $txt = strtolower(trim($txt));
         $txt = str_replace([chr(0xa3).chr(0xac), chr(0xa1).chr(0x41), chr(0xef).chr(0xbc).chr(0x8c)], ',', $txt);
         $list = array();
         if (strpos($txt, ',') !== false) {

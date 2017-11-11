@@ -71,6 +71,12 @@ function getNotice(args) {
 	});
 }
 
+$.ajaxSetup({
+    error : function(jqXHR, textStatus, errorThrown){
+        console.log(errorThrown);
+    }
+});
+    
 $(function(){
     runSkin && initSkin();
     initTop();
