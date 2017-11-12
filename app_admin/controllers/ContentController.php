@@ -230,6 +230,8 @@ class ContentController extends CoreController
 
         if ($ok !== false) {
             $model->delete();
+            
+            TagServer::update($id, '');
         }
 
         return $this->redirect(['index']);
