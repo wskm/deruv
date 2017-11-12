@@ -78,6 +78,8 @@ class ContentController extends CoreController
             $model->tag = TagServer::getTags($model->tag);
             if ($model->tag) {
                 $model->tag = implode(',', $model->tag);
+            }else{
+                $model->tag = '';
             }
             $modelArticle->updated_at = $model->updated_at;
 
@@ -144,6 +146,8 @@ class ContentController extends CoreController
             $model->tag = TagServer::getTags($model->tag);
             if ($model->tag) {
                 $model->tag = implode(',', $model->tag);
+            }else{
+                $model->tag = '';
             }
 
             $isValid = $model->validate();

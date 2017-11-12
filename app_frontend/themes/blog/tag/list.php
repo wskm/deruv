@@ -6,7 +6,7 @@ use yii\helpers\Html;
 use yii\widgets\LinkPager;
 use yii\widgets\Breadcrumbs;
 
-$this->title = $category['name'];
+$this->title = Html::encode($name);
 
 /*
 $parents = \service\Category::getParents($category['id']);
@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <link rel="stylesheet" href="<?= WEB_URL ?>themes/blog/css/index.css" type="text/css">
 
-<h2>Tag: <?= Html::encode($name) ?></h2>
+<h2>Tag: <?= $this->title ?></h2>
 <?php if($list) { ?>
 <ul>
     <?php foreach($list as $row){ ?>
