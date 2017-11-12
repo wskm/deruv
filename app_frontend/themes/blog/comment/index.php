@@ -78,9 +78,11 @@ $this->title = \Wskm::t('Comment').':'.$modelContent->title;
     {{each list row i}}
     <div class="media">
         <div class="media-reply" >
-            <a href="{{row.user_url}}" class="author" target="_blank" >{{row.user_name}}</a>&nbsp;&nbsp;<a href='javascript:;' data-id="{{row.parent_id}}" data-userid="{{row.user_id}}" data-username="{{row.user_name}}"  class="comment-reply" style="color:gray" ><?= Wskm::t('Reply') ?></a>
-            &nbsp;&nbsp;<a href='javascript:;' style="color:gray" data-id='{{row.id}}' class="comment-del" ><?= Wskm::t('Delete') ?></a></small>
+            <a href="{{row.user_url}}" class="author" target="_blank" >{{row.user_name}}</a>&nbsp;&nbsp;<a href='javascript:;' data-id="{{row.parent_id}}" data-userid="{{row.user_id}}" data-username="{{row.user_name}}"  class="comment-reply" style="color:gray" ><?= Wskm::t('Reply') ?></a>            
             &nbsp;&nbsp;{{row.created_at}}
+            {{if row.isdelete }}
+            &nbsp;&nbsp;<a href='javascript:;' style="color:gray" data-id='{{row.id}}' class="comment-del" ><?= Wskm::t('Delete') ?></a>
+            {{/if}}
         </div>
         <div class="media-body">{{row.msg}}</div>
     </div>

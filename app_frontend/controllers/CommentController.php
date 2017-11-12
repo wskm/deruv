@@ -258,6 +258,7 @@ class CommentController extends BaseController
                 'user_name' => $comment['user_name'],
                 'user_url' => \Wskm::url(['/user/show', 'id' => $comment['user_id']]),
                 'msg' => $comment['msg'],
+                'isdelete' => $this->user->id == $comment['user_id'],
                 'created_at' => Yii::$app->formatter->asRelativeTime($comment['created_at']),
             ];
         }
