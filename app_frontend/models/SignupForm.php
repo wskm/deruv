@@ -25,6 +25,7 @@ class SignupForm extends Model
             ['username', 'required'],
             ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => Yii::t('user', 'This username has already been taken.')],
             ['username', 'string', 'min' => 4, 'max' => 255],
+            ['username', 'match', 'pattern' => '/^[a-z]\w*$/i'],
 
             ['email', 'trim'],
             ['email', 'required'],
