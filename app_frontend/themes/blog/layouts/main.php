@@ -6,11 +6,23 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 use common\widgets\Alert;
+use service\Block;
 
 frontend\assets\JqueryAsset::register($this);
+yii\bootstrap\BootstrapPluginAsset::register($this);
 
-$webDescription = Html::encode(\service\Setting::getParamConf('webDescription'));
-$webKeywords = Html::encode(\service\Setting::getParamConf('webKeywords'));
+if (!isset($this->metaTags['keywords'])) {
+    $this->registerMetaTag([
+        'name' => 'keywords',
+        'content' => \service\Setting::getParamConf('webKeywords')
+    ]);
+}
+if (!isset($this->metaTags['description'])) {
+    $this->registerMetaTag([
+        'name' => 'description',
+        'content' => \service\Setting::getParamConf('webDescription')
+    ]);
+}
 
 ?>
 <?php $this->beginPage() ?>
@@ -20,13 +32,6 @@ $webKeywords = Html::encode(\service\Setting::getParamConf('webKeywords'));
   <meta charset="<?= Yii::$app->charset ?>">
   <title><?= Html::encode($this->title) ?> | <?= \service\Setting::getParamConf('webName') ?></title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <?php if($webKeywords){ ?>
-  <meta name="keywords" content="<?= $webKeywords ?>" />
-  <?php } ?>
-  <?php if($webDescription){ ?>
-  <meta name="description" content="<?= $webDescription ?>" />
-  <meta property="og:description" content='<?= $webDescription ?>' >
-  <?php } ?>
   <meta property="og:type" content="<?= Yii::$app->controller->id ?>">
   <meta property="og:title" content="<?= Html::encode($this->title) ?>" >
   <meta property="og:url" content="<?= Yii::$app->request->absoluteUrl ?>" >
@@ -43,21 +48,51 @@ $webKeywords = Html::encode(\service\Setting::getParamConf('webKeywords'));
 </head>
 <body>
 <?php $this->beginBody() ?>
-    <div id="wrapper">
-        <div class="header clearfix">
-			<div class="logoinfo"><a href="<?= Url::home(); ?>"><?= \service\Setting::getParamConf('webName') ?></a></div>
-			<div class="headinfo">
-                <span style="display:none" id="site-login" >
-                    <a href="<?= Wskm::url(['/site/login']) ?>" ><?= \Wskm::t('Login') ?></a>&nbsp;&&nbsp;
-                    <a href="<?= Wskm::url(['/site/signup']) ?>" ><?= \Wskm::t('Signup') ?></a>
-                </span>
-                <span id="site-user" style="display:none">
-                    <a href="<?= Wskm::url(['/user']) ?>" id="user-name" ><?= Wskm::t('Profile') ?></a>&nbsp;
-                    <a href="<?= Wskm::url(['/site/logout']) ?>"><?= \Wskm::t('Logout') ?></a>
-                </span>
-				<a href="<?= Wskm::url(['feed/atom']) ?>" target="_blank"><img src="<?= WEB_URL ?>themes/blog/img/feed.png"></a>
-			</div>
-		</div>		
+    
+    <nav class=" navbar navbar-default navbar-fixed-top" style="background-color:#fff;" >
+        <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#site-nav" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="<?= Url::home(); ?>"><?= \service\Setting::getParamConf('webName') ?></a>
+
+            </div>
+            <div class="navwrap">
+                <div class=" collapse navbar-collapse" id="site-nav">
+                    <ul class="nav navbar-nav">
+                      <li class="active"><a href="<?= Url::home(); ?>"><?= \Wskm::t('Home') ?> <span class="sr-only">(current)</span></a></li>
+
+                    <?php $navs = Block::shows('nav'); ?>
+                    <?php foreach($navs as $v){ ?>
+                      <li ><a href="<?= $v['url'] ?>"><?= $v['title'] ?></a></li>
+                    <?php } ?>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="headinfo">
+                            <span style="display:none" id="site-login" >
+                                <a href="<?= Wskm::url(['/site/login']) ?>" ><?= \Wskm::t('Login') ?></a>&nbsp;&&nbsp;
+                                <a href="<?= Wskm::url(['/site/signup']) ?>" ><?= \Wskm::t('Signup') ?></a>
+                            </span>
+                            <span id="site-user" style="display:none">
+                                <a href="<?= Wskm::url(['/user']) ?>" id="user-name" ><?= Wskm::t('Profile') ?></a>&nbsp;
+                                <a href="<?= Wskm::url(['/site/logout']) ?>"><?= \Wskm::t('Logout') ?></a>
+                            </span>
+                            <a href="<?= Wskm::url(['feed/atom']) ?>"  target="_blank"><img src="<?= WEB_URL ?>themes/blog/img/feed.png"></a>
+                        </li>
+                    </ul>
+                </div>
+
+
+            </div>
+
+        </div>
+    </nav>
+    
+    <div id="wrapper" class="container ">
         <div class="main" id="site-main">
             <?= \common\widgets\Alert::widget() ?>
 
