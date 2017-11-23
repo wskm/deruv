@@ -18,33 +18,26 @@ a {
   transition: color 0.2s ease, border-color 0.2s ease;
 }
 
-.header {
-	width:620px;
-    margin: 40px auto 10px;
-    text-align: left;
+.navwrap{
+    width:620px !important;
+    margin: 0 auto;
+    
 }
-.header img{
+.nav .headinfo{
+    font-size: 12px;
+}
+
+.nav .headinfo a{
+	font-family: "Roboto", "Helvetica Neue", "Hiragino Sans GB", "LiHei Pro", Arial, serif;
+    padding-left: 0;
+    padding-right: 0;
+    display: inline-block;
+}
+.nav .headinfo img{
 	vertical-align: middle;
     display: inline-block;
 	height: 15px;
     margin-bottom: 3px;
-}
-.header .logoinfo{
-	float: left;
-    letter-spacing: 5px;
-}
-.header .logoinfo a{
-  font-size: 15px;
-  color: #444;
-}
-.header .headinfo{
-	float: right;
-    color: #999;
-    font-size: 12px;
-}
-
-.header .headinfo a{
-	font-family: "Roboto", "Helvetica Neue", "Hiragino Sans GB", "LiHei Pro", Arial, serif;
 }
 
 .header,
@@ -60,29 +53,20 @@ h6 {
 }
 .main {
   max-width: 620px;
-  margin: 30px auto;
+  margin: 90px auto;
   /*padding: 0 30px 50px;*/
   position: relative;
 }
+
 @media screen and (max-width: 420px) {
 
-    .header .logoinfo a{
-      font-size: 13px;
-    }
 }
 
 @media screen and (min-width: 1400px) {
 
-    .header .logoinfo a{
-      font-size: 13px;
-    }
-    
-    .main {
-        margin: 50px auto;
-    }
-    .header{
-        margin-top:50px;
-    }
+}
+.page-wrap{
+    text-align: center;
 }
 
 .clearfix:before,
@@ -92,10 +76,6 @@ h6 {
 }
 .clearfix:after {
     clear: both;
-}
-
-.page-wrap{
-    text-align: center;
 }
 
 .pagination {
