@@ -5,6 +5,16 @@ use service\Content;
 
 $this->title = $model->title;
 
+$this->registerMetaTag([
+    'name' => 'keywords',
+    'content' => $model->article->seo_keywords
+], 'keywords');
+
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => $model->article->seo_description
+], 'description');
+
 $UrlPrevious = Content::getUrlPrevious($model->id);
 $UrlNext = Content::getUrlNext($model->id);
 
