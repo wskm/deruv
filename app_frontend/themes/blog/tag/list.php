@@ -21,6 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <link rel="stylesheet" href="<?= WEB_URL ?>themes/blog/css/index.css" type="text/css">
 
 <h2>Tag: <?= $this->title ?></h2>
+<hr>
 <?php if($list) { ?>
 <ul>
     <?php foreach($list as $row){ ?>
