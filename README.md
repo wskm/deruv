@@ -37,7 +37,7 @@ yii asset assets.php app_frontend/config/assets-prod.php
 文档
 -------------
 
-- [Master the Yii2 Definitive Guide](http://www.yiiframework.com/doc-2.0/guide-start-installation.html).
+- [阅读YII2权威指南](http://www.yiiframework.com/doc-2.0/guide-start-installation.html).
 - Visit [deruv.com](http://www.deruv.com)
 
 预览
@@ -45,7 +45,7 @@ yii asset assets.php app_frontend/config/assets-prod.php
 
 <img src="https://raw.githubusercontent.com/wskm/deruv-doc/master/static/imgs/deruv.png" height="200" />
 
-> [Donate](http://www.deruv.com/en/donate.html)
+> [捐赠](http://www.deruv.com/en/donate.html)
 
 > [Share Hosting installation file](https://pan.baidu.com/s/1nvqSosx) [共享主机版下载](https://pan.baidu.com/s/1nvqSosx)
 
@@ -53,4 +53,5 @@ yii asset assets.php app_frontend/config/assets-prod.php
 -------------
 
 https://github.com/wskm/deruv/issues
+
 https://gitee.com/wskm/deruv/issues
