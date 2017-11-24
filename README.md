@@ -18,7 +18,7 @@ Deruv 是一个优雅、专业的内容管理系统，基于Yii2，无过度设�
 - composer global require "fxp/composer-asset-plugin:^1.3.1"
 - composer create-project wskm/deruv
 
-如果解压缩包，请使用命令: composer update
+如果压缩包安装，请使用命令: composer update
 
 目录结构
 -------------------
