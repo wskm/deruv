@@ -17,6 +17,10 @@ a {
   text-decoration: none;
   transition: color 0.2s ease, border-color 0.2s ease;
 }
+.navbar-brand{
+    font-weight: 700;
+    color: #FF4500 !important;
+}
 
 .navwrap{
     width:620px !important;
