@@ -194,7 +194,7 @@ class ContentController extends CoreController
     private function updateFile($name, $content_id)
     {
         $fids = (array)\Wskm::post($name);
-        $fids = array_filter($fids, is_numeric);
+        $fids = array_filter($fids, 'is_numeric');
         $fids = array_unique($fids);
         if (!$fids) {
             return true;
