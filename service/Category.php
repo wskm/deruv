@@ -41,7 +41,7 @@ class Category
         }
 
         $getLayer = function($id, $space = false) {
-            return $space ? str_repeat($space, abs(self::getInfo($id)['level'] - 1)) : '';
+            return $space ? str_repeat($space, abs(self::getInfo($id)['level'])) : '';
         };
 
         $layer = 0;
