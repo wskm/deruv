@@ -1,5 +1,5 @@
 <h1 align="center">
-    <a href="http://www.deruv.com/" target="_blank">
+    <a href="https://github.com/wskm/deruv" target="_blank">
         Deruv
     </a>
 </h1>
@@ -42,16 +42,13 @@ yii asset assets.php app_frontend/config/assets-prod.php
 -------------
 
 - [阅读YII2权威指南](http://www.yiiframework.com/doc-2.0/guide-start-installation.html).
-- Visit [deruv.com](http://www.deruv.com)
 
 预览
 -------
 
 <img src="https://raw.githubusercontent.com/wskm/deruv-doc/master/static/imgs/deruv.png" height="200" />
 
-> [捐赠](http://www.deruv.com/en/donate.html)
-
-> [Share Hosting installation file](https://pan.baidu.com/s/1nvqSosx) [共享主机版下载](https://pan.baidu.com/s/1nvqSosx)
+> [捐赠](https://github.com/wskm/deruv-doc/blob/master/zh-CN/donate.md)
 
 提问
 -------------
