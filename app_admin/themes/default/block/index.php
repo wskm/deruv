@@ -115,8 +115,8 @@ $this->registerJsFile('js/edit.min.js');
 				<label for="groupName"><?= \Wskm::t('Summary') ?></label>
 				<textarea class="form-control" name="Block[summary]" id="block-summary" rows="3"></textarea>
 			</div>
-			<?php echo Html::hiddenInput('Block[kind_id]', '', [ id => 'block-kindid' ])	?>
-			<?php echo Html::hiddenInput('Block[content_id]', '', [ id => 'block-contentid' ])	?>
+			<?php echo Html::hiddenInput('Block[kind_id]', '', [ 'id' => 'block-kindid' ])	?>
+			<?php echo Html::hiddenInput('Block[content_id]', '', [ 'id' => 'block-contentid' ])	?>
 			<button type="submit" id="blockSubmit" class="btn btn-info"><?=\Wskm::t('Add')?></button>&nbsp;&nbsp;
 			<button type="button" class="btn btn-default" data-dismiss="modal"><?=\Wskm::t('Close')?></button>
 		</form>
