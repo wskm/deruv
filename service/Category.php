@@ -12,6 +12,7 @@ class Category
     const CACHE_TREE = 'category:tree';
     const CACHE_CHILDS = 'category:childs';
     const CACHE_PARENTS = 'category:parents';
+    const CACHE_OPTIONS = 'category:options';
 
     private static $tree;
 
@@ -30,8 +31,13 @@ class Category
         return self::loadTree()->getOptions(0, 0, $exceptid, '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;', $showTop ? 'Top' : '');
     }
 
-    public static function getListOptions($showTop = true, $exceptid = false)
+    public static function getListOptions($showTop = true, $exceptid = false, $w = false)
     {
+        $list = self::getCache(self::CACHE_OPTIONS);
+        if(!$w && $list){
+            return $list;
+        }
+
         $data = self::getCache(self::CACHE_CHILDS);
         $options = [];
         $childs = isset($data[0]) ? $data[0] : '';
@@ -55,6 +61,9 @@ class Category
                 $options[$id] = $getLayer($id, '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;').$info['name'];
             }
         }
+
+        \wskm\Cache::set(self::CACHE_OPTIONS, $options);
+
         return $options;
     }
 
@@ -120,6 +129,8 @@ class Category
         \wskm\Cache::set(self::CACHE_CHILDS, $tree->getChildList());
         \wskm\Cache::set(self::CACHE_PARENTS, $tree->getParentList());
 
+        self::getListOptions(false, false, true);
+
         return \wskm\Cache::get($key);
     }
 
@@ -127,6 +138,7 @@ class Category
     {
         $data = \wskm\Cache::get($key);
         if ($data === false || $w) {
+            
             $data = self::setCache($key);
         }
 
