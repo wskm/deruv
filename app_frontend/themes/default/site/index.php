@@ -78,7 +78,7 @@ $news = Block::shows('home_news');
 				<div class="tab-content">
 					<?php
 						foreach($cates as $i => $v){ 
-							$contents = \service\Content::getCache($v['id'], 20);
+							$contents = (array)\service\Content::getCache($v['id'], 20);
 					?>
 					<div role="tabpanel" class="tab-pane <?php if($i ==0){ ?>active<?php } ?>" id="tab-<?= $v['key'] ?>">
 						<?php foreach($contents as $row) { ?>
