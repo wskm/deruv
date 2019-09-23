@@ -68,7 +68,6 @@ class ContentSearch extends Content
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'category_id' => $this->category_id,
             'user_id' => $this->user_id,
             'pv' => $this->pv,
             'comment' => $this->comment,
@@ -76,6 +75,12 @@ class ContentSearch extends Content
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ]);
+
+        if ($this->category_id) {
+            $categoryIds = \service\Category::getChilds($this->category_id);
+            $categoryIds[] = $this->category_id;
+            $query->andFilterWhere(['in', 'category_id', $categoryIds]);
+        }
 
         $query->andFilterWhere(['like', 'user_name', $this->user_name])
             ->andFilterWhere(['like', 'thumb', $this->thumb])
