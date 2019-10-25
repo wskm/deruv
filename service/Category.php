@@ -33,7 +33,12 @@ class Category
 
     public static function getListOptions($showTop = true, $exceptid = false, $w = false)
     {
-        $list = self::getCache(self::CACHE_OPTIONS);
+        $list = [];
+        if($showTop){
+            $list = [0 => \Wskm::t('Category Top')];
+        }
+
+        $list = $list + self::getCache(self::CACHE_OPTIONS);
         if(!$w && $list){
             return $list;
         }
