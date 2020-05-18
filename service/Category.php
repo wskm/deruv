@@ -25,20 +25,32 @@ class Category
 
         return self::$tree;
     }
+    
+    public static function getTreeList($root = 0, $layer = 0, $except = null)
+    {
+        return self::loadTree()->getTreeList($root, $layer, $except);
+    }
+
+    public static function getArrayList($root = 0, $layer = 0)
+    {
+        return self::loadTree()->getArrayList($root, $layer);
+    }
 
     public static function getListOptionsByDb($showTop = true, $exceptid = false)
     {
-        return self::loadTree()->getOptions(0, 0, $exceptid, '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;', $showTop ? 'Top' : '');
+        return self::loadTree()->getOptions(0, 0, $exceptid, '&nbsp;&nbsp;&nbsp;', $showTop ? 'Top' : '');
     }
 
     public static function getListOptions($showTop = true, $exceptid = false, $w = false)
     {
-        $list = [];
+        $list = $showOption = [];
         if($showTop){
-            $list = [0 => \Wskm::t('Category Top')];
+            $showOption = [0 => \Wskm::t('Category Top')];
         }
-
-        $list = $list + self::getCache(self::CACHE_OPTIONS);
+        if(\wskm\Cache::get(self::CACHE_OPTIONS)){
+            $list = $showOption + (array)\wskm\Cache::get(self::CACHE_OPTIONS);
+        }
+                
         if(!$w && $list){
             return $list;
         }
@@ -46,11 +58,7 @@ class Category
         $data = self::getCache(self::CACHE_CHILDS);
         $options = [];
         $childs = isset($data[0]) ? $data[0] : '';
-
-        if ($showTop) {
-            $options[0] = \Wskm::t('Category Top');
-        }
-
+        
         $getLayer = function($id, $space = false) {
             return $space ? str_repeat($space, abs(self::getInfo($id)['level'])) : '';
         };
@@ -63,11 +71,15 @@ class Category
             $info = self::getInfo($id);
 
             if ($id > 0 && ($layer <= 0 || $getLayer($id) <= $layer)) {
-                $options[$id] = $getLayer($id, '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;').$info['name'];
+                $options[$id] = $getLayer($id, '&nbsp;&nbsp;&nbsp;').$info['name'];
             }
         }
 
         \wskm\Cache::set(self::CACHE_OPTIONS, $options);
+
+        if ($showTop) {
+            $options = $showOption + $options;
+        }
 
         return $options;
     }
