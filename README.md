@@ -54,3 +54,9 @@ yii asset assets.php app_frontend/config/assets-prod.php
 https://github.com/wskm/deruv/issues
 
 https://gitee.com/wskm/deruv/issues
+
+注意
+-------------
+
+因为miniflux/picofeed的作者已经不再维护，暂时去掉了ATOM。
+
